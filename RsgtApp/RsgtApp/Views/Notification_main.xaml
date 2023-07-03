@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="MyPageMainNT"
+             x:Class="RsgtApp.Views.Notification_main"
+			 FlowDirection="{DynamicResource pagedirection}"
+			 BackgroundImageSource="{DynamicResource Mainbgr}" 
+			 NavigationPage.HasNavigationBar="False">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding MainEn}"  
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand"
+                         Spacing="0" 
+                         Padding="10,0,10,0">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0"
+                                 Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,0,0,10" 
+                                 Padding="0" 
+                                 Grid.Row="0" >
+                        <Image Source="{Binding ImgNotificationMenuicon}" 
+						       AutomationId="AImgNotificationMenuicon"
+                               HorizontalOptions="Center" 
+                               WidthRequest="25" 
+                               Margin="5,0,5,0"/>
+                        <Label Text="{Binding LblNotifications}" 
+                               Margin="5,0,5,0" 
+                               StyleClass="txt22, textsemibold" 
+                               HorizontalTextAlignment="Center" 
+                               TextColor="{DynamicResource Primary}" 
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <ScrollView Grid.Row="1">
+                        <StackLayout Orientation="Vertical" >
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding EmailNotificationTapped}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal" 
+                                                 VerticalOptions="CenterAndExpand"
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Image Source="{Binding ImgEmailNotification}" 
+										         AutomationId="AImgEmailNotification"
+                                               HorizontalOptions="Start" 
+                                               WidthRequest="30"
+                                               Margin="0,0,0,0"/>
+                                        <Label Text="{Binding LblEmail}" 
+                                               StyleClass="Submenufont" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               TextColor="{DynamicResource Submenucolor}" >
+                                        </Label>
+                                        <Image Source="{Binding ImgBellIcon}" 
+										       AutomationId="AImgBellIconMain"
+                                               HorizontalOptions="End"
+                                               WidthRequest="20" 
+                                               Margin="0,0,10,0"/>
+                                        <Image Source="{DynamicResource angleicon}"
+										         AutomationId="AImangleicon"
+                                               HorizontalOptions="End" 
+                                               WidthRequest="15" 
+                                               Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15"
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  
+										NumberOfTapsRequired="1" Command="{Binding MobileNotificationTapped}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal" 
+                                                 VerticalOptions="CenterAndExpand" 
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Image Source="{Binding ImgMobileNotification}" 
+										       AutomationId="AImgMobileNotification"
+                                               HorizontalOptions="Start" 
+                                               WidthRequest="30" 
+                                               Margin="0,0,0,0"/>
+                                        <Label Text="{Binding LblMobile}" 
+                                               StyleClass="Submenufont" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               TextColor="{DynamicResource Submenucolor}" >
+                                        </Label>
+                                        <Image Source="{Binding ImgBellGrey}"
+											   AutomationId="AImgBellGreyMain"
+                                               HorizontalOptions="End"
+                                               WidthRequest="20"
+                                               Margin="0,0,10,0"/>
+                                        <Image Source="{DynamicResource angleicon}"
+											   AutomationId="Aangleiconn"
+                                               HorizontalOptions="End" 
+                                               WidthRequest="15" 
+                                               Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                        IsRunning="{Binding IsBusy}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

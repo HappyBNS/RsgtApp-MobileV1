@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="MyPageBOLPaymentConfirm"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="RsgtApp.Views.BOL_payment_confirm"
+             FlowDirection="{DynamicResource pagedirection}"
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  x:Name="StackPaymentConfirm" 
+                          Orientation="Vertical" 
+                          VerticalOptions="StartAndExpand" 
+                          IsVisible="true" AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                          AbsoluteLayout.LayoutFlags="All">
+            <ScrollView VerticalOptions="FillAndExpand" 
+                        Orientation="Vertical">
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="FillAndExpand"
+                             Spacing="0" Padding="10,0,10,0"
+                             MinimumHeightRequest="700">
+                    <Label x:Name="lblPaymentConfirmation" 
+                           Text="" 
+                           Margin="0,0,0,10"
+                           StyleClass="txt22,textsemibold"
+                           HorizontalTextAlignment="Center" 
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+                    <Frame BackgroundColor="{DynamicResource Trackingframe}" 
+                           CornerRadius="20"
+                           Margin="0,10,0,10" 
+                           HasShadow="False" 
+                           VerticalOptions="StartAndExpand" 
+                           Padding="20,15,20,15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgWallet" 
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   HeightRequest="60"
+                                   Margin="0,0,0,0" 
+                                   Grid.Column="0"/>
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="EndAndExpand"
+                                         Margin="0,0,0,0" 
+                                         Grid.Column="1">
+                                <Label x:Name="lblMyWallet"
+                                       Text="" 
+                                       Margin="0,0,0,0" 
+                                       StyleClass="txt18,textmedium"
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="{DynamicResource walletheadcolor}"
+                                       HorizontalOptions="EndAndExpand"/>
+                                <Label Text="SAR 3,400"
+                                       Margin="0,0,0,0" 
+                                       StyleClass="txt24,textsemibold"
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="{DynamicResource walletamountcolor}" 
+                                       HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <Frame BackgroundColor="#dff0d8"
+                           CornerRadius="20"
+                           Margin="0,0,0,10" 
+                           HasShadow="False" 
+                           VerticalOptions="StartAndExpand" 
+                           Padding="20,15,20,15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgCompletedIcon"
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center" 
+                                   HeightRequest="30" 
+                                   Margin="0,0,0,0" 
+                                   Grid.Column="0"/>
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="EndAndExpand"
+                                         Margin="10,0,0,0" 
+                                         Grid.Column="1">
+                                <Label x:Name="lblMessage" 
+                                       Text=""
+                                       Margin="0,0,0,0"
+                                       StyleClass="txt16,textregular" 
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Start" 
+                                       TextColor="{DynamicResource confirmmessagetextcolor}"
+                                       HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <Label x:Name="lblPaymentDetails"
+                           Text="" 
+                           Margin="0,10,0,20" 
+                           StyleClass="txt20,textsemibold" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+                    <Frame CornerRadius="20" 
+                           Margin="0,0,0,10" 
+                           HasShadow="False" 
+                           VerticalOptions="EndAndExpand"
+                           Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource framesecondary}"
+                                              Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}"
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <StackLayout Orientation="Vertical" 
+                                     Margin="0,0,0,0">
+                            <Label x:Name="lblPaymentReference"
+                                   Text="" 
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textsemibold"
+                                   HorizontalTextAlignment="Start"
+                                   TextColor="{DynamicResource captioncolor}"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="34120162509" 
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textregular"
+                                   HorizontalTextAlignment="Start" 
+                                   TextColor="{DynamicResource infocolor}"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label x:Name="lblDate"
+                                   Text="" 
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textsemibold"
+                                   HorizontalTextAlignment="Start" 
+                                   TextColor="{DynamicResource captioncolor}"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="34120162509" 
+                                   Margin="0,0,0,0"
+                                   StyleClass="txt16,textregular" 
+                                   HorizontalTextAlignment="Start" 
+                                   TextColor="{DynamicResource infocolor}"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label x:Name="lblTotal"
+                                   Text=""
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textsemibold" 
+                                   HorizontalTextAlignment="Start"
+                                   TextColor="{DynamicResource captioncolor}"
+                                   HorizontalOptions="Start"/>
+                            <Label Text="7100.00"
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textregular" 
+                                   HorizontalTextAlignment="Start"
+                                   TextColor="{DynamicResource infocolor}" 
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label x:Name="lblPaymentMethod"
+                                   Text=""
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textsemibold"
+                                   HorizontalTextAlignment="Start"
+                                   TextColor="{DynamicResource captioncolor}" 
+                                   HorizontalOptions="Start"/>
+                            <Label Text="Credit Card (1101 xxxx xxxx xx01)"
+                                   Margin="0,0,0,0"
+                                   StyleClass="txt16,textregular" 
+                                   HorizontalTextAlignment="Start" 
+                                   TextColor="{DynamicResource infocolor}"
+                                   HorizontalOptions="StartAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="20"
+                           Margin="0,0,0,10" 
+                           HasShadow="False"
+                           VerticalOptions="EndAndExpand"
+                           Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" 
+                                                 EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource framesecondary}" 
+                                              Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackLayout Spacing="0" 
+                                         VerticalOptions="StartAndExpand"
+                                         Margin="0,0,0,0" 
+                                         Padding="0" 
+                                         Grid.Row="0" >
+                                <Frame BackgroundColor="{DynamicResource Frameheadbgrcolor}"
+                                       Padding="10" 
+                                       HasShadow="False" >
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label x:Name="lblInvoices"
+                                                   Text=""
+                                                   WidthRequest="160" 
+                                                   StyleClass="txt16,textmedium"
+                                                   TextColor="{DynamicResource Frameheadtextcolor}" 
+                                                   Margin="0"
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" 
+                                                   Grid.Column="0"/>
+                                            <Label x:Name="lblAmount" 
+                                                   Text=""
+                                                   StyleClass="txt16,textmedium" 
+                                                   TextColor="{DynamicResource Frameheadtextcolor}" 
+                                                   Margin="0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout Spacing="0" 
+                                         VerticalOptions="StartAndExpand" 
+                                         Margin="0,0,0,0" 
+                                         Padding="0" 
+                                         Grid.Row="1">
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+                                       Padding="10,5,10,5" 
+                                       HasShadow="False"
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label WidthRequest="160"
+                                                   TextDecorations="Underline"
+                                                   Text="Inv001 - (BL-999999851)"
+                                                   StyleClass="txt14,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}"
+                                                   Margin="0,0,0,0" VerticalOptions="StartAndExpand"
+                                                   HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Column="0">
+                                                <Label.GestureRecognizers>
+                                                    <!--<TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://www.fasah.sa/trade/home/en/index.html" />-->
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MyPageBOLPaymentConfirm}, Path=BindingContext.MyPdftap}" 
+                                                                          CommandParameter="http://eportalbeta.cielobot.com/rsgt_eportal5/Modified/pdf/Damage_Report_BL031A561560_ContainerTCKU7310626_3242.pdf" 
+                                                                          NumberOfTapsRequired="1"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label WidthRequest="100" 
+                                                   Text="1700.00" 
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1">
+                                            </Label>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}"
+                                       Padding="10,5,10,5"
+                                       HasShadow="False" 
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label WidthRequest="160"
+                                                   TextDecorations="Underline"
+                                                   Text="Inv002 - (BL-999999851)" 
+                                                   StyleClass="txt14,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0,0,0,0"
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" 
+                                                   Grid.Column="0">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MyPageBOLPaymentConfirm}, Path=BindingContext.MyPdftap}"
+                                                                          CommandParameter="http://eportalbeta.cielobot.com/rsgt_eportal5/Modified/pdf/Damage_Report_BL031A561560_ContainerTCKU7310626_3242.pdf" 
+                                                                          NumberOfTapsRequired="1"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label WidthRequest="100" 
+                                                   Text="2000.00" 
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0" 
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}"
+                                       Padding="10,5,10,5"
+                                       HasShadow="False" 
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label WidthRequest="160"
+                                                   TextDecorations="Underline" 
+                                                   Text="Inv003 - (BL-999999851)" 
+                                                   StyleClass="txt14,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0,0,0,0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" 
+                                                   Grid.Column="0">
+                                                <Label.GestureRecognizers>
+                                                    <!--<TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://www.fasah.sa/trade/home/en/index.html" />-->
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MyPageBOLPaymentConfirm}, Path=BindingContext.MyPdftap}"
+                                                                          CommandParameter="http://eportalbeta.cielobot.com/rsgt_eportal5/Modified/pdf/Damage_Report_BL031A561560_ContainerTCKU7310626_3242.pdf" 
+                                                                          NumberOfTapsRequired="1"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label WidthRequest="100" 
+                                                   Text="3400.00" 
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}"
+                                                   Margin="0" 
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+                                       Padding="10" 
+                                       HasShadow="False" 
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label WidthRequest="160"  
+                                                   Text="Total:"
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="5,0,0,0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="0"/>
+                                            <Label WidthRequest="100"
+                                                   Text="7100.00" 
+                                                   StyleClass="txt16,textbold" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0" VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <Button AutomationId="AButBookApn" 
+                            x:Name="btnBookAppoinment" 
+                            Text="" 
+                            TextTransform="None"
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            BorderColor="White" 
+                            CornerRadius="15" 
+                            Margin="0,10,0,20" 
+                            Clicked="Button_Appointment"></Button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Transparent" 
+                         Opacity="0.5">
+                <ActivityIndicator x:Name="BOLPaymentConfirmActivityIndicator" 
+                                   IsRunning="False" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

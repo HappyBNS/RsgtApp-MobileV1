@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.Dangerousgoodpopup" 
+			 FlowDirection="{DynamicResource pagedirection}" 
+			 BackgroundImageSource="{DynamicResource Primarybgr}"  
+			 NavigationPage.HasNavigationBar="True"
+			 NavigationPage.HasBackButton="True">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackDangerousgoodpopup}"
+            Orientation="Vertical" 
+            VerticalOptions="CenterAndExpand" 
+            Padding="20" 
+            IsVisible="true" 
+            AbsoluteLayout.LayoutBounds="0,0,1,1" 
+            AbsoluteLayout.LayoutFlags="All">
+            <ScrollView Padding="0" VerticalOptions="CenterAndExpand">
+                <Frame HasShadow="False" BackgroundColor="Transparent">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image Source="{Binding ImgDangerred}" 
+                               VerticalOptions="Start" 
+                               HorizontalOptions="CenterAndExpand" 
+                               WidthRequest="100" 
+                               Margin="0,0,0,20" />
+                        <Label Text="{Binding LblDangerousGoodDetails}" 
+                               StyleClass="Heading1" 
+                               TextColor="{DynamicResource popupheadcolor}" 
+                               HorizontalOptions="CenterAndExpand" 
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding LblMessage}" 
+                               Margin="0,20,0,30" 
+                               StyleClass="Messagesmall" 
+                               TextColor="{DynamicResource popupinfocolor}" 
+                               HorizontalTextAlignment="Center" 
+                               HorizontalOptions="CenterAndExpand"/>
+                        <Button Text="{Binding BtnOk}" 
+                                AutomationId="AbtnOk"
+                                StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                                CornerRadius="15" 
+                                TextColor="White" 
+                                Margin="0,0,0,0" 
+                                Command="{Binding Buttondismisspopup}" />
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+        </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                        IsRunning="{Binding IsBusy}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

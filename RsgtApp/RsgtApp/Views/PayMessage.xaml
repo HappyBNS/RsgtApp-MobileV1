@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.PayMessage" 
+			 FlowDirection="{DynamicResource pagedirection}" 
+			 BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+			 NavigationPage.HasBackButton="True">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" TextOverride="." />
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout
+            IsEnabled="{Binding StackPayMessage}"
+                             IsVisible="true" 
+		Orientation="Vertical" 
+		VerticalOptions="CenterAndExpand" 
+		Padding="20"   >
+            <ScrollView Padding="0" VerticalOptions="CenterAndExpand">
+                <Frame HasShadow="False" BackgroundColor="Transparent">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image 
+						AutomationId="AimgGenerateInvoices"
+						Source="{Binding ImgGenerateInvoices}"
+						VerticalOptions="Start"
+						HorizontalOptions="CenterAndExpand" 
+						WidthRequest="100" 
+						Margin="0,0,0,20"></Image>
+                        <Label 
+						Text="{Binding LblDearCustomers}" 
+                        StyleClass="Heading1"
+						TextColor="{DynamicResource popupheadcolor}" 
+						HorizontalOptions="CenterAndExpand"/>
+                        <Label 
+						Text="{Binding LblInvoicesMsg}" 
+                        Margin="0,20,0,30" 
+						StyleClass="Messagesmall" 
+						TextColor="{DynamicResource popupinfocolor}" 
+						HorizontalTextAlignment="Center" 
+						HorizontalOptions="CenterAndExpand"/>
+                        <Button 
+						AutomationId="AbtnOks"
+						Text="{Binding BtnOk}" 
+                        StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+						CornerRadius="15" 
+						TextColor="White"
+						Margin="0,0,0,0" 
+						Command="{Binding Buttondismisspopup}"></Button>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout IsVisible="{Binding IsBusy}"  
+                             AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                             AbsoluteLayout.LayoutFlags="All" 
+                             BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+            <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       Color="{DynamicResource Primary}" />
+        </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

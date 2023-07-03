@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Other_Request_main" FlowDirection="{DynamicResource pagedirection}" BackgroundImageSource="{DynamicResource Mainbgr}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.ToolbarItems>
+
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>
+        <ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <StackLayout IsEnabled="{Binding StackOtherRequestMain}" Orientation="Vertical" VerticalOptions="StartAndExpand" Spacing="0" Padding="10,0,10,0" IsVisible="true"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+            <Grid RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10" Padding="0" Grid.Row="0" >
+                        <Image Source="{Binding imgAddService}" HorizontalOptions="Center" WidthRequest="25" Margin="5,0,5,0"/>
+                        <Label Text="{Binding lblAddService}" Margin="5,0,5,0" StyleClass="txt22, textsemibold" HorizontalTextAlignment="Center" TextColor="{DynamicResource Primary}" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <ScrollView Grid.Row="1" Margin="0,0,0,20">
+
+                    <StackLayout Orientation="Vertical" >
+
+
+
+
+                        <StackLayout IsVisible="{Binding IsvisibleEIR}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding EIRrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding ImgEIRIcon}" IsVisible="{Binding IsvalidatedEIRIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0" />
+                                        <Label Text="{Binding lblEIRRequest}" IsVisible="{Binding IsvalidatedEIRRequest}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+                                        <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleExtraCare}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding ECrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgExtraCareMenuIcon}" IsVisible="{Binding IsvalidatedExtraCareMenuIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblExtraCareRequest}" IsVisible="{Binding IsvalidatedExtraCareRequest}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleManiFest}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding MUrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgManifestIcon}" IsVisible="{Binding IsvalidatedManifestIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblManifestUpdateRequest}" IsVisible="{Binding IsvalidatedManifestRequest}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleOffLoad}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding OFFLrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgOffloadIcon}" IsVisible="{Binding IsvalidatedOffloadIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblOffloadRequest}" IsVisible="{Binding IsvalidatedOffloadRequest}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleOOG}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding OOGrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgOOGIcon}" IsVisible="{Binding IsvalidatedOOGIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblOOGRequest}" IsVisible="{Binding IsvalidatedOOGRequest}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleDirectDelivery}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding DDLrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgDDLIcon}" IsVisible="{Binding IsvalidatedDDLIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblDDRequest}" IsVisible="{Binding IsvalidatedDDRequest}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleAttendInspection}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding AIrequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgVisitorIcon}" IsVisible="{Binding IsvalidatedVisitorIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblAttendInspection}" IsVisible="{Binding IsvalidatedAttendInspection}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding IsvisibleInLocation}" VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding ILErequest}"/>
+                                </Frame.GestureRecognizers>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgEquipmentIcon}" IsVisible="{Binding IsvisibleEquipmentIcon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblInlocation}" IsVisible="{Binding IsvisibleInlocation}" StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                    <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                            <StackLayout IsVisible="{Binding IsVisibleExtendedDetention}" VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="15" Margin="5" >
+                                    <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding ExtDetnrequest}"/>
+                                    </Frame.GestureRecognizers>
+
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" >
+                                        <Image Source="{Binding imgdetentionicon}" HorizontalOptions="Start" WidthRequest="30" Margin="0,0,0,0"/>
+                                        <Label Text="{Binding lblExtendDetention}"  StyleClass="Submenufont" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="{DynamicResource Submenucolor}" ></Label>
+
+                                        <Image Source="{DynamicResource angleicon}" HorizontalOptions="End" WidthRequest="15" Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+        <StackLayout 
+                         IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+            <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand" 
+                                    Color="{DynamicResource Primary}" />
+        </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

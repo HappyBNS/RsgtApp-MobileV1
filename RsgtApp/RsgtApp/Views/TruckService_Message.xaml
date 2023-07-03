@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.TruckService_Message" 
+             FlowDirection="{DynamicResource pagedirection}"
+             BackgroundImageSource="{DynamicResource Mainbgr}"
+             NavigationPage.HasNavigationBar="false">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" TextOverride="." />
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+            <AbsoluteLayout>
+                <StackLayout x:Name="TruckMsg"
+                             IsEnabled="{Binding TruckMsg}" 
+                             Padding="30,30,30,30" 
+                             Orientation="Vertical" 
+                             IsVisible="true"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All">
+                     <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image AutomationId="AImgCnfirmIcon" 
+                               Source="{Binding imgConfirmtickIcon}"
+                               VerticalOptions="Start"
+                               HorizontalOptions="CenterAndExpand" 
+                               WidthRequest="100"
+                               Margin="0,0,0,20"></Image>
+                        <Label   Text="{Binding lblDearCustomer}" 
+                                 StyleClass="Heading1"
+                                 TextColor="{DynamicResource Primary}"
+                                 HorizontalOptions="CenterAndExpand"/>
+                        <Label    Text="{Binding lblRequestReceived}"
+                                  Margin="0,20,0,30" 
+                                  StyleClass="Messagesmall"
+                                  TextColor="{DynamicResource Primary}"
+                                  HorizontalTextAlignment="Center" 
+                                  HorizontalOptions="CenterAndExpand"/>
+                    <Button AutomationId="AButOk" 
+                                Text="{Binding btnOK}" 
+                                StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                                CornerRadius="15" 
+                                Margin="0,0,0,0" 
+                                Command="{Binding GotoOK}" />
+                </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="aiLayout" 
+                             IsVisible="False" 
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="All" 
+                             BackgroundColor="{Binding IndicatorBGColor}" 
+                             Opacity="{Binding IndicatorBGOpacity}">
+                    <ActivityIndicator x:Name="TruckMsgActivityIndicator" 
+                                       IsRunning="False"
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand"
+                                       Color="{DynamicResource Primary}" />
+                </StackLayout>
+            </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

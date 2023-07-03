@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.About_RSGT"
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Mainbgr}" 
+    NavigationPage.HasNavigationBar="false" >
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled ="{Binding StackAboutRSGT}"   
+                         IsVisible="true" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Padding="0" Margin="0">
+                    <Frame CornerRadius="0" 
+                           Padding="0"
+                           Margin="0" 
+                           HasShadow="False">
+                        <Grid>
+                            <Image Source="aboutimage.jpg"
+                                   Aspect="AspectFill" 
+                                   Grid.Row="0"/>
+                            <StackLayout Orientation="Vertical" 
+                                         VerticalOptions="Center" 
+                                         Grid.Row="0">
+                                <Label Text="{Binding LblAboutRsgt}" 
+                                       StyleClass="txt24,textsemibold" 
+                                       TextColor="white" 
+                                       HorizontalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <Frame HasShadow="False" 
+                       Grid.Row="1"
+                       VerticalOptions="FillAndExpand"
+                       Margin="0"
+                       BackgroundColor="{DynamicResource contactpagebgrcolor}">
+                    <StackLayout Orientation="Vertical" 
+                                 VerticalOptions="FillAndExpand" >
+                        <Label Text="{Binding AboutRSGTtext}"
+                               IsVisible="{Binding IsVisibleAboutRSGTEn}"
+                               StyleClass="txt16,textregular"
+                               TextColor="{DynamicResource accprimarycolor}"
+                               HorizontalOptions="Start"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding AboutRSGTtextArb}"
+                               IsVisible="{Binding IsVisibleAboutRSGTArb}"
+                               StyleClass="txt16,textregular"
+                               TextColor="{DynamicResource accprimarycolor}" 
+                               HorizontalOptions="Start"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"  
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}" 
+                        IsVisible="{Binding IsBusy}"  
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

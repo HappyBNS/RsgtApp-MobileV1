@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                   xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="MyPageDisclaimer_page"
+             x:Class="RsgtApp.Views.Disclaimer_page"
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding DisclaimerEn}" 
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand" 
+                     Spacing="0" 
+                     Padding="10,0,10,0">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="0" 
+                       CornerRadius="20" 
+                       Margin="0,10,0,10"                         
+                       VerticalOptions="FillAndExpand">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" 
+                                             EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource framesecondary}" 
+                                          Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                          Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <StackLayout >
+                            <StackLayout Orientation="Vertical" 
+                                     HorizontalOptions="CenterAndExpand">
+                                <Image Source="{Binding ImgDisclaimerIcon}" 
+                                   HorizontalOptions="Center" 
+                                   WidthRequest="35" 
+                                   Margin="0,0,0,0"/>
+                                <Label Text="Disclaimer Form" 
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt22,textsemibold" 
+                                   HorizontalTextAlignment="Start" 
+                                   TextColor="{DynamicResource captioncolor}" 
+                                   HorizontalOptions="StartAndExpand"/>
+                            </StackLayout>
+                            <BoxView HeightRequest=".3"
+                                 Margin="0,0,0,0" 
+                                 Color="#c8c8d2"/>
+                            <ScrollView HeightRequest="200">
+                                <Frame BackgroundColor="Transparent"
+                                   xct:ShadowEffect.Radius="20"
+                                   HasShadow="False" 
+                                   CornerRadius="20" 
+                                   Padding="5" 
+                                   Margin="0,0,0,0">
+                                    <StackLayout Orientation="Vertical" 
+                                             Margin="0,10,0,0" 
+                                             VerticalOptions="StartAndExpand" 
+                                             Spacing="0">
+                                        <Label Text="{Binding LblLstContainer}"
+                                           Margin="0,0,0,0" 
+                                           StyleClass="txt16,textmedium" 
+                                           HorizontalTextAlignment="Start" 
+                                           TextColor="{DynamicResource captioncolor}" 
+                                           HorizontalOptions="Start"/>
+                                        <CollectionView BackgroundColor="Transparent"
+                                                    HorizontalScrollBarVisibility="Always" 
+                                                    SelectionMode="None" 
+                                                    ItemsSource="{Binding lstManuallspectionlocal}"
+                                                    VerticalOptions="FillAndExpand"  
+                                                    HorizontalOptions="FillAndExpand" >
+                                            <CollectionView.ItemsLayout>
+                                                <LinearItemsLayout Orientation="Vertical" />
+                                            </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <StackLayout  Orientation="Vertical"
+                                                                  Margin="0,0,0,20">
+                                                            <Label Text="{Binding lblListContainers}" 
+                                                               Margin="0,0,0,0" 
+                                                               StyleClass="txt16,textmedium" 
+                                                               HorizontalTextAlignment="Start" 
+                                                               TextColor="{DynamicResource captioncolor}" 
+                                                               HorizontalOptions="Start"/>
+                                                            <Label Margin="0,0,0,0" 
+                                                               StyleClass="txt16,textregular" 
+                                                               HorizontalTextAlignment="Start" 
+                                                               TextColor="{DynamicResource infocolor}"
+                                                               HorizontalOptions="Start">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="- "/>
+                                                                        <Span Text="{Binding ContainerNo}"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                    </StackLayout>
+                                </Frame>
+                            </ScrollView>
+                            <StackLayout Orientation="Vertical"
+                                         Margin="0,10,0,0">
+                                <Label TextType="Html"                                   
+                                   Text="{Binding LblRedSeaGatewayTerminalMg}"
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt16,textregular"
+                                   HorizontalTextAlignment="Start" 
+                                   TextColor="{DynamicResource infocolor}" 
+                                   HorizontalOptions="Start"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" 
+                                     Spacing="0" 
+                                     Margin="0,30,0,0">
+                                <CheckBox 
+                                      Margin="-5,0,0,0" IsChecked="{Binding CheckDisclaimer}"
+                                      Color="{DynamicResource accprimarycolor}" 
+                                      HorizontalOptions="Start"                                   
+                                      VerticalOptions="Start" />
+                                <Label  
+                                   Text="{Binding LblIHaveReadAgreedMg}" 
+                                   Margin="0,5,0,0" 
+                                   StyleClass="txt14, textregular" 
+                                   TextColor="{DynamicResource accprimarycolor}"  
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="Start" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Button 
+                        Text="{Binding BtnSubmit}" 
+                        IsVisible="{Binding ButtonSubmit}"
+                    TextTransform="None" 
+                    StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                    BorderColor="White" 
+                    CornerRadius="15" 
+                    Margin="0,0,0,10" 
+                      Grid.Row="1"
+                    Command="{Binding Button_Submit}"></Button>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}" 
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                                   IsRunning="{Binding IsBusy}" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

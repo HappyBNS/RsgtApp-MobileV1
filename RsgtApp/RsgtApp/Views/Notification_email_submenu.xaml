@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Notification_email_submenu" 
+			 FlowDirection="{DynamicResource pagedirection}"
+			 BackgroundImageSource="{DynamicResource Mainbgr}"
+			 NavigationPage.HasNavigationBar="False">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding EnsubmenuM}"
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand"
+                         Spacing="0"
+                         Padding="10,0,10,0" 
+                         IsVisible="true" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                                 Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,0,0,10" 
+                                 Padding="0" 
+                                 Grid.Row="0" >
+                        <Image Source="{Binding ImgEmailNotificationIcon}"
+							   AutomationId="AImgEmailNotificationIcon"
+                               HorizontalOptions="Center" 
+                               WidthRequest="25" 
+                               Margin="5,0,5,0"/>
+                        <Label Text="{Binding LblEmailNotifications}"
+                               Margin="5,0,5,0" 
+                               StyleClass="txt22, textsemibold" 
+                               HorizontalTextAlignment="Center" 
+                               TextColor="{DynamicResource Primary}" 
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <ScrollView Grid.Row="1">
+                        <StackLayout Orientation="Vertical" >
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" Command="{Binding ShipmentEmail}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="CenterAndExpand" 
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Label Text="{Binding LblShipments}" 
+                                               StyleClass="Submenufont" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               TextColor="{DynamicResource Submenucolor}" >
+                                        </Label>
+                                        <Image Source="{Binding ImgBellIcon}" 
+											   AutomationId="AImgBellIcon"
+                                               HorizontalOptions="End" 
+                                               WidthRequest="20" 
+                                               Margin="0,0,10,0"/>
+                                        <Image Source="{DynamicResource angleicon}"
+											   AutomationId="AIangleicon"
+                                               HorizontalOptions="End" 
+                                               WidthRequest="15" 
+                                               Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" 
+                                                               Command="{Binding GeneralEmail}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="CenterAndExpand"
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Label Text="{Binding LblGeneral}"
+                                               StyleClass="Submenufont" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               VerticalOptions="CenterAndExpand"
+                                               TextColor="{DynamicResource Submenucolor}" >
+                                        </Label>
+                                        <Image Source="{Binding ImgBellGrey}"
+											   AutomationId="AImgBellGreycon"
+                                               HorizontalOptions="End" 
+                                               WidthRequest="20" 
+                                               Margin="0,0,10,0"/>
+                                        <Image Source="{DynamicResource angleicon}"
+												AutomationId="AImgangleicon"
+                                               HorizontalOptions="End" 
+                                               WidthRequest="15"
+                                               Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                        IsRunning="{Binding IsBusy}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:Date1.Controls"
+             x:Class="RsgtApp.Views.TransactionHistory" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" 
+                     Priority="1" 
+                     Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <!--Main Screen-->
+            <StackLayout IsEnabled="{Binding StackTransactionHistory}"
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand" 
+                     IsVisible="{Binding IsVisibleMainScreen}"
+                     Spacing="0" 
+                     Padding="10,0,10,0"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                             Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="0">
+                        <Image Source="{Binding ImgTransHistoryDarkblue}" 
+                           HorizontalOptions="Center" 
+                           WidthRequest="25" 
+                           Margin="5,0,5,0"/>
+                        <Label Text="{Binding TotalRecordCount}" 
+                           Margin="5,0,5,0" 
+                           StyleClass="txt22, textsemibold" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+                        <!--<Label Text="Bayan: 104579" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Start" TextColor="white" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="Bill of Lading: 910218851" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Center" TextColor="white" FontSize="18" HorizontalOptions="Center"/>-->
+                    </StackLayout>
+                    <StackLayout VerticalOptions="StartAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <!-- <ColumnDefinition Width="Auto"></ColumnDefinition>-->
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ImageButton Source="{Binding ImgExcelIcon}" IsVisible="false"
+                                     HeightRequest="25"
+                                     Margin="0,10,0,0" 
+                                     WidthRequest="35" 
+                                     BackgroundColor="Transparent" 
+                                     Command="{Binding BtnExcelClicked}" 
+                                     Grid.Column="0" />
+                            <!-- <Frame BackgroundColor="{DynamicResource Searchframe}" CornerRadius="15" HeightRequest="55" Margin="0,10,0,0" Padding="10,0,10,0" Grid.Column="0">
+
+                            <ImageButton Source="excel_icon.png" HeightRequest="25" WidthRequest="25" BackgroundColor="Transparent" Clicked="Filter_Clicked"></ImageButton>
+                        </Frame>
+
+                        <Frame BackgroundColor="White" CornerRadius="15" HeightRequest="55" Margin="0,10,0,0" Padding="10,0,10,0" Grid.Column="1">
+
+                            <ImageButton Source="pdf_icon.png" HeightRequest="25" WidthRequest="25" BackgroundColor="Transparent" Clicked="Filter_Clicked"></ImageButton>
+                        </Frame>-->
+                            <Frame BackgroundColor="{DynamicResource Searchframe}" 
+                               HasShadow="False" 
+                               CornerRadius="15" 
+                               HeightRequest="55" 
+                               Margin="0,10,0,0" 
+                               Padding="15,0,15,0" 
+                               Grid.Column="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Entry Text="{Binding Searchbox}" 
+                                       StyleClass="Entrytextregular" 
+                                       TextColor="White"
+                                       BackgroundColor="{DynamicResource Searchframe}"
+                                       Grid.Column="0" />
+                                    <ImageButton Source="{Binding ImgSearch}" 
+                                             HeightRequest="20" 
+                                             WidthRequest="20" 
+                                             BackgroundColor="Transparent" Grid.Column="1" 
+                                                 Command="{Binding AnyWhereSearch}"/>
+                                </Grid>
+                            </Frame>
+                            <Frame BackgroundColor="{DynamicResource Searchframe}" 
+                               HasShadow="False" 
+                               CornerRadius="15" 
+                               HeightRequest="55" 
+                               Margin="0,10,0,0" 
+                               Padding="15,0,15,0" 
+                               Grid.Column="2">
+                                <ImageButton Source="{Binding ImgFilter}" 
+                                         HeightRequest="20" 
+                                         WidthRequest="20" 
+                                         BackgroundColor="Transparent" 
+                                         Command="{Binding FilterClicked}" />
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                    <CollectionView x:Name="GridTransactionHistory" HorizontalScrollBarVisibility="Always" 
+                          SelectionMode="None" 
+                          ItemsSource="{Binding lstTransactionHst}" 
+                          ItemsUpdatingScrollMode="KeepScrollOffset"
+                          VerticalOptions="FillAndExpand"  
+                          HorizontalOptions="FillAndExpand" 
+                          Grid.Row="2">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame HasShadow="False" 
+                                       CornerRadius="20"
+                                       Margin="5" >
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                                <GradientStop Color="{DynamicResource frameprimary}" Offset="0.9"/>
+                                                <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <StackLayout Orientation="Vertical" 
+                                                 VerticalOptions="StartAndExpand">
+                                            <StackLayout Orientation="Vertical" 
+                                                     Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackLayout Orientation="Vertical" Grid.Column="0">
+                                                        <Label Text="{Binding LblInvoiceNo}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding wt_invoiceno}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="1">
+                                                        <Label Text="{Binding LblBillofLading}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand"
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding wt_blnumber}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <!--<StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="0">
+                                                        <Label Text="{Binding LblCustomer}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                     
+                                                               VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding wt_rufirstname}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="1">
+                                                        <Label Text="{Binding LblAccountNo}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding AccountNo_Card}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>-->
+                                            <StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="0">
+                                                        <Label Text="{Binding LblAmount}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding fmt_trnamount}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="1">
+                                                        <Label Text="{Binding LblRefNo}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding wt_payref}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="0">
+                                                        <Label Text="{Binding LblTransDate}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding fmt_trndatetime}" 
+                                                           StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="1">
+                                                        <Label Text="{Binding LblTransType}" 
+                                                           StyleClass="BLcolor, BLtext" 
+                                                           VerticalOptions="StartAndExpand"
+                                                           HorizontalOptions="StartAndExpand" />
+                                                        <Frame BackgroundColor="{Binding TransactionColor}" 
+                                                           VerticalOptions="End" 
+                                                           HeightRequest="20" 
+                                                           CornerRadius="15" 
+                                                           Padding="15,2,15,2" 
+                                                           HorizontalOptions="StartAndExpand" 
+                                                           HasShadow="False">
+                                                            <Label Text="{Binding wt_trntype}" 
+                                                               StyleClass="Bayanstatustext" 
+                                                               TextColor="White" />
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+
+            <!--Filter Screen-->
+            <StackLayout IsEnabled="{Binding StackTransactionFilter}" 
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand" 
+                         Spacing="0" 
+                         Padding="10,0,10,0"
+                         IsVisible="{Binding IsVisibleFilterScreen}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Spacing="0" 
+                             Orientation="Horizontal" 
+                             Padding="10" 
+                             Grid.Row="0" >
+                        <Image Source="{Binding ImgFilterBlue}" 
+                           Margin="0,0,10,0" 
+                           WidthRequest="24" 
+                           HorizontalOptions="Start" />
+                        <Label Text="{Binding LblFilters}" 
+                               Margin="0,3,0,0" 
+                               StyleClass="txt20,textsemibold" 
+                               HorizontalTextAlignment="Start"  
+                               TextColor="{DynamicResource Primary}" 
+                               HorizontalOptions="Start" />
+                        <Button Text="{Binding BtnApply}" 
+                            HeightRequest="35" 
+                            StyleClass="buttxt14, buttextregular, Bayanbuttonfilter" 
+                            BorderWidth="1" 
+                            BorderColor="Transparent" 
+                            CornerRadius="15"
+                            WidthRequest="85"
+                            TextColor="White"
+                            HorizontalOptions="EndAndExpand" 
+                            Margin="0,0,10,0" 
+                            Command="{Binding ButtonClickedApply}" />
+
+                        <ImageButton x:Name="imgreset" Source="{Binding ImgReset}" 
+                                     HeightRequest="20" 
+                                     Aspect="AspectFill" 
+                                     Padding="8" 
+                                     WidthRequest="35" 
+                                     StyleClass="buttxt14,buttextregular, Bayanfilterimagebutton" 
+                                     CornerRadius="18" 
+                                     BorderWidth="1" 
+                                     BorderColor="Transparent" 
+                                     HorizontalOptions="End" 
+                                     Margin="0,0,10,0" 
+                                     Clicked="ImgReset"
+                                     Command="{Binding gotoReset}" />
+
+                        <Button x:Name="btnclose" Text="X" 
+                                WidthRequest="35" 
+                                HeightRequest="20" 
+                                StyleClass="buttxt14, buttextregular, Bayanbuttonfilter" 
+                                BorderWidth="1" 
+                                BorderColor="Transparent" 
+                                CornerRadius="18" 
+                                TextColor="White" 
+                                HorizontalOptions="End" 
+                                Clicked="BtnClose"
+                                Command="{Binding ButtonClickedCancel}" />
+
+                    </StackLayout>
+
+                    <StackLayout Spacing="0" 
+                             VerticalOptions="StartAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="1" >
+                        <ScrollView>
+                            <StackLayout Orientation="Vertical">
+
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}" 
+                                   HasShadow="False" 
+                                   CornerRadius="20" 
+                                   Margin="5" 
+                                   VerticalOptions="Start" >
+
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblPeriod}" 
+                                                   StyleClass="textregular, txt18, FilterFrameheading" />
+                                                <Image Source="{Binding ImgDownArrow}" 
+                                                       HorizontalOptions="End" 
+                                                       VerticalOptions="Center" 
+                                                       HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                            <Setter Property="Source" Value="{Binding ImgUpArrow}" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" Padding="0,10,0,0" >
+                                            <StackLayout BindableLayout.ItemsSource="{Binding lstFilterPeriodData}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal"
+                                                          VerticalOptions="Start"
+                                                          Margin="0,0,0,0">
+                                                            <CheckBox IsChecked="{Binding isChecked}" 
+                                                           Color="{DynamicResource optinfocolor}"
+                                                           HorizontalOptions="Start" 
+                                                           VerticalOptions="Center" />
+                                                            <Label Text="{Binding lblPeriodData}"
+                                                       Margin="0,0,0,0" StyleClass="txt14, textregular" 
+                                                       TextColor="{DynamicResource optinfocolor}"
+                                                       VerticalOptions="Center" HorizontalOptions="Start" />
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+
+                                </Frame>
+
+
+
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}" 
+                                   HasShadow="False" 
+                                   CornerRadius="20" 
+                                   Margin="5" 
+                                   VerticalOptions="Start">
+
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblTransactionType}" 
+                                                   StyleClass="textregular, txt18, FilterFrameheading" />
+                                                <Image Source="{Binding ImgDownArrow2}" 
+                                                   HorizontalOptions="End" 
+                                                   VerticalOptions="Center"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                                                   HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image" 
+                                                                 Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                            <Setter Property="Source" 
+                                                                Value="{Binding ImgUpArrow2}" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+                                                     Padding="0,10,0,0" >
+                                            <StackLayout BindableLayout.ItemsSource="{Binding lstFilterTransactionTypeData}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal" 
+                                                         VerticalOptions="Start" Margin="0,0,0,0">
+                                                            <CheckBox IsChecked="{Binding isChecked}"
+                                                          Color="{DynamicResource optinfocolor}" 
+                                                          HorizontalOptions="Start" VerticalOptions="Center" />
+                                                            <Label Text="{Binding lblTransactionType}"
+                                                                   Margin="0,0,0,0" StyleClass="txt14, textregular" 
+                                                                   TextColor="{DynamicResource optinfocolor}" 
+                                                                   VerticalOptions="Center" 
+                                                                   HorizontalOptions="Start" />
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <!--From Date-->
+                                <!--<Entry Text="{Binding TxtFromDate}" 
+                                   Placeholder="{Binding PlaceFromDate}" 
+                                   StyleClass="Entrytextregular"                                       
+                                   TextColor="{DynamicResource Primary}" 
+                                   Margin="10,10,10,10"></Entry>
+                                -->
+                                <!--To Date-->
+                                <!--
+                                <Entry Text="{Binding TxtToDate}" 
+                                   Placeholder="{Binding PlaceToDate}" 
+                                   StyleClass="Entrytextregular" 
+                                   TextColor="{DynamicResource Primary}" 
+                                   Margin="10,10,10,10"></Entry>-->
+
+                                <!--From Date-->
+                                <Label Text="{Binding LblFromDate}" 
+                                       Margin="10,10,10,0" 
+                                       StyleClass="txt14,textsemibold" 
+                                       HorizontalTextAlignment="Start"  
+                                       TextColor="{DynamicResource Primary}"
+                                       HorizontalOptions="Start" />
+                                <local:NullableDatePicker x:Name="dtFromdate" AutomationId="AButFormdate" 
+                                                          NullableDate="{Binding Fromdate}" 
+                                                          StyleClass="Datetextregular" 
+                                                          TextColor="{DynamicResource accprimarycolor}" 
+                                                          BackgroundColor="{DynamicResource Entrytextbg}"
+                                                          Margin="10,10,10,10">
+                                </local:NullableDatePicker>
+                                <!--To Date-->
+                                <Label  Text="{Binding LblToDate}" 
+                                        Margin="10,10,10,0" 
+                                        StyleClass="txt14,textsemibold" 
+                                        HorizontalTextAlignment="Start"  
+                                        TextColor="{DynamicResource Primary}"
+                                        HorizontalOptions="Start" />
+                                <local:NullableDatePicker x:Name="dtTodate" AutomationId="APckTodate"
+                                                          NullableDate="{Binding Todate}" 
+                                                          StyleClass="Datetextregular" 
+                                                          TextColor="{DynamicResource accprimarycolor}" 
+                                                          BackgroundColor="{DynamicResource Entrytextbg}"
+                                                          Margin="10,10,10,10">
+                                </local:NullableDatePicker>
+                                <!--From Amt-->
+                                <Entry Text="{Binding TxtFromAmount}" 
+                                   Placeholder="{Binding PlaceFromAmount}" 
+                                   StyleClass="Entrytextregular" 
+                                   TextColor="{DynamicResource accprimarycolor}" 
+                                       BackgroundColor="{DynamicResource Entrytextbg}"
+                                   Margin="10,10,10,10"></Entry>
+                                <!--To Amt-->
+                                <Entry Text="{Binding TxtToAmount}" 
+                                   Placeholder="{Binding PlaceToAmount}" 
+                                   StyleClass="Entrytextregular" 
+                                   TextColor="{DynamicResource accprimarycolor}"
+                                       BackgroundColor="{DynamicResource Entrytextbg}"
+                                   Margin="10,10,10,10"></Entry>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout 
+                         IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand" 
+                                    Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

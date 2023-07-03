@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Payment"
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False"             
+            >
+    <!--NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False"-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"                            
+                           IconOverride="blank_icon.png"
+                                                        
+                            />
+
+    </Shell.BackButtonBehavior>
+    
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Icon="close_icon_24.png"  Priority="0" Clicked="clickedBOL" Order="Primary"/>
+        <!--Icon="home_menuicon.png"-->
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+        <!-- <ToolbarItem Text="Settings" Priority="1" Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+   
+    <!--<ImageButton AutomationId="AlImgButReset" Source="notification_24.png"
+						HeightRequest="20" 
+						Aspect="AspectFill" 
+						Padding="8" 
+						WidthRequest="35" 
+						StyleClass="buttxt14,buttextregular, Bayanfilterimagebutton" 
+						CornerRadius="18"
+						BorderWidth="1" 
+						BorderColor="Transparent" 
+						HorizontalOptions="Start" 
+						Margin="0,0,10,0" 
+						Clicked="clickedBOL" ></ImageButton>-->
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <ScrollView>
+            
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+                    <StackLayout x:Name="aiLayout" IsEnabled="{Binding StackGatePhotoDetail}"
+                         IsVisible="true"
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand" 
+                         Spacing="0" 
+                         Padding="10,0,10,0"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                        <StackLayout Padding="0" 
+                         Margin="0">
+                <Frame CornerRadius="0" 
+                       Padding="0" 
+                       Margin="0">
+                    <Grid>
+                        <Image x:Name="imgPDF" 
+							AutomationId="AimgPDF"
+                               Source="PDF-icon"
+                               Aspect="AspectFill"
+                               Grid.Row="0"/>
+                        <StackLayout Orientation="Vertical"
+                                     VerticalOptions="Center" 
+                                     Grid.Row="0">
+                            <Label x:Name="lblPaymentPDF" 
+                                   Text="PaymentPDF" 
+                                   StyleClass="txt24,textsemibold" 
+                                   TextColor="white" 
+                                   HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Frame Grid.Row="1" 
+                   VerticalOptions="FillAndExpand" 
+                   Margin="0"
+                   BackgroundColor="{DynamicResource contactpagebgrcolor}">
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="FillAndExpand" >
+                    <WebView x:Name="PaymentPDFView"  
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="Start" 
+                             StyleClass="txt16,textregular"/>
+                </StackLayout>
+            </Frame>
+                    </StackLayout>
+                </Grid>
+        </ScrollView>
+            <StackLayout x:Name="PaymentIndecator" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     BackgroundColor="Gray"
+                     Opacity="0.5">
+                <ActivityIndicator x:Name="PaymentActivityIndicator" IsRunning="False"
+                               IsVisible="false"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand" 
+                               Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

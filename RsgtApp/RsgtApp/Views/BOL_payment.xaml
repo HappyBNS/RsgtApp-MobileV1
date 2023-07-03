@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Name="MyPageBOLPayment"
+             x:Class="RsgtApp.Views.BOL_payment"
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <StackLayout x:Name="StackBOLPayment" 
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand"
+                     IsVisible="true" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+            <ScrollView VerticalOptions="FillAndExpand" 
+                        Orientation="Vertical">
+                <StackLayout Orientation="Vertical"
+                             VerticalOptions="FillAndExpand" 
+                             Spacing="0" 
+                             Padding="10,0,10,0" 
+                             MinimumHeightRequest="700">
+                    <Label x:Name="lblPayment" 
+                           Text="" 
+                           Margin="0,0,0,0"
+                           StyleClass="txt24,textsemibold" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="{DynamicResource Primary}"
+                           HorizontalOptions="Center"/>
+                    <Label x:Name="lblBayan" 
+                           Text="" Margin="0,0,0,0" 
+                           StyleClass="txt18,textmedium"
+                           HorizontalTextAlignment="Start" 
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+                    <Frame BackgroundColor="{DynamicResource Trackingframe}"
+                           CornerRadius="20" 
+                           Margin="0,10,0,10" 
+                           HasShadow="False" 
+                           VerticalOptions="StartAndExpand" 
+                           Padding="20,15,20,15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="imgWallet"
+                                   Source="" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Center" 
+                                   HeightRequest="60" 
+                                   Margin="0,0,0,0" 
+                                   Grid.Column="0"/>
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="EndAndExpand"
+                                         Margin="0,0,0,0"
+                                         Grid.Column="1">
+                                <Label x:Name="lblMyWallet" 
+                                       Text="" 
+                                       Margin="0,0,0,0" 
+                                       StyleClass="txt18,textmedium"
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="{DynamicResource walletheadcolor}"
+                                       HorizontalOptions="EndAndExpand"/>
+                                <Label Text="SAR 10,500" 
+                                       Margin="0,0,0,0" 
+                                       StyleClass="txt24,textsemibold" 
+                                       HorizontalTextAlignment="End"
+                                       TextColor="{DynamicResource walletamountcolor}" 
+                                       HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <Frame  CornerRadius="20" 
+                            Margin="0,0,0,10" 
+                            HasShadow="False" 
+                            VerticalOptions="EndAndExpand" 
+                            Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush 
+                                StartPoint="1,10" 
+                                EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource framesecondary}" 
+                                              Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}"
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto">
+                                </RowDefinition>
+                                <RowDefinition Height="*">
+                                </RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackLayout Spacing="0" 
+                                         VerticalOptions="StartAndExpand" 
+                                         Margin="0,0,0,0" 
+                                         Padding="0" 
+                                         Grid.Row="0" >
+                                <Frame BackgroundColor="{DynamicResource Frameheadbgrcolor}" 
+                                       Padding="10" HasShadow="False" >
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label x:Name="lblInvoices" 
+                                                   Text="" 
+                                                   WidthRequest="160" 
+                                                   StyleClass="txt16,textmedium" 
+                                                   TextColor="{DynamicResource Frameheadtextcolor}" 
+                                                   Margin="0"
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" 
+                                                   Grid.Column="0"/>
+                                            <Label x:Name="lblAmount" 
+                                                   Text="" 
+                                                   StyleClass="txt16,textmedium" 
+                                                   TextColor="{DynamicResource Frameheadtextcolor}" 
+                                                   Margin="0" VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout Spacing="0" 
+                                         VerticalOptions="StartAndExpand"
+                                         Margin="0,0,0,0" 
+                                         Padding="0" 
+                                         Grid.Row="1" >
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+                                       Padding="10,5,10,5" 
+                                       HasShadow="False" 
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="15"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <ImageButton AutomationId="AImgButCancel1" 
+                                                         x:Name="imgCancelIcon1" 
+                                                         Source="" 
+                                                         Grid.Column="0" 
+                                                         WidthRequest="15" 
+                                                         BackgroundColor="Transparent"/>
+                                            <Label WidthRequest="160"
+                                                   TextDecorations="Underline"
+                                                   Text="Inv001 - (BL-999999851)"
+                                                   StyleClass="txt14,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}"
+                                                   Margin="5,0,0,0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Column="1">
+                                                <Label.GestureRecognizers>
+                                                    <!--<TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://www.fasah.sa/trade/home/en/index.html" />-->
+                                                    <TapGestureRecognizer 
+                                                        Command="{Binding Source={x:Reference MyPageBOLPayment}, Path=BindingContext.MyPdftap}" CommandParameter="http://eportalbeta.cielobot.com/rsgt_eportal5/Modified/pdf/Damage_Report_BL031A561560_ContainerTCKU7310626_3242.pdf" NumberOfTapsRequired="1"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label WidthRequest="100" 
+                                                   Text="1700.00" 
+                                                   StyleClass="txt16,textregular"
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Grid.Column="2"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+                                       Padding="10,5,10,5"
+                                       HasShadow="False" 
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="15"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <ImageButton AutomationId="AImgButCancel2"
+                                                         x:Name="imgCancelIcon2" 
+                                                         Source="" Grid.Column="0"
+                                                         WidthRequest="15" 
+                                                         BackgroundColor="Transparent"/>
+                                            <Label WidthRequest="160" 
+                                                   TextDecorations="Underline" 
+                                                   Text="Inv001 - (BL-999999851)" 
+                                                   StyleClass="txt14,textregular"
+                                                   TextColor="{DynamicResource Framebodytextcolor}"
+                                                   Margin="5,0,0,0" 
+                                                   VerticalOptions="StartAndExpand"
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" 
+                                                   Grid.Column="1">
+                                                <Label.GestureRecognizers>
+                                                    <!--<TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://www.fasah.sa/trade/home/en/index.html" />-->
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MyPageBOLPayment}, Path=BindingContext.MyPdftap}" CommandParameter="http://eportalbeta.cielobot.com/rsgt_eportal5/Modified/pdf/Damage_Report_BL031A561560_ContainerTCKU7310626_3242.pdf" NumberOfTapsRequired="1"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label WidthRequest="100" 
+                                                   Text="2000.00" 
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0" VerticalOptions="StartAndExpand"
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="2"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}"
+                                       Padding="10,5,10,5" 
+                                       HasShadow="False"
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="15"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <ImageButton AutomationId="AImgButCancel3" 
+                                                         x:Name="imgCancelIcon3" 
+                                                         Source="" Grid.Column="0" 
+                                                         WidthRequest="15" 
+                                                         BackgroundColor="Transparent"/>
+                                            <Label WidthRequest="160"
+                                                   TextDecorations="Underline"
+                                                   Text="Inv001 - (BL-999999851)"
+                                                   StyleClass="txt14,textregular"
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="5,0,0,0"
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Grid.Column="1">
+                                                <Label.GestureRecognizers>
+                                                    <!--<TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://www.fasah.sa/trade/home/en/index.html" />-->
+                                                    <TapGestureRecognizer Command="{Binding Source={x:Reference MyPageBOLPayment}, Path=BindingContext.MyPdftap}" CommandParameter="http://eportalbeta.cielobot.com/rsgt_eportal5/Modified/pdf/Damage_Report_BL031A561560_ContainerTCKU7310626_3242.pdf" NumberOfTapsRequired="1"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                            <Label WidthRequest="100" 
+                                                   Text="3400.00" 
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}"
+                                                   Margin="0" VerticalOptions="StartAndExpand"
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="2"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}"
+                                       Padding="10"
+                                       HasShadow="False" 
+                                       BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label WidthRequest="160"  
+                                                   Text="Total:" 
+                                                   StyleClass="txt16,textregular" 
+                                                   TextColor="{DynamicResource Framebodytextcolor}"
+                                                   Margin="5,0,0,0" 
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand"
+                                                   Grid.Column="0"/>
+                                            <Label WidthRequest="100" 
+                                                   Text="7100.00" 
+                                                   StyleClass="txt16,textbold"
+                                                   TextColor="{DynamicResource Framebodytextcolor}" 
+                                                   Margin="0"
+                                                   VerticalOptions="StartAndExpand" 
+                                                   HorizontalTextAlignment="End" 
+                                                   HorizontalOptions="EndAndExpand" 
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <Label x:Name="lblPaymentMethod" 
+                           Text="" 
+                           Margin="0,10,0,10" 
+                           StyleClass="txt20,textsemibold" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Vertical" 
+                                 VerticalOptions="StartAndExpand"
+                                 Margin="0,10,0,10">
+                        <Frame CornerRadius="20"  
+                               HasShadow="False"
+                               Padding="20,15,20,15" 
+                               VerticalOptions="FillAndExpand">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                    <GradientStop Color="{DynamicResource framesecondary}" 
+                                                  Offset="0.9"/>
+                                    <GradientStop Color="{DynamicResource frameprimary}" 
+                                                  Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout Orientation="Vertical" 
+                                         VerticalOptions="StartAndExpand" 
+                                         Margin="0,0,0,0">
+                                <RadioButton
+                                             GroupName="payopt"
+                                             Content="Advance Payment" 
+                                             StyleClass="radiotxt16,radiotextregular" 
+                                             TextColor="{DynamicResource radiotextcolor}" 
+                                             CheckedChanged="RadioButton_CheckedChanged" 
+                                             IsChecked="False"></RadioButton>
+                                <StackLayout x:Name="Apayment" 
+                                             IsVisible="false" 
+                                             Orientation="Vertical"
+                                             VerticalOptions="StartAndExpand"
+                                             Padding="10,5,10,5">
+                                    <Label TextColor="{DynamicResource Framebodytextcolor}" 
+                                           Text="If you choose this option the remaining balance in your wallet will be SAR 3400."
+                                           StyleClass="txt14,textregular"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button AutomationId="AButOTPSend"
+                                                Text="Send OTP" 
+                                                TextTransform="None"
+                                                HeightRequest="34"
+                                                Padding="0" 
+                                                StyleClass="buttxt14,primarybuttoncolor,buttextregular"
+                                                BorderColor="White" 
+                                                CornerRadius="10" 
+                                                Margin="0,5,0,0" ></Button>
+                                        <Label TextColor="{DynamicResource Framebodytextcolor}" 
+                                               Text=" Resend after 45 secs"
+                                               VerticalTextAlignment="Center" 
+                                               StyleClass="txt12,textregular"/>
+                                    </StackLayout>
+                                    <Entry AutomationId="AEntEnterOtp1" 
+                                           x:Name="txtEnterOtp" 
+                                           Text=""
+                                           Placeholder="" 
+                                           StyleClass="Entrytextregular"
+                                           TextColor="{DynamicResource accprimarycolor}" 
+                                           Margin="0,0,0,0"></Entry>
+                                </StackLayout>
+                                <RadioButton  
+                                             GroupName="payopt"
+                                             Content="FASAH Payment"
+                                             StyleClass="radiotxt16,radiotextregular" 
+                                             TextColor="{DynamicResource radiotextcolor}"
+                                             CheckedChanged="RadioButton_FPChanged"
+                                             IsChecked="False"></RadioButton>
+                                <StackLayout x:Name="Fpayment" 
+                                             IsVisible="False" 
+                                             Orientation="Vertical" 
+                                             VerticalOptions="StartAndExpand" 
+                                             Padding="10,5,10,5">
+                                    <Label TextColor="{DynamicResource Framebodytextcolor}"
+                                           Text="Some note here..." 
+                                           StyleClass="txt14,textregular"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button  AutomationId="AButTxtOTP" 
+                                                 Text="Send OTP"
+                                                 TextTransform="None"
+                                                 HeightRequest="34" 
+                                                 Padding="0"
+                                                 StyleClass="buttxt14,primarybuttoncolor,buttextregular" 
+                                                 BorderColor="White" 
+                                                 CornerRadius="10" 
+                                                 Margin="0,5,0,0" ></Button>
+                                        <Label TextColor="{DynamicResource Framebodytextcolor}"
+                                               Text=" Resend after 45 secs" 
+                                               VerticalTextAlignment="Center" 
+                                               StyleClass="txt12,textregular"/>
+                                    </StackLayout>
+                                    <Entry AutomationId="AENTEnterOtp2" 
+                                           x:Name="txtEnterOpt2"
+                                           Text=""
+                                           Placeholder="" 
+                                           StyleClass="Entrytextregular" 
+                                           TextColor="{DynamicResource accprimarycolor}"
+                                           Margin="0,0,0,0"></Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <RadioButton 
+                                                 GroupName="payopt" 
+                                                 Content="Credit Card" 
+                                                 StyleClass="radiotxt16,radiotextregular"
+                                                 HorizontalOptions="Start" 
+                                                 TextColor="{DynamicResource radiotextcolor}"
+                                                 CheckedChanged="RadioButton_CCChanged"
+                                                 IsChecked="False"></RadioButton>
+                                    <Image x:Name="imgCreditCard" 
+                                           Source=""
+                                           HorizontalOptions="StartAndExpand" 
+                                           HeightRequest="25" 
+                                           VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <RadioButton 
+                                                 GroupName="payopt"
+                                                 Content="Debit Card" 
+                                                 StyleClass="radiotxt16,radiotextregular"
+                                                 HorizontalOptions="Start" 
+                                                 TextColor="{DynamicResource radiotextcolor}"
+                                                 CheckedChanged="RadioButton_CCChanged" 
+                                                 IsChecked="False"></RadioButton>
+                                    <Image x:Name="imgMadaIcon" 
+                                           Source="" 
+                                           HorizontalOptions="StartAndExpand" 
+                                           HeightRequest="25" 
+                                           VerticalOptions="CenterAndExpand" 
+                                           Margin="5,0,0,0"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <Button AutomationId="ARadButPayNow" 
+                            x:Name="btnPayNow" 
+                            Text="" 
+                            TextTransform="None"
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            BorderColor="White"
+                            CornerRadius="15" 
+                            Margin="0,10,0,20"
+                            Clicked="payment_confirm"></Button>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Transparent" 
+                         Opacity="0.5">
+                <ActivityIndicator x:Name="BOLPaymentActivityIndicator" 
+                                   IsRunning="False" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

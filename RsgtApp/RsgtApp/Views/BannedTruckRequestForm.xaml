@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Name="BannedForm"
+             x:Class="RsgtApp.Views.BannedTruckRequestForm">
+    <ContentPage.ToolbarItems FlowDirection="{DynamicResource pagedirection}" 
+                              BackgroundImageSource="{DynamicResource Primarybgr}" 
+                              NavigationPage.HasNavigationBar="True" 
+                              NavigationPage.HasBackButton="True">
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  IsEnabled="{Binding BannedTruckRequestForm}"
+                          Orientation="Vertical" 
+                          VerticalOptions="StartAndExpand"
+                          Spacing="0" Padding="10,0,10,0" 
+                          IsVisible="true" 
+                          AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout>
+                        <StackLayout Orientation="Vertical" 
+                                     HorizontalOptions="CenterAndExpand">
+                            <Image  Source="" 
+                                    HorizontalOptions="Center" 
+                                    WidthRequest="35" 
+                                    Margin="0,0,0,0"/>
+                            <Label Text="{Binding LblBannedTruckRelease}" 
+                                   Margin="0,0,0,0" 
+                                   StyleClass="txt18,textsemibold"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{DynamicResource captioncolor}" 
+                                   HorizontalOptions="StartAndExpand"/>
+                        </StackLayout>
+                        <BoxView HeightRequest=".3" 
+                                 Margin="0,10,0,0" 
+                                 Color="#c8c8d2"/>
+                        <StackLayout Padding="30,0,30,0" 
+                                     Orientation="Vertical"
+                                     VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" 
+                                         Margin="0,10,0,0" 
+                                         VerticalOptions="StartAndExpand"
+                                         Spacing="0">
+                                <StackLayout Orientation="Vertical"
+                                             Margin="0,0,0,0">
+                                    <Label Text="{Binding LblTruckNo}" 
+                                           StyleClass="txt16,textsemibold"
+                                           TextColor="{DynamicResource accprimarycolor}"
+                                           Margin="0,20,0,0" 
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="{Binding LblTruckNumber}"
+                                           StyleClass="textregular"
+                                           TextColor="{DynamicResource Primary}" 
+                                           FontSize="18" 
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding LblBanDate}"  
+                                           StyleClass="txt16,textsemibold" 
+                                           TextColor="{DynamicResource accprimarycolor}"
+                                           Margin="0,20,0,0" 
+                                           HorizontalOptions="Start"/>
+                                    <Label  Text="{Binding LblBannedDate}" 
+                                            StyleClass="textregular"
+                                            TextColor="{DynamicResource Primary}" 
+                                            FontSize="18" 
+                                            HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding LblTypeofBan}" 
+                                           StyleClass="txt16,textsemibold"
+                                           TextColor="{DynamicResource accprimarycolor}" 
+                                           Margin="0,20,0,0" 
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="{Binding LblTypeofBanned}" 
+                                           StyleClass="textregular"
+                                           TextColor="{DynamicResource Primary}"
+                                           FontSize="18" 
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding LblReason}"  
+                                           StyleClass="txt16,textsemibold" 
+                                           TextColor="{DynamicResource accprimarycolor}" 
+                                           Margin="0,20,0,0" 
+                                           HorizontalOptions="Start"/>
+                                    <Label Text="{Binding LblReasons}"
+                                           StyleClass="textregular" 
+                                           TextColor="{DynamicResource Primary}" 
+                                           FontSize="18" 
+                                           HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding LblRequestNote}" 
+                                           StyleClass="txt16,textsemibold"
+                                           TextColor="{DynamicResource accprimarycolor}"
+                                           Margin="0,20,0,0" 
+                                           HorizontalOptions="Start"/>
+                                    <Editor Text="{Binding TxtRequestNotes}"
+                                            Placeholder="{Binding TxtRequestNotes}" 
+                                            StyleClass="Editortextregular" 
+                                            TextColor="{DynamicResource accprimarycolor}"
+                                            Margin="0,0,0,0"
+                                            HeightRequest="100" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <Button AutomationId="AlButSubmit" 
+                            Text="{Binding BtnSubmit}"
+                            TextTransform="None" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular"
+                            BorderColor="White"
+                            CornerRadius="15"
+                            Margin="20,0,20,10" 
+                            Grid.Row="1" 
+                            Command="{Binding gotoSubmit}"></Button>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Transparent"
+                         Opacity="0.5">
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

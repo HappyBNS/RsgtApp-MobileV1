@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApiKey" xml:space="preserve">
+    <value>hl4bA4nB4yI0fC8fH7eT6</value>
+    <comment>To handle ApiKey In Web API</comment>
+  </data>
+  <data name="AppMode" xml:space="preserve">
+    <value>PROD</value>
+    <comment>To handle DVMT - for development and PROD for BUILD 0n</comment>
+  </data>
+  <data name="AuthorizationKey" xml:space="preserve">
+    <value>5fc756ed33eebe7e6001b8b5709b257f91de4e989501a90ab805ad72</value>
+    <comment>To handle AuthorizationKey In Web API</comment>
+  </data>
+  <data name="ColletionViewPageSize" xml:space="preserve">
+    <value>1000000</value>
+    <comment>To handle PageSize Using LoadMore</comment>
+  </data>
+  <data name="ContentUrlDVMT" xml:space="preserve">
+    <value>j/66uzxczarn6d78NHwo31AaZVKmMmJ2jEo55E7+MFfz8JiUkHRhe7MkvozL+3yj</value>
+    <comment>To handle ContentUrlDVMT Web API URl</comment>
+  </data>
+  <data name="ContentUrlPROD" xml:space="preserve">
+    <value>j/66uzxczapqcDM0/AcHitxKSsBYtBBHdvCT+uvDqJXUdS+VA7WSiV1tK/a3PNw+U20XlSP6qO0=</value>
+    <comment>To handle ContentUrlPROD Web API URl</comment>
+  </data>
+  <data name="IndicatorViewBGColor" xml:space="preserve">
+    <value>Gray</value>
+    <comment>To handle Indicator Background color</comment>
+  </data>
+  <data name="IndicatorViewOpacity" xml:space="preserve">
+    <value>0.5</value>
+    <comment>To handle Indicator Background Opacity</comment>
+  </data>
+  <data name="Milestone" xml:space="preserve">
+    <value>M4</value>
+    <comment>To handle Milestone as per Notes M1 - Anonymous user pages; M2 - Up to Advance Tracking; M3 - Up to Dashboards; M4 - Up to Phase-II pages</comment>
+  </data>
+  <data name="MobCMSUrl" xml:space="preserve">
+    <value>j/66uzxczar7/rB2mbLi/HNWKw2XkLlvalDkikeTj3A=</value>
+    <comment>To handle MobCMSUrl</comment>
+  </data>
+  <data name="MobPaymentDVMT" xml:space="preserve">
+    <value>j/66uzxczaqu6ZOdKMGpu9/usyx2eUn33H3IlXzgUYfWwImDOSx2BBU3XzG/f6xfXtbUWMscOZ6CaJfKWetdvMLVPe31WOCh</value>
+    <comment>To handle MobPayment DVMT</comment>
+  </data>
+  <data name="MobPaymentPROD" xml:space="preserve">
+    <value>j/66uzxczaqq9m0hgtjnGsWV+KPCpxNS0Q8Q67v9agQ48nVjEcJ5aa+5+M6CAmZ9565NUOpdkhwJZK+K7Z6FCg==</value>
+    <comment>To handle MobPayment PROD</comment>
+  </data>
+  <data name="MobWebUrlDVMT" xml:space="preserve">
+    <value>j/66uzxczaqu6ZOdKMGpu9/usyx2eUn33H3IlXzgUYcT9HTUHJOW5A==</value>
+    <comment>To handle MobWebUrl DVMT</comment>
+  </data>
+  <data name="MobWebUrlPROD" xml:space="preserve">
+    <value>j/66uzxczaqq9m0hgtjnGsWV+KPCpxNSBvFWUsapnYM=</value>
+    <comment>To handle MobWebUrl PROD</comment>
+  </data>
+  <data name="OTP_Key" xml:space="preserve">
+    <value>STATIC</value>
+    <comment>To handle OTP (STATIC-777 || DYNAMIC-RandomNO)</comment>
+  </data>
+  <data name="VersionNo" xml:space="preserve">
+    <value>v1.17</value>
+    <comment>To handle Version Number in RSGT</comment>
+  </data>
+  <data name="WalletFlag" xml:space="preserve">
+    <value>Y</value>
+    <comment>To handle Wallet Screen (Y/N) Flag</comment>
+  </data>
+  <data name="WalletPaymentUrlDVMT" xml:space="preserve">
+    <value>j/66uzxczaqu6ZOdKMGpu9/usyx2eUn33H3IlXzgUYdI3cOz7v4FGqQ/Ip07MnnuY4wYrnCPftuBXqaQhl27dw==</value>
+    <comment>To handle Mob AddMoney WalletPayment Url DVMT</comment>
+  </data>
+  <data name="WalletPaymentUrlPROD" xml:space="preserve">
+    <value>j/66uzxczaqq9m0hgtjnGsWV+KPCpxNSADD7SCVViuM3ZdOaw7nD/Djm3ZqmB/YiBvFWUsapnYM=</value>
+    <comment>To handle Mob AddMoney WalletPayment Url PROD</comment>
+  </data>
+  <data name="WebApiTimeOut" xml:space="preserve">
+    <value>45</value>
+    <comment>To handle Web Api TimeOut</comment>
+  </data>
+</root>

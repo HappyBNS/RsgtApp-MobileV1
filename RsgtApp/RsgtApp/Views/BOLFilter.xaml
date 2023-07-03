@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.BOLFilter" 
+             FlowDirection="{DynamicResource pagedirection}"
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackBOL}"
+			Orientation="Vertical" 
+			VerticalOptions="StartAndExpand"
+			Spacing="0" 
+			Padding="10,0,10,0" 
+			IsVisible="true" 
+			AbsoluteLayout.LayoutBounds="0,0,1,1" 
+			AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+					Orientation="Horizontal" 
+					Padding="10" 
+					Grid.Row="0" >
+                        <Image Source="{Binding ImgFilterBlue}"
+						Margin="0,0,10,0"
+						WidthRequest="24"
+						HorizontalOptions="Start" ></Image>
+                        <Label Text="{Binding LblFilters}"
+						Margin="0,3,0,0"
+						Padding="5"
+						StyleClass="txt20,textsemibold" 
+						HorizontalTextAlignment="Start" 
+						TextColor="{DynamicResource Primary}"
+						HorizontalOptions="Start" />
+                        <Button AutomationId="AButApply" Text="{Binding BtnApply}"
+						WidthRequest="85"
+						HeightRequest="35"
+						StyleClass="buttxt14, buttextregular, Bayanbuttonfilter"
+						BorderWidth="1" 
+						BorderColor="Transparent" 
+						CornerRadius="15" 
+						TextColor="White" 
+						HorizontalOptions="EndAndExpand"
+						Margin="0,0,10,0"
+						Command="{Binding Button_ClickedApply}"></Button>
+                        <ImageButton AutomationId="AlImgButReset" Source="{Binding ImgRest}"
+						HeightRequest="20" 
+						Aspect="AspectFill" 
+						Padding="8" 
+						WidthRequest="35" 
+						StyleClass="buttxt14,buttextregular, Bayanfilterimagebutton" 
+						CornerRadius="18"
+						BorderWidth="1" 
+						BorderColor="Transparent" 
+						HorizontalOptions="End" 
+						Margin="0,0,10,0" 
+						Command="{Binding gotoReset}" ></ImageButton>
+                        <Button AutomationId="AButFliter" Text="X" 
+						WidthRequest="35" 
+						HeightRequest="20"
+						Margin="0,0,10,0" 
+						StyleClass="buttxt14, buttextregular, Bayanbuttonfilter"
+						Padding="8"
+						BorderWidth="1" 
+						BorderColor="Transparent"
+						CornerRadius="18" 
+						TextColor="White" 
+						HorizontalOptions="End"
+						Command="{Binding Button_ClickedCancel}"></Button>
+                    </StackLayout>
+                    <StackLayout Spacing="0" 
+					VerticalOptions="StartAndExpand" 
+					Margin="0,0,0,10" 
+					Padding="0" 
+					Grid.Row="1" >
+                        <ScrollView>
+                            <StackLayout Orientation="Vertical">
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}"
+								HasShadow="False" 
+								CornerRadius="20"
+								Margin="5" 
+								VerticalOptions="Start" >
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblConsignee}" 
+												StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image Source="{Binding ImgDownArrow1}" 
+												HorizontalOptions="End"
+												VerticalOptions="Center" 
+												HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image" 
+														Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" 
+														Value="True">
+                                                            <Setter Property="Source" 
+															Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+										VerticalOptions="FillAndExpand" 
+										HorizontalOptions="FillAndExpand"
+										Padding="0,10,0,0" >
+                                            <StackLayout  BindableLayout.ItemsSource="{Binding lstBLFilterConsigneeData}" >
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="Start" 
+														Margin="0,0,0,0">
+                                                            <CheckBox AutomationId="AChkBoxisChecked1"
+                                                                      IsChecked="{Binding isChecked}"
+															Color="{DynamicResource optinfocolor}" 
+															HorizontalOptions="Start"
+															VerticalOptions="Center" />
+                                                            <Label  Text="{Binding CmbBLConsigneeData}"
+															Margin="0,0,0,0" 
+															StyleClass="txt14, textregular" 
+															TextColor="{DynamicResource optinfocolor}"
+															VerticalOptions="Center" 
+															HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}"
+								HasShadow="False" 
+								CornerRadius="20"
+								Margin="5" 
+								VerticalOptions="Start">
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblVessel}" 
+												StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image Source="{Binding ImgDownArrow2}" 
+												HorizontalOptions="End"
+												VerticalOptions="Center"
+												HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+														Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+														Value="True">
+                                                            <Setter Property="Source"
+															Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+										VerticalOptions="FillAndExpand"
+										HorizontalOptions="FillAndExpand"
+										Padding="0,10,0,0" >
+                                            <StackLayout    BindableLayout.ItemsSource="{Binding lstBLFilterVesselData}" >
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal"
+														VerticalOptions="Start"
+														Margin="0,0,0,0">
+                                                            <CheckBox AutomationId="AChkBoxisChecked2" 
+                                                                      IsChecked="{Binding isChecked}"
+															Color="{DynamicResource optinfocolor}" 
+															HorizontalOptions="Start"
+															VerticalOptions="Center" />
+                                                            <Label  Text="{Binding CmbBLVesselData}" 
+															Margin="0,0,0,0" 
+															StyleClass="txt14, textregular" 
+															TextColor="{DynamicResource optinfocolor}"
+															VerticalOptions="Center" 
+															HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}"
+								HasShadow="False" 
+								CornerRadius="20"
+								Margin="5" 
+								VerticalOptions="Start">
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblCarrier}" 
+												StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image Source="{Binding ImgDownArrow3}"
+												HorizontalOptions="End"
+												VerticalOptions="Center"
+												HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+														Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+														Value="True">
+                                                            <Setter Property="Source"
+															Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical"
+										VerticalOptions="FillAndExpand"
+										HorizontalOptions="FillAndExpand" 
+										Padding="0,10,0,0" >
+                                            <StackLayout   BindableLayout.ItemsSource="{Binding lstBLFilterCarrierData}" >
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="Start" 
+														Margin="0,0,0,0">
+                                                            <CheckBox AutomationId="AChkBoxisChecked3" 
+                                                                      IsChecked="{Binding isChecked}"
+															Color="{DynamicResource optinfocolor}" 
+															HorizontalOptions="Start" 
+															VerticalOptions="Center" />
+                                                            <Label  Text="{Binding CmbBLCarrierData}"
+															Margin="0,0,0,0"
+															StyleClass="txt14, textregular"
+															TextColor="{DynamicResource optinfocolor}" 
+															VerticalOptions="Center" 
+															HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}" 
+								HasShadow="False"
+								CornerRadius="20"
+								Margin="5" 
+								VerticalOptions="Start">
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblStatus}"
+												StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image Source="{Binding ImgDownArrow4}" 
+												HorizontalOptions="End" 
+												VerticalOptions="Center"
+												HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+														Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+														Value="True">
+                                                            <Setter Property="Source"
+															Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+										VerticalOptions="FillAndExpand"
+										HorizontalOptions="FillAndExpand"
+										Padding="0,10,0,0" >
+                                            <StackLayout    BindableLayout.ItemsSource="{Binding lstBLFilterStatusData}" >
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="Start" 
+														Margin="0,0,0,0">
+                                                            <CheckBox AutomationId="AChkBoxisChecked4"
+                                                                      IsChecked="{Binding isChecked}" 
+															Color="{DynamicResource optinfocolor}" 
+															HorizontalOptions="Start" 
+															VerticalOptions="Center" />
+                                                            <Label  Text="{Binding CmbBLStatusData}"
+															Margin="0,0,0,0"
+															StyleClass="txt14, textregular"
+															TextColor="{DynamicResource optinfocolor}" 
+															VerticalOptions="Center"
+															HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}" 
+								IsVisible="false" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Margin="5"
+								VerticalOptions="Start">
+                                    <xct:Expander>
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblAction}"
+												StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image Source="{Binding ImgDownArrow5}" 
+												HorizontalOptions="End"
+												VerticalOptions="Center" 
+												HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+														Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}"
+														Value="True">
+                                                            <Setter Property="Source"
+															Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+										Padding="0,10,0,0" >
+                                            <StackLayout Orientation="Horizontal" 
+											VerticalOptions="Start"
+											Margin="0,0,0,0">
+                                                <CheckBox AutomationId="AChkBoxisChecked5" 
+                                                          IsChecked="False" 
+												Color="{DynamicResource optinfocolor}" 
+												HorizontalOptions="Start"
+												VerticalOptions="Center"  />
+                                                <Label Text="Select All Status" 
+												Margin="0,0,0,0" 
+												StyleClass="txt14, textregular" 
+												TextColor="{DynamicResource optinfocolor}"  
+												VerticalOptions="Center"
+												HorizontalOptions="Start" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" 
+											VerticalOptions="Start" 
+											Margin="0,0,0,0">
+                                                <CheckBox AutomationId="AChkBoxisChecked6" 
+                                                          IsChecked="False" 
+												Color="{DynamicResource optinfocolor}" 
+												HorizontalOptions="Start"
+												VerticalOptions="Center" />
+                                                <Label Text="Generate Invoice"
+												Margin="0,0,0,0" 
+												StyleClass="txt14, textregular"
+												TextColor="{DynamicResource optinfocolor}"
+												VerticalOptions="Center" 
+												HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" 
+											VerticalOptions="Start"
+											Margin="0,0,0,0">
+                                                <CheckBox AutomationId="AChkBoxisChecked7" 
+                                                          IsChecked="true" 
+												Color="{DynamicResource optinfocolor}"
+												HorizontalOptions="Start"
+												VerticalOptions="Center" />
+                                                <Label Text="Pay Invoice" 
+												Margin="0,0,0,0" 
+												StyleClass="txt14, textregular" 
+												TextColor="{DynamicResource optinfocolor}"
+												VerticalOptions="Center" 
+												HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal"
+											VerticalOptions="Start"
+											Margin="0,0,0,0">
+                                                <CheckBox AutomationId="AChkBoxisChecked8" 
+                                                          IsChecked="False" 
+												Color="{DynamicResource optinfocolor}"
+												HorizontalOptions="Start"
+												VerticalOptions="Center" />
+                                                <Label Text="Book an Appointment"
+												Margin="0,0,0,0" 
+												StyleClass="txt14, textregular" 
+												TextColor="{DynamicResource optinfocolor}"  
+												VerticalOptions="Center" 
+												HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"  
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}" 
+                        IsVisible="{Binding IsBusy}"  
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+   </ContentPage.Content>
+</ContentPage>

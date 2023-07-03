@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.contactus" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Text="Settings" Priority="1" Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ContentView IsEnabled="{Binding ContactUSStack}">
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout   
+                              AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                              AbsoluteLayout.LayoutFlags="All">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Padding="0" 
+                                     Margin="0" >
+                            <Frame CornerRadius="0" 
+                                   Padding="0"
+                                   Margin="0" 
+                                   HasShadow="False">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image AutomationId="AImgContactHd" 
+                                           Source="{Binding imgContactHead}" 
+                                           Aspect="AspectFill" Grid.Row="0"/>
+                                    <StackLayout Orientation="Vertical" 
+                                                 VerticalOptions="Center" 
+                                                 Grid.Row="0">
+                                        <Label  Text="{Binding lblContactUs}" 
+                                                StyleClass="txt24,textsemibold" 
+                                                TextColor="white" 
+                                                HorizontalOptions="CenterAndExpand" />
+                                        <Label  Text="{Binding lblsubhead}" 
+                                                StyleClass="txt14,textregular" 
+                                                TextColor="white" 
+                                                HorizontalOptions="Start" 
+                                                HorizontalTextAlignment="Center" 
+                                                Margin="10,0,10,0" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                        <Frame Grid.Row="1" 
+                               HasShadow="False" 
+                               VerticalOptions="FillAndExpand" 
+                               Margin="0" 
+                               BackgroundColor="{DynamicResource contactpagebgrcolor}">
+                            <StackLayout Orientation="Vertical" 
+                                         VerticalOptions="FillAndExpand" 
+                                         Margin="0,0,0,0">
+                                <Label  Text="{Binding lblName}"
+                                        Margin="0,10,0,0" 
+                                        StyleClass="textsemibold" 
+                                        FontSize="18" 
+                                        TextColor="{DynamicResource Primary}" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Entry AutomationId="AEntName" 
+                                       Text="{Binding TxtName}" 
+                                        Placeholder="{Binding plName}" 
+                                        StyleClass="Entrytextregular" 
+                                        TextColor="{DynamicResource Primary}" 
+                                       BackgroundColor="{DynamicResource Entrytextbg}"
+                                        Margin="0,0,0,0" />
+                                <Label  Text="{Binding MsgName}" 
+                                        IsVisible="{Binding IsvalidationName}" 
+                                        Margin="0,0,0,5" 
+                                        FontFamily="Montserrat-Regular" 
+                                        TextColor="Red" 
+                                        FontSize="18" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Label  Text="{Binding lblEmail}" 
+                                        Margin="0,10,0,0" 
+                                        StyleClass="textsemibold" 
+                                        FontSize="18" 
+                                        TextColor="{DynamicResource Primary}" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Entry  AutomationId="AEntEmail"
+                                        Text="{Binding TxtEmail }" 
+                                        Placeholder="{Binding plEmail}" 
+                                        StyleClass="Entrytextregular" 
+                                        TextColor="{DynamicResource Primary}"
+                                        BackgroundColor="{DynamicResource Entrytextbg}"
+                                        Margin="0,0,0,0" />
+                                <Label  Text="{Binding MsgMail}" 
+                                        IsVisible="{Binding IsvalidationMail}" 
+                                        Margin="0,0,0,5" 
+                                        FontFamily="Montserrat-Regular" 
+                                        TextColor="Red" 
+                                        FontSize="18" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Label  Text="{Binding lblSubject}" 
+                                        Margin="0,10,0,0" 
+                                        StyleClass="textsemibold" 
+                                        FontSize="18" 
+                                        TextColor="{DynamicResource Primary}" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Entry  AutomationId="AEntSubject" 
+                                        Text="{Binding TxtSubject}" 
+                                        Placeholder="{Binding plSubject}" 
+                                        StyleClass="Entrytextregular" 
+                                        TextColor="{DynamicResource Primary}" 
+                                        BackgroundColor="{DynamicResource Entrytextbg}"
+                                        Margin="0,0,0,0" />
+                                <Label   Text="{Binding MsgSub}" 
+                                         IsVisible="{Binding IsvalidationSub}" 
+                                         Margin="0,0,0,5" 
+                                         FontFamily="Montserrat-Regular" 
+                                         TextColor="Red" 
+                                         FontSize="18" 
+                                         HorizontalOptions="StartAndExpand"/>
+                                <Label  Text="{Binding lblMessage}" 
+                                        Margin="0,10,0,0" 
+                                        StyleClass="textsemibold" 
+                                        FontSize="18" 
+                                        TextColor="{DynamicResource Primary}" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Editor  Text="{Binding TxtMessage}" 
+                                         AutomationId="ATxtMessage"
+                                         Placeholder="{Binding plMessage}" 
+                                         StyleClass="Editortextregular" 
+                                         TextColor="{DynamicResource Primary}" 
+                                         BackgroundColor="{DynamicResource Entrytextbg}"
+                                         Margin="0,0,0,0" 
+                                         HeightRequest="100" />
+                                <Label  Text="{Binding MsgBody}" 
+                                        IsVisible="{Binding IsvalidationBody}" 
+                                        Margin="0,0,0,5" 
+                                        FontFamily="Montserrat-Regular" 
+                                        TextColor="Red" 
+                                        FontSize="18" 
+                                        HorizontalOptions="StartAndExpand"/>
+                                <Button AutomationId="AButSend"
+                                        Text="{Binding btnSend}" 
+                                         StyleClass="buttxt20,primarybuttoncolor,buttextregular"  
+                                         CornerRadius="15" 
+                                         TextColor="White" 
+                                         Command="{Binding gotoSend}"  
+                                         Margin="0,40,0,0" />
+                                <Frame BackgroundColor="{DynamicResource Trackingframe}" 
+                                       CornerRadius="20"  
+                                       Margin="0,10,0,0" 
+                                       Padding="20" 
+                                       HasShadow="False">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label  Text="{Binding lblRedSea}" 
+                                                StyleClass="txt20,textsemibold,Frametextcolor" />
+                                        <Label Text="{Binding lblPOBox}" 
+                                               StyleClass="txt14,textregular,Frametextcolor" />
+                                        <Label  Text="{Binding lblTelephoneNo1}" 
+                                                StyleClass="txt14,textregular,Frametextcolor" />
+                                        <Label  Text="{Binding lblFNumber}" 
+                                                StyleClass="txt14,textregular,Frametextcolor" />
+                                        <Label  Text="{Binding lblEmail1}" 
+                                                StyleClass="txt14,textregular,Frametextcolor" />
+                                        <Label  Text="{Binding lblCustomerService}" 
+                                                StyleClass="txt20,textsemibold, Frametextcolor"  
+                                                Margin="0,10,0,0"/>
+                                        <Label  Text="{Binding lblTelephoneNo2}" 
+                                                StyleClass="txt14,textregular, Frametextcolor" />
+                                        <Label  Text="{Binding lblEmail2}" 
+                                                StyleClass="txt14,textregular, Frametextcolor" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+                <StackLayout  IsVisible="{Binding IsBusy}" 
+                              Margin="0" 
+                              AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                              AbsoluteLayout.LayoutFlags="All" 
+                            BackgroundColor="{Binding IndicatorBGColor}"  
+                            Opacity="{Binding IndicatorBGOpacity}">
+
+                    <ActivityIndicator IsVisible="{Binding IsBusy}"  
+                                       IsRunning="{Binding IsBusy}" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="CenterAndExpand" 
+                                       Color="{DynamicResource Primary}" />
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>

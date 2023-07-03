@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="MyPageBayan"
+             x:Class="RsgtApp.Views.Bayan"
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False" >
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"                            
+                           IconOverride="blank_icon.png"
+                                                        
+                            />
+
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="close_icon_24.png"  Priority="0" Clicked="clickedTrackPage" Order="Primary" />
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout >
+            <StackLayout x:Name="aiLayout" IsEnabled="{Binding StackBayan}" 
+			Orientation="Vertical" 
+			VerticalOptions="StartAndExpand" 
+			Spacing="0" 
+			Padding="10,0,10,0"  
+			IsVisible="true" 
+			AbsoluteLayout.LayoutBounds="0,0,1,1" 
+			AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+					VerticalOptions="StartAndExpand" 
+					Margin="0,0,0,10" 
+					Padding="0"
+					Grid.Row="0" >
+                        <Label  Text="{Binding TotalRecordCount}"
+						Margin="5,0,5,0" 
+						StyleClass="txt22, textsemibold"
+						HorizontalTextAlignment="Center" 
+						TextColor="{DynamicResource Primary}" 
+						HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="StartAndExpand" 
+					Margin="0,0,0,10" 
+					Padding="0" 
+					Grid.Row="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Frame BackgroundColor="{DynamicResource Searchframe}"
+						HasShadow="False"
+						CornerRadius="15" 
+						HeightRequest="55"
+                               Margin="0,10,0,0" 
+							   Padding="15,0,15,0"
+							   Grid.Column="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Entry AutomationId="AlEtySearchbox" 
+                                           Text="{Binding Searchbox}"
+									Placeholder="{Binding TxtSearch}" 
+									StyleClass="Entrytextregular" 
+									Grid.Column="0" 
+									TextColor="White" BackgroundColor="{DynamicResource Searchframe}" />
+                                    <ImageButton AutomationId="AlImgButSearch" 
+                                                 Source="{Binding ImgSearch}" 
+									HeightRequest="20" 
+									WidthRequest="20" 
+									BackgroundColor="Transparent" 
+									Grid.Column="1" 
+									Command="{Binding SearchAny}" />
+                                </Grid>
+                            </Frame>
+                            <Frame BackgroundColor="{DynamicResource Searchframe}" 
+							HasShadow="False" 
+							CornerRadius="15" 
+							HeightRequest="55" 
+							Margin="0,10,0,0" 
+							Padding="15,0,15,0" 
+							Grid.Column="1">
+                                <ImageButton AutomationId="AlImgButFlt"
+                                             Source="{Binding ImgFilter}" 
+                                             IsEnabled="{Binding isSearchEnable}"
+                                             HeightRequest="20"
+                                             WidthRequest="20"
+                                             BackgroundColor="Transparent"
+                                             Grid.Column="2" 
+                                             Command="{Binding FilterClicked}" />
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                    <CollectionView  BackgroundColor="Transparent"
+                                     HorizontalScrollBarVisibility="Always" 
+                                     ItemsSource="{Binding lstBayan}"
+                                     SelectionMode="None" 
+                                     VerticalOptions="FillAndExpand" 
+                                     HorizontalOptions="FillAndExpand" 
+                                     Grid.Row="2" >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame HasShadow="False" 
+                                           CornerRadius="20"
+                                           Margin="5" >
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="1,10"
+                                                                 EndPoint="1,0">
+                                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                                              Offset="0.9"/>
+                                                <GradientStop Color="{DynamicResource frameprimary}"
+                                                              Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <StackLayout Orientation="Vertical" 
+                                                     VerticalOptions="StartAndExpand">
+                                            <xct:Expander IsExpanded="{Binding Expander}">
+                                                <xct:Expander.Header>
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+                                                        <StackLayout Orientation="Horizontal" 
+                                                                     HorizontalOptions="FillAndExpand" 
+                                                                     Margin="0,0,0,5" 
+                                                                     Grid.Row="0">
+                                                            <Label Text="{Binding BayanNo}" 
+                                                                   HorizontalOptions="StartAndExpand" 
+                                                                   StyleClass="Bayantextcolor, Bayantext" />
+
+                                                            <!--04-02-2023-sanduru - Export Details Xaml Code-->
+                                                            <Label Text="{Binding lblCategory}" 
+                                                                   HorizontalOptions="End" 
+                                                                   StyleClass="Bayantextcolor, Bayantext, txt16" 
+                                                                   Margin="0,0,10,0">
+                                                                <Label.GestureRecognizers>
+                                                                    <!--<TapGestureRecognizer Command="{Binding BOLexpTapped}" NumberOfTapsRequired="1"/>-->
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                            <Image Source="{Binding imgDownArrow1}"
+                                                                   AutomationId="AimgDownArrow1"
+														           HorizontalOptions="End"
+                                                                   VerticalOptions="Center" 
+                                                                   HeightRequest="10">
+                                                                <Image.Triggers>
+                                                                    <DataTrigger TargetType="Image"
+                                                                                 Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" 
+                                                                                 Value="True">
+                                                                        <Setter Property="Source"
+                                                                                Value="up_arrow.png" />
+                                                                    </DataTrigger>
+                                                                </Image.Triggers>
+                                                            </Image>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" 
+														             VerticalOptions="StartAndExpand"
+                                                                     Margin="0,0,0,5" 
+                                                                     Grid.Row="1">
+                                                            <Image  Source="{Binding imgContainer}"
+                                                                    HorizontalOptions="Start" 
+                                                                    VerticalOptions="Center" 
+                                                                    HeightRequest="24" 
+                                                                    Margin="0,-5,5,0"/>
+                                                            <Label StyleClass="Inyardcolor, Inyardtext" 
+                                                                   Text="{Binding lblInYard}" />
+                                                            <Label StyleClass="Inyardcolor, Inyardtext" 
+                                                                   Text="{Binding Inyard}" />
+                                                            <Label StyleClass="Inyardcolor, Inyardtext" 
+                                                                   Text=""/>
+                                                            <Label StyleClass="Departedcolor, Departedtext"
+                                                                   Text="{Binding lblDeparted}" />
+                                                            <Label StyleClass="Departedcolor, Departedtext"
+                                                                   Text="{Binding Departed}" />
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </xct:Expander.Header>
+                                                <Grid>
+                                                    <StackLayout Orientation="Vertical" 
+													Padding="0,10,0,0">
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="StartAndExpand" 
+														Margin="0,0,0,5">
+                                                            <Image Source="BL_icon.png"
+															HorizontalOptions="Start"
+															VerticalOptions="Center" 
+															HeightRequest="24"
+															Margin="0,0,5,0"/>
+                                                            <Label Text="{Binding Billoflading}" 
+															StyleClass="BLcolor, BLtext"
+															VerticalOptions="CenterAndExpand" 
+															HorizontalOptions="StartAndExpand" >
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer 
+                                                                    Command="{Binding Source={x:Reference MyPageBayan},
+                                                                    Path=BindingContext.BOlclick}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    NumberOfTapsRequired="1"/>
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="StartAndExpand"
+														Margin="0,0,0,5">
+                                                            <Image Source="{Binding imgShippingLine7}" 
+															HorizontalOptions="Start"
+															VerticalOptions="Center" 
+															HeightRequest="24"
+															Margin="0,0,5,0"/>
+                                                            <Image Source="{Binding ShippingIcon}"
+															HorizontalOptions="Start"
+															VerticalOptions="Center" 
+															HeightRequest="24" 
+															Margin="0,0,5,0"/>
+                                                            <Label Text="{Binding Shippingline}"
+															StyleClass="Bayaninfocolor, Bayaninfotext" 
+															VerticalOptions="CenterAndExpand"
+															HorizontalOptions="StartAndExpand" ></Label>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="StartAndExpand" 
+														Margin="0,0,0,5">
+                                                            <Image  Source="{Binding imgConsignee}" 
+															HorizontalOptions="Start"
+															VerticalOptions="Center"
+															HeightRequest="20"
+															Margin="0,0,5,0"/>
+                                                            <Label Text="{Binding Consignee}"
+															StyleClass="Bayaninfocolor, Bayaninfotext"
+															VerticalOptions="CenterAndExpand"
+															HorizontalOptions="StartAndExpand" ></Label>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="StartAndExpand"
+														Margin="0,0,0,5">
+                                                            <Image  Source="{Binding imgShipper}"
+															HorizontalOptions="Start"
+															VerticalOptions="Center"
+															HeightRequest="20" 
+															Margin="0,0,5,0"/>
+                                                            <Label Text="{Binding Shipper}" 
+															StyleClass="Bayaninfocolor, Bayaninfotext"
+															VerticalOptions="CenterAndExpand"
+															HorizontalOptions="StartAndExpand" ></Label>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal"
+														VerticalOptions="StartAndExpand"
+														Margin="0,0,0,5">
+                                                            <Image  Source="{Binding imgCustomagent}"
+															HorizontalOptions="Start" 
+															VerticalOptions="Center" 
+															HeightRequest="24" 
+															Margin="0,0,5,0"/>
+                                                            <Label Text="{Binding CustomsAgent}" 
+															StyleClass="Bayaninfocolor, Bayaninfotext" 
+															VerticalOptions="CenterAndExpand" 
+															HorizontalOptions="StartAndExpand" ></Label>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" 
+														VerticalOptions="StartAndExpand"
+														Margin="0,0,0,5">
+                                                            <Image  Source="{Binding imgPol}"
+															HorizontalOptions="Start"
+															VerticalOptions="Start" 
+															HeightRequest="48" 
+															WidthRequest="24" 
+															Margin="0,0,5,0"/>
+                                                            <StackLayout Orientation="Vertical"
+															VerticalOptions="StartAndExpand" 
+															Margin="0,0,0,5">
+                                                                <Label Text="{Binding POL}" 
+																StyleClass="Bayaninfocolor, Bayaninfotext"
+																VerticalOptions="StartAndExpand" 
+																HorizontalOptions="StartAndExpand" ></Label>
+                                                                <Label Text="{Binding POD}" 
+																StyleClass="Bayaninfocolor, Bayaninfotext" 
+																VerticalOptions="StartAndExpand" 
+																HorizontalOptions="StartAndExpand" ></Label>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </xct:Expander>
+                                            <StackLayout Orientation="Vertical" 
+											Margin="0,10,0,0">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="130" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Frame BackgroundColor="{Binding StatusColor}"
+													Grid.Column="0" 
+													CornerRadius="15"
+													Padding="15,5,15,5"
+													HorizontalOptions="StartAndExpand" 
+													HasShadow="False">
+                                                        <Label Text="{Binding Status}" 
+														StyleClass="Bayanstatustext" 
+														TextColor="White"></Label>
+                                                    </Frame>
+                                                    <!--<Button Text="{Binding btnMoreDetails}" 
+                                                            Padding="0" HeightRequest="30"
+                                                            BackgroundColor="Transparent" 
+                                                            Grid.Column="1"
+                                                            StyleClass="Bayanmorecolor, Bayanmoretext" 
+                                                         Command="{Binding BOlclick}"   >
+                                                    </Button>-->
+                                                    <Label Grid.Column="1"
+													HeightRequest="30"
+													Text="{Binding btnMoreDetails}"
+                                                           AutomationId="AbtnMoreDetails"
+                                                           StyleClass="BLcolor, BLtext" 
+														   VerticalOptions="CenterAndExpand"
+														   HorizontalOptions="StartAndExpand" >
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer 
+                                                                    Command="{Binding Source={x:Reference MyPageBayan},
+                                                                    Path=BindingContext.BOlPageclick}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    NumberOfTapsRequired="1"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </Grid>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.Footer>
+                            <StackLayout Padding="5">
+                                <Button AutomationId="AlButLoadMore"
+                                        x:Name="btnLoadMore" 
+								IsVisible="false"   
+								Text="" 
+								StyleClass="buttxt20,primarybuttoncolor,buttextregular"
+								Margin="0,30,0,0"
+								CornerRadius="15" 
+								TextColor="White" 
+								Command="{Binding gotoLoadMore}"></Button>
+                            </StackLayout>
+                        </CollectionView.Footer>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="BayanIndicator" IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator x:Name="BayanActivityIndicator"  IsVisible="{Binding IsBusy}" 
+                        IsRunning="{Binding IsBusy}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

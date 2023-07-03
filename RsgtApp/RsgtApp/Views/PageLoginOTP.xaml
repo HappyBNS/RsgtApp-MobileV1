@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.PageLoginOTP" 
+			 FlowDirection="{DynamicResource pagedirection}" 
+			 BackgroundImageSource="{DynamicResource Mainbgr}"  
+			 NavigationPage.HasNavigationBar="False" >
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout x:Name="StackLoginOtp" 
+			IsEnabled="{Binding StackLoginOtp}" 
+			Padding="30,10,30,30" 
+			Orientation="Vertical" 
+			VerticalOptions="FillAndExpand"  
+			IsVisible="true"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All" >
+                <StackLayout Orientation="Vertical" 
+				VerticalOptions="Start"
+				Margin="0,0,0,10">
+                    <Image Source="{DynamicResource rsgtlogo}" 
+					WidthRequest="280" 
+					VerticalOptions="Start" 
+					HorizontalOptions="CenterAndExpand"></Image>
+                </StackLayout>
+                <StackLayout  VerticalOptions="CenterAndExpand">
+                    <Label x:Name="lblLogInAccount" 
+                           Text="{Binding lblLogInAccount}"                          
+						   StyleClass="Heading1 " 
+						   TextColor="{DynamicResource Primary}" 
+						   FontSize="24" 
+						   HorizontalOptions="CenterAndExpand" />
+                    <Label x:Name="lblHi" 
+					Text="{Binding lblHi}"
+					StyleClass="Messagebig" 
+					Margin="0,30,0,0" 					
+					TextColor="{DynamicResource Primary}" 
+					FontSize="18"
+					HorizontalOptions="CenterAndExpand" />
+                    <Label x:Name="lblOtpNumber" 
+					Text="{Binding lblOtpNumber}"  
+					Margin="0,0,0,20"
+                    StyleClass="Messagesmall"
+					TextColor="{DynamicResource Primary}" 
+					FontSize="16"
+					HorizontalOptions="CenterAndExpand" />
+                    <Entry x:Name="txtOtp"
+					AutomationId="AtxtOtp"
+					Text="{Binding TxtOtp}" 
+					Placeholder="{Binding PlaceOtp}" 
+					StyleClass="Entrytextregular"  
+					TextColor="{DynamicResource accprimarycolor}"
+                    BackgroundColor="{DynamicResource Entrytextbg}"
+					Margin="0,10,0,0"></Entry>
+                    <Button x:Name="btnConfirm" 
+					AutomationId="AbtnConfirm" 
+					Text="{Binding btnConfirm}"  
+					StyleClass="Buttontextsmall,buttxt20,primarybuttoncolor,buttextregular" 
+					Margin="0,20,0,0" 
+					FontSize="20" 
+					BorderWidth="1" 					
+					CornerRadius="15"
+					TextColor="White"  
+					Command="{Binding gotoDashBoard}"></Button>
+                    <Button x:Name="btnResendOtp" 
+					AutomationId="AbtnResendOtp"
+					Text="{Binding btnResendOtp}"
+					StyleClass="Footerlinkregular" 
+					FontSize="14" 
+					BackgroundColor="Transparent" 
+					TextColor="{DynamicResource Primary}" 					
+					TextTransform="None"
+					HorizontalOptions="CenterAndExpand" 
+					Command="{Binding gotoOPTResend}"></Button>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout 
+                         IsVisible="{Binding IsBusy}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}" 
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand"
+                                    Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

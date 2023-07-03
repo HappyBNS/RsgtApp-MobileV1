@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="MyPageEvaluationForm"
+             x:Class="RsgtApp.Views.InLocationEquipmentrequest2" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <StackLayout IsEnabled="{Binding StackInLocationrequest2}" 
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand" 
+                     Spacing="0" 
+                     Padding="10,0,10,0" 
+                     IsVisible="true"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+            <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                             Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand"  
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="0">
+                        <StackLayout Spacing="0" 
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="StartAndExpand" 
+                                 Margin="0,0,0,10" 
+                                 Padding="0" >
+                            <Image Source="{Binding imgEquipmentIcon}" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Start" 
+                                   WidthRequest="25" 
+                                   Margin="5,0,5,0"/>
+                            <Label Text="{Binding lblInlocationRequest}" 
+                                   Margin="5,0,5,0"  
+                                   StyleClass="txt18, textsemibold" 
+                                   HorizontalTextAlignment="Center" 
+                                   TextColor="{DynamicResource Primary}" 
+                                   HorizontalOptions="StartAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame Grid.Row="1"
+                           CornerRadius="20" 
+                           Margin="0,10,0,10" 
+                           HasShadow="False"
+                           VerticalOptions="FillAndExpand"  
+                           Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                              Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}"
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+
+                        <StackLayout>
+                            <StackLayout Orientation="Vertical" 
+                                     HorizontalOptions="CenterAndExpand">
+                                <Image Source="{Binding imgRequestIcon}" 
+                                       HorizontalOptions="Center" 
+                                       WidthRequest="35" 
+                                       Margin="0,0,0,0"/>
+                                <Label Text="{Binding lblInlocationRequestForm}" 
+                                       Margin="0,0,0,0" 
+                                       StyleClass="txt18,textsemibold" 
+                                       HorizontalTextAlignment="Center" 
+                                       TextColor="{DynamicResource captioncolor}" 
+                                       HorizontalOptions="StartAndExpand"/>
+                            </StackLayout>
+                            <BoxView HeightRequest=".3" 
+                                     Margin="0,10,0,0" 
+                                     Color="#c8c8d2"/>
+                            <ScrollView >
+                                <Frame BackgroundColor="Transparent" 
+                                       xct:ShadowEffect.Radius="20" 
+                                       HasShadow="False" 
+                                       CornerRadius="20" 
+                                       Padding="5" 
+                                       Margin="0,0,0,0">
+                                    <StackLayout 
+                                        Orientation="Vertical" 
+                                        Margin="0,10,0,0" 
+                                        VerticalOptions="StartAndExpand" 
+                                        Spacing="0">
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,0,0,0">
+                                            <Label Text="{Binding lblContainerNo}"  
+                                                   StyleClass="txt16,textsemibold" 
+                                                   TextColor="{DynamicResource accprimarycolor}" 
+                                                   Margin="0,0,0,0" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding lblValContainerno}" 
+                                               Margin="0,0,0,0" 
+                                               StyleClass="txt16,textregular" 
+                                               HorizontalTextAlignment="Start" 
+                                               TextColor="{DynamicResource infocolor}" 
+                                               HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding lblAppointmentNo}"  
+                                                   StyleClass="txt16,textsemibold" 
+                                                   TextColor="{DynamicResource accprimarycolor}"
+                                                   Margin="0,10,0,0" 
+                                                   HorizontalOptions="Start"/>
+                                            <Label Text="{Binding lblValAppointmentno}" 
+                                               Margin="0,0,0,0" 
+                                               StyleClass="txt16,textregular" 
+                                               HorizontalTextAlignment="Start"
+                                               TextColor="{DynamicResource infocolor}" 
+                                               HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" Margin="0,0,0,0">
+                                            <Label Text="{Binding lblPleaseEntertheBelowInformation}"  
+                                                   StyleClass="txt18,textregular" 
+                                                   TextColor="{DynamicResource Dashinfohighlightcolor}"
+                                                   Margin="0,20,0,0" 
+                                                   HorizontalOptions="Start"/>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Vertical" Margin="0,20,0,0" 
+                                                 HorizontalOptions="FillAndExpand">
+                                            <Label Text="{Binding lblTruckPlateNo}"  
+                                                   StyleClass="txt16,textsemibold" 
+                                                   TextColor="{DynamicResource accprimarycolor}" 
+                                                   Margin="0,0,0,0" 
+                                                   HorizontalOptions="Start"/>
+                                            <Entry Text="{Binding TxtTruckPlateNo}" 
+                                                   Placeholder="{Binding PlaceTruckBatNo}" 
+                                                   StyleClass="Entrytextregular" 
+                                                   TextColor="{DynamicResource accprimarycolor}" 
+                                                   BackgroundColor="{DynamicResource Entrytextbg}"
+                                                   Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgTruckPlateNo}" 
+                                                    IsVisible="{Binding IsvalidatedTruckPlateNo}" 
+                                                    Margin="0,0,0,5" 
+                                                    FontFamily="Montserrat-Regular" 
+                                                    TextColor="Red" FontSize="18" 
+                                                    HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding lblLocationInYard}"  
+                                                   StyleClass="txt16,textsemibold" 
+                                                   TextColor="{DynamicResource accprimarycolor}" 
+                                                   Margin="0,20,0,0" 
+                                                   HorizontalOptions="Start"/>
+                                            <Entry Text="{Binding TxtLocationInYard}" 
+                                                   Placeholder="{Binding PlaceLocationInYard}" 
+                                                   StyleClass="Entrytextregular" 
+                                                   TextColor="{DynamicResource accprimarycolor}"
+                                                   BackgroundColor="{DynamicResource Entrytextbg}"
+                                                   Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgLocationInYard}" 
+                                                    IsVisible="{Binding IsvalidatedLocationInYard}" 
+                                                    Margin="0,0,0,5" 
+                                                    FontFamily="Montserrat-Regular" 
+                                                    TextColor="Red" FontSize="18" 
+                                                    HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,20,0,0" 
+                                                     HorizontalOptions="FillAndExpand">
+                                            <Grid Margin="0,20,0,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <CheckBox IsChecked="true" IsEnabled="False"
+                                                          Color="{DynamicResource Primary}"
+                                                          HorizontalOptions="Start" 
+                                                          VerticalOptions="Start" 
+                                                          Grid.Column="0"/>
+                                                <StackLayout Grid.Column="1">
+                                                    <Label Text="{Binding lblEquipmentNotAvailable}" 
+                                                           Margin="0,5,0,0" 
+                                                           StyleClass="textregular" 
+                                                           TextColor="{DynamicResource Primary}" 
+                                                           FontSize="14" 
+                                                           VerticalOptions="Start" 
+                                                           HorizontalOptions="Start" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ScrollView>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout VerticalOptions="StartAndExpand" 
+                                 Margin="0,0,0,0" 
+                                 Padding="0" 
+                                 Grid.Row="2" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Text="{Binding BtnReset}" 
+                                    Grid.Column="0" 
+                                    TextTransform="None" 
+                                    StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                                    BorderColor="White" 
+                                    CornerRadius="15" 
+                                    Margin="0,0,0,0"  
+                                    Command="{Binding Buttonreset}" />
+                            <Button Text="{Binding BtnSubmit}" 
+                                    Grid.Column="1" 
+                                    TextTransform="None" 
+                                    StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                                    BorderColor="White" 
+                                    CornerRadius="15" 
+                                    Margin="0,0,0,0"  
+                                    Command="{Binding Buttonsubmitrequest}" />
+                        </Grid>
+                    </StackLayout>
+                    <Frame BackgroundColor="{DynamicResource Primaryframe}" 
+                           HasShadow="False" 
+                           CornerRadius="15"  
+                           Margin="0,10,0,10" 
+                           Padding="10" 
+                           Grid.Row="3">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Tapmanifestrequesthistory}" 
+                                NumberOfTapsRequired="1"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand">
+                            <Image Source="{Binding imgHistoryIcon}"
+                                   HeightRequest="30" 
+                                   WidthRequest="30"  
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center" 
+                                   BackgroundColor="Transparent" />
+                            <Label Text="{Binding lblRequestHistory}" 
+                                   StyleClass="txt18,textmedium" 
+                                   TextColor="white"  
+                                   HorizontalOptions="CenterAndExpand" 
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalOptions="Start" 
+                                   Margin="5,2,0,0" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+        </StackLayout>
+            <StackLayout 
+                         IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand" 
+                                    Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

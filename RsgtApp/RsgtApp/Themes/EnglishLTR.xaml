@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Themes.EnglishLTR">
+
+
+    <!--English styles start-->
+
+    <FlowDirection x:Key="pagedirection">LeftToRight</FlowDirection>
+
+    <ImageSource x:Key="Langicon">arabicicon.png</ImageSource>
+
+    <ImageSource x:Key="angleicon">submenu_rightangle.png</ImageSource>
+
+    <ImageSource x:Key="Arrowicon">back_arrow.png</ImageSource>
+
+    <Style Class="txt12" TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+    <Style Class="txt14" TargetType="Label">
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="txt15" TargetType="Label">
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+    <Style Class="txt16" TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style Class="txt20" TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style Class="txt18" TargetType="Label">
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style Class="txt22" TargetType="Label">
+        <Setter Property="FontSize" Value="22"/>
+    </Style>
+    <Style Class="txt24" TargetType="Label">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+
+    <Style Class="PrimaryEntry" TargetType="Entry">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="PlaceholderColor" Value="#b3b2b2"/>
+    </Style>
+
+    <Style Class="PrimaryPicker" TargetType="Picker">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TitleColor" Value="#b3b2b2"/>
+    </Style>
+
+    <!--Tracking page start-->
+    <Style Class="Frametextbold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Bold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Frametextregular" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style Class="Statustext1" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="20,0,0,0"/>
+    </Style>
+    <Style Class="Statustext2" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="20,10,0,20"/>
+    </Style>
+    <!--Tracking page end-->
+
+    <!--Bayan start-->
+    <Style Class="Bayantext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Bold"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style Class="BLtext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Medium"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Bayaninfotext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Inyardtext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Bold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Departedtext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Bold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Bayanmoretext" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Medium"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+    <Style Class="Bayanstatustext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Medium"/>
+    </Style>
+    <!--Bayan end-->
+
+    <!--Bayan filter screen start-->
+    <Style Class="Bayanfilterbutton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#0073a2"/>
+    </Style>
+    <!--Bayan filter screen end-->
+
+    <!-- card start-->
+    <Style Class="Cardinfotext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <!-- card end-->
+
+    <!--dashboad start-->
+    <Style Class="Dashhead" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style x:Key="Dashinfo" TargetType="Span">
+        <Setter Property="FontFamily" Value="Montserrat-Regular" />
+        <Setter Property="FontSize" Value="12" />
+
+    </Style>
+    <Style x:Key="Dashinfohighlight" TargetType="Span">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold" />
+        <Setter Property="FontSize" Value="12" />
+
+    </Style>
+    <!--dashboard end-->
+
+
+
+    <!--Login and registration OTP start-->
+    <Style Class="Heading1" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+    <Style Class="Heading2" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="22"/>
+    </Style>
+    <Style Class="Heading3" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style Class="Messagebig" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style Class="Messagesmall" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style Class="Buttonlinkregular" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Entrytextregular" TargetType="Entry">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="PlaceholderColor" Value="#b3b2b2"/>
+    </Style>
+    <Style Class="Editortextregular" TargetType="Editor">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="PlaceholderColor" Value="#b3b2b2"/>
+    </Style>
+    <Style Class="Pickertextregular" TargetType="Picker">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TitleColor" Value="#b3b2b2"/>
+    </Style>
+    <Style Class="Footerlinkregular" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Footerlinkbold" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="Buttontextsmall" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style Class="Steplabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <!--Login and registration OTP end-->
+
+    <Style Class="Datetextregular" TargetType="DatePicker">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="18"/>
+
+    </Style>
+
+    <!--Faq start-->
+    <Style Class="faqquestion" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="faqanswer" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <!--Faq end-->
+
+    <!--Submenu start-->
+    <Style Class="Submenufont" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Medium"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <!--Submenu end-->
+
+    <!--Vessel schedule start-->
+    <Style Class="texttabregular" TargetType="xct:TabViewItem">
+        <Setter Property="FontFamily" Value="Montserrat-Regular" />
+    </Style>
+    <Style Class="texttabselected" TargetType="xct:TabViewItem">
+        <Setter Property="FontFamilySelected" Value="Montserrat-Bold" />
+    </Style>
+
+    <!--Vessel schedule end-->
+
+    <Style Class="radiotxt16" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style Class="radiotextregular" TargetType="RadioButton">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+    </Style>
+
+
+    <Style Class="buttxt14" TargetType="Button">
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style Class="buttxt15" TargetType="Button">
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
+    <Style Class="buttxt20" TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <!--Anand added 20230303-->
+    <Style Class="lbltxt20" TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+    <Style Class="buttxt24" TargetType="Button">
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style Class="menutext" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular"/>
+    </Style>
+
+    <Style Class="textlight" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Light"/>
+    </Style>
+    <Style Class="textregular" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular" />
+    </Style>
+    <Style Class="textmedium" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Medium" />
+    </Style>
+    <Style Class="textsemibold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold" />
+    </Style>
+    <Style Class="textbold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Bold" />
+    </Style>
+
+    <Style Class="buttextlight" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Light"/>
+    </Style>
+    <Style Class="buttextregular" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Regular" />
+    </Style>
+    <Style Class="buttextmedium" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Medium" />
+    </Style>
+    <Style Class="buttextsemibold" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold" />
+    </Style>
+    <Style Class="buttextbold" TargetType="Button">
+        <Setter Property="FontFamily" Value="Montserrat-Bold" />
+    </Style>
+
+
+    <Style Class="textlangen" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular" />
+    </Style>
+
+    <Style Class="textlangar" TargetType="Label">
+        <Setter Property="FontFamily" Value="Cairo-Regular" />
+    </Style>
+
+
+    <Style x:Key="textregular" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Regular" />
+    </Style>
+    <Style x:Key="textmedium" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-Medium" />
+    </Style>
+    <Style x:Key="textsemibold" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold" />
+    </Style>
+
+    <!--sub menu style-->
+    <Style Class="menuit" TargetType="Label">
+        <Setter Property="FontFamily" Value="Montserrat-SemiBold" />
+        <Setter Property="TextColor" Value="{DynamicResource Primary}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="-45"/>
+
+    </Style>
+    <!--sub menu style end-->
+
+    <!--flyout menu start-->
+
+
+    <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{DynamicResource Primary}"/>
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.FontFamily" Value="Montserrat-Regular"/>
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="18"/>
+
+                            <Setter TargetName="FlyoutItemImage" Property="Image.HeightRequest" Value="25"/>
+                            <Setter TargetName="FlyoutItemImage" Property="Image.Margin" Value="20,0,0,0"/>
+
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{DynamicResource Primary}"/>
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.FontFamily" Value="Montserrat-Regular"/>
+                            <Setter TargetName="FlyoutItemLabel" Property="Label.FontSize" Value="18"/>
+
+                            <Setter TargetName="FlyoutItemImage" Property="Image.HeightRequest" Value="25"/>
+                            <Setter TargetName="FlyoutItemImage" Property="Image.Margin" Value="20,0,0,0"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!--flyout menu end-->
+
+
+
+
+    <!--English styles end-->
+
+
+</ResourceDictionary>

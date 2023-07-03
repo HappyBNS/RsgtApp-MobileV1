@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:local="clr-namespace:Date1.Controls"
+             x:Name="MyPageDamageContainer"
+             x:Class="RsgtApp.Views.TruckService"  
+             FlowDirection="{DynamicResource enumDirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  IsEnabled="{Binding TruckEn}"
+                          Orientation="Vertical" 
+                          VerticalOptions="StartAndExpand" 
+                          Spacing="0"
+                          Padding="10,0,10,0"
+                          IsVisible="true" 
+                          AbsoluteLayout.LayoutBounds="0,0,1,1"
+                          AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="1"
+                           CornerRadius="20"
+                           Margin="0,10,0,10" 
+                           HasShadow="False" 
+                           VerticalOptions="EndAndExpand" 
+                           Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" 
+                                                 EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource framesecondary}" 
+                                              Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <StackLayout>
+                            <StackLayout Orientation="Vertical" 
+                                         HorizontalOptions="CenterAndExpand">
+                                <Image AutomationId="AImgrequestIcon" 
+                                       Source="{Binding imgRequestIcon}" 
+                                       HorizontalOptions="Center" 
+                                       WidthRequest="35" 
+                                       Margin="0,0,0,0"/>
+                                <Label  Text="{Binding lblTruckService}"
+                                        Margin="0,0,0,0" 
+                                        StyleClass="txt18,textsemibold" 
+                                        HorizontalTextAlignment="Center"
+                                        TextColor="{DynamicResource captioncolor}" 
+                                        HorizontalOptions="StartAndExpand"/>
+                            </StackLayout>
+                            <BoxView HeightRequest=".3" 
+                                     Margin="0,10,0,0" 
+                                     Color="#c8c8d2"/>
+                            <ScrollView>
+                                <Frame BackgroundColor="Transparent"
+                                       xct:ShadowEffect.Radius="20"
+                                       HasShadow="False" 
+                                       CornerRadius="20" 
+                                       Padding="5" 
+                                       Margin="0,0,0,0">
+                                    <StackLayout Orientation="Vertical" 
+                                                 Margin="0,10,0,0" 
+                                                 VerticalOptions="StartAndExpand" 
+                                                 Spacing="0">
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,0,0,0">
+                                            <Label   Text="{Binding lblTruckNo}" 
+                                                     StyleClass="txt16,textsemibold"
+                                                     TextColor="{DynamicResource accprimarycolor}" 
+                                                     Margin="0,20,0,0"
+                                                     HorizontalOptions="Start"/>
+                                            <Entry AutomationId="AEtyTruckNo" 
+                                                   Text="{Binding TxtTruckNo}"
+                                                   Placeholder="{Binding PlaceTruckNo}" 
+                                                   StyleClass="Entrytextregular" 
+                                                   TextColor="{DynamicResource accprimarycolor}"
+                                                   BackgroundColor="{DynamicResource Entrytextbg}"
+                                                   Margin="0,0,0,0"></Entry>
+                                            <Label  Text="{Binding MsgTrckNo}" 
+                                                    IsVisible="{Binding IsvalidatedTruckNo}" 
+                                                    Margin="0,0,0,5" 
+                                                    FontFamily="Montserrat-Regular" 
+                                                    TextColor="Red" 
+                                                    FontSize="18" 
+                                                    HorizontalOptions="StartAndExpand"/>
+                                            <Label    Text="{Binding lblLocation}"  
+                                                      StyleClass="txt16,textsemibold"
+                                                      TextColor="{DynamicResource accprimarycolor}" 
+                                                      Margin="0,20,0,0" 
+                                                      HorizontalOptions="Start"/>
+                                            <Picker AutomationId="APckLocation"
+                                                    ItemsSource="{Binding lobjLocation}"                                    
+                                                    ItemDisplayBinding="{Binding Key}"                                    
+                                                    SelectedItem="{Binding SelectedLocation}" 
+                                                    Title="{Binding picLocation}"
+                                                    StyleClass="PrimaryPicker" 
+                                                    TextColor="{DynamicResource accprimarycolor}"
+                                                    BackgroundColor="{DynamicResource Entrytextbg}"
+                                                    Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgLocation}" 
+                                                    IsVisible="{Binding IsvalidatedLocation }" 
+                                                    Margin="0,0,0,5" 
+                                                    FontFamily="Montserrat-Regular" 
+                                                    TextColor="Red" 
+                                                    FontSize="18"
+                                                    HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding lblTypeDamage}" 
+                                                   StyleClass="txt16,textsemibold"
+                                                   TextColor="{DynamicResource accprimarycolor}"
+                                                   Margin="0,20,0,0" 
+                                                   HorizontalOptions="Start"/>
+                                            <Picker AutomationId="APckTypeDamage1"
+                                                    ItemsSource="{Binding lobjTypeDamage1}"                                    
+                                                    ItemDisplayBinding="{Binding Key}"                                    
+                                                    SelectedItem="{Binding SelectedTypeDamage1}" 
+                                                    Title="{Binding picTypeDamage1}"
+                                                    StyleClass="PrimaryPicker" 
+                                                    TextColor="{DynamicResource accprimarycolor}"
+                                                    BackgroundColor="{DynamicResource Entrytextbg}"
+                                                    Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgTypeDamage}"
+                                                    IsVisible="{Binding IsvalidatedDamage}"
+                                                    Margin="0,0,0,5" 
+                                                    FontFamily="Montserrat-Regular" 
+                                                    TextColor="Red"
+                                                    FontSize="18" 
+                                                    HorizontalOptions="StartAndExpand"/>
+                                            <Label x:Name="lblReportDate"
+                                                   Text="{Binding lblReportDate}" 
+                                                   StyleClass="txt16,textsemibold" 
+                                                   TextColor="{DynamicResource accprimarycolor}"
+                                                   Margin="0,20,0,0"
+                                                   HorizontalOptions="Start"/>
+                                            <local:NullableDatePicker AutomationId="APckReportDate"
+                                                                      NullableDate="{Binding ReportDate}" 
+                                                                      x:Name="DtReportDate" 
+                                                                      StyleClass="Datetextregular"
+                                                                      TextColor="{DynamicResource accprimarycolor}"
+                                                                      BackgroundColor="{DynamicResource Entrytextbg}"
+                                                                      Margin="0,10,0,10" />
+                                            <Label  Text="{Binding lblListOfEqu}" 
+                                                    StyleClass="txt16,textsemibold"
+                                                    TextColor="{DynamicResource accprimarycolor}" 
+                                                    Margin="0,20,0,0" 
+                                                    HorizontalOptions="Start"/>
+                                            <Picker AutomationId="APckListOfEqu" 
+                                                    ItemsSource="{Binding lobjListOfEqu}"                                    
+                                              ItemDisplayBinding="{Binding Key}"                                    
+                                              SelectedItem="{Binding SelectedListOfEqu}" 
+                                              Title="{Binding picListOfEqu}" 
+                                                    StyleClass="PrimaryPicker"
+                                                    TextColor="{DynamicResource accprimarycolor}"
+                                                    BackgroundColor="{DynamicResource Entrytextbg}"
+                                                    Margin="0,0,0,0" />
+                                        </StackLayout>
+                                        <Button AutomationId="AButSubmit"
+                                                Text="{Binding btnSubmit}"
+                                                TextTransform="None" 
+                                                StyleClass="buttxt20,primarybuttoncolor,buttextregular"  
+                                                CornerRadius="15" 
+                                                TextColor="White" 
+                                                Margin="0,10,0,20"
+                                                Command="{Binding Button_TruckService_Message}" />
+                                    </StackLayout>
+                                </Frame>
+                            </ScrollView>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}" 
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

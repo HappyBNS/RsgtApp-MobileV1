@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Dashboard_Broker" 
+			 FlowDirection="{DynamicResource pagedirection}" 
+			 BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+			 NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackDashboardBroker}"
+			Orientation="Vertical" 
+			VerticalOptions="StartAndExpand" 
+			Spacing="0"
+			Padding="15,0,15,0"  	
+			IsVisible="true" 
+			AbsoluteLayout.LayoutBounds="0,0,1,1" 
+			AbsoluteLayout.LayoutFlags="All">
+            <!--<ActivityIndicator x:Name="BrokerActivityIndicator" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Color="{DynamicResource Primary}" />-->
+            <Grid RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout Spacing="0" 
+				Orientation="Horizontal" 
+				HorizontalOptions="CenterAndExpand" 
+				Margin="0,0,0,10" 
+				Padding="0" 
+				Grid.Row="0" >
+                    <Image Source="{Binding ImgDashboardMenu}" 
+					HorizontalOptions="Center" 
+					WidthRequest="25" 
+					Margin="5,0,5,0"/>
+                    <Label Text="{Binding LblDashboard}" 
+					Margin="5,0,5,0" 
+					StyleClass="txt22, textsemibold" 
+					HorizontalTextAlignment="Center" 
+					TextColor="{DynamicResource Primary}" 
+					HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Label Text="{Binding LblCountMsg}" 
+					Margin="0,0,0,0" 
+					Style="{DynamicResource Dashinfo}" 
+					TextColor="{DynamicResource Dashinfocolor}" 
+					HorizontalTextAlignment="Center" 
+					HorizontalOptions="Center"/>                    
+                </StackLayout>
+                <StackLayout Grid.Row="2" Spacing="0" Margin="0">
+                    <ScrollView>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <!--Dwell Days-->
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="0" 
+								Grid.Row="0" 
+								Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTappedDwelldays}" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding ImgDwelldaysIcon}"
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                        <Label Text="{Binding LblDwellDays}"
+										AutomationId="AlblDwellDays"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                        <Label  VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+                                                    Text="{Binding LblAverage}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding LblDweldaysAVG}"
+													Style="{DynamicResource Dashinfohighlight}"
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" "
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="{Binding LblDays }" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                    <!--Ready To Deliver-->
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="1" 
+								Grid.Row="0" 
+								Margin="5">
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTappedReadytodeliver}" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding ImgReadytoload}" 
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                        <Label Text="{Binding LblReadyToDeliver}"
+										AutomationId="AlblReadyToDeliver"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                        <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblNoOfUnits}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span  Text="{Binding LblReadytoDeliver}"
+													Style="{DynamicResource Dashinfohighlight}"  
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text=" "/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                    <!--Wallet (hidden)-->
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								IsVisible="False" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="0" 
+								Grid.Row="1" 
+								Margin="5">
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTapped}" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding ImgWalletDash}" 
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                        <Label Text="{Binding LblMyWallet}"
+										AutomationId="AlblMyWallet"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                        <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text=""/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Style="{DynamicResource Dashinfohighlight}"  
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                    <!--Case Management-->
+                                    <Frame  BackgroundColor="{DynamicResource frameprimary}" 
+									HasShadow="False" 
+									CornerRadius="20" 
+									Padding="10,15,10,15" 
+									Grid.Column="0" 
+									Grid.Row="2" 
+									Margin="5">
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTappedCaseManagement}" 
+										NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+										<StackLayout  VerticalOptions="StartAndExpand">
+                                            <Image Source="{Binding ImgCaseIcon}" 
+											HorizontalOptions="CenterAndExpand" 
+											VerticalOptions="Start" 
+											HeightRequest="50" />
+                                            <Label Text="{Binding LblCaseManagement}"
+											AutomationId="AlblCaseManagement"
+											StyleClass="Dashhead" 
+											VerticalOptions="Start" 
+											TextColor="{DynamicResource Dashheadcolor}" 
+											HorizontalTextAlignment="Center" 
+											HorizontalOptions="CenterAndExpand" 
+											Margin="0,0,0,10" />
+                                        <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblCasesResolved}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding LblCaseInProgress}" 
+													Style="{DynamicResource Dashinfohighlight}" 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblCasesIn}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding LblCaseResolved}"
+													Style="{DynamicResource Dashinfohighlight}"  
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                    <!--Evaluate-->
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="1" 
+								Grid.Row="2" 
+								Margin="5">
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTappedEvaluate}" 
+										NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding ImgEvaluateIcon}" 
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                        <Label Text="{Binding LblEvaluateServices}" 
+										AutomationId="AlblEvaluateServices"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                        <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblReviewed}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" 
+													Text="{Binding LblReviewCount}" 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblWaiting}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding Lblreviewspendingcount}" 
+													Style="{DynamicResource Dashinfohighlight}"  
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                    <!--Invoice-->
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="0" 
+								Grid.Row="3" 
+								Margin="5">
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTappedInvoiceList}" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding ImgInvoiceIcon}" 
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                        <Label Text="{Binding LblInvoicing}"
+										AutomationId="AlblInvoicing"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                        <Label VerticalOptions="Start"  
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblNoOfInvoices}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding LblInvoicingCount}" 
+													Style="{DynamicResource Dashinfohighlight}" 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label VerticalOptions="Start"  
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblTotalPayable}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding LblInvoicingAmount}"
+													Style="{DynamicResource Dashinfohighlight}"   
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                    <!--Appointment-->
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								HasShadow="False" 
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="1"  
+								Grid.Row="3" 
+								Margin="5">
+                                    <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding OnTappedManualInspection}" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding ImgInspectionDash}" 
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                        <Label Text="{Binding LblBookForManual}"
+										AutomationId="AlblBookForManual"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                        <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblContainer}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Text="{Binding LblMIBContainerCount}" 
+													Style="{DynamicResource Dashinfohighlight}" 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text=" "/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+								HasShadow="False"  
+								CornerRadius="20" 
+								Padding="10,15,10,15" 
+								Grid.Column="0" 
+								Grid.Row="4"
+                                       IsVisible="{Binding IsVisibleAppointment}"
+								Margin="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+										Command="{Binding OnTappedAppointment}" 
+										NumberOfTapsRequired="1"/>
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout  VerticalOptions="StartAndExpand">
+                                            <Image Source="{Binding ImgAppointmentDash}" 
+										HorizontalOptions="CenterAndExpand" 
+										VerticalOptions="Start" 
+										HeightRequest="50"/>
+                                            <Label Text="{Binding LblAppointments}"
+										AutomationId="AlblAppointments"
+										StyleClass="Dashhead" 
+										VerticalOptions="Start" 
+										TextColor="{DynamicResource Dashheadcolor}" 
+										HorizontalTextAlignment="Center" 
+										HorizontalOptions="CenterAndExpand" 
+										Margin="0,0,0,10" />
+                                            <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text="{Binding LblContainers}" />
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                        <Span Text="{Binding LblAppointmentCount}"
+													Style="{DynamicResource Dashinfohighlight}" 
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                        <Span 
+													Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label VerticalOptions="Start" 
+										HorizontalOptions="CenterAndExpand" 
+										HorizontalTextAlignment="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													TextColor="{DynamicResource Dashinfocolor}" 
+													Text=" "/>
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}" />
+                                                        <Span Style="{DynamicResource Dashinfohighlight}" 
+													Text=" "
+													TextColor="{DynamicResource Dashinfohighlightcolor}" />
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													Text=" " 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                        <Span Style="{DynamicResource Dashinfo}" 
+													Text="" 
+													TextColor="{DynamicResource Dashinfocolor}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"  
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}" 
+                        IsVisible="{Binding IsBusy}"  
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

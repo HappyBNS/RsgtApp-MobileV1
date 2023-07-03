@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Biometricregister" FlowDirection="{DynamicResource pagedirection}" BackgroundImageSource="{DynamicResource Mainbgr}" NavigationPage.HasNavigationBar="false">
+    
+        <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--Gokul20220916 Remove AbosulteLayout-->
+            <StackLayout IsEnabled="{Binding StackBioMetric}"
+                         Orientation="Vertical"
+                         VerticalOptions="StartAndExpand"
+                         Spacing="0" Padding="10,0,10,0"  
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <!--<ActivityIndicator x:Name="defaultActivityIndicator" IsRunning="False" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{DynamicResource Primary}" />-->
+                <StackLayout Orientation="Vertical" VerticalOptions="Start" Margin="0,0,0,20">
+                    <Image x:Name="imgLogoWhite" Source="{Binding imgLogoWhite}" WidthRequest="280" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"></Image>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                    <Label Text="Enter UserName:" />
+                    <Entry x:Name="txtBioUserName" Placeholder="eMail ID" StyleClass="Entrytextregular" TextColor="{DynamicResource Primary}" />
+                    <Label x:Name="msgUserName" Text="Invalid UserName" Margin="0,0,0,5" FontFamily="Montserrat-Regular" TextColor="Red" FontSize="18" HorizontalOptions="StartAndExpand"/>
+
+                    <Label Text="Enter Password:" />
+                    <Entry x:Name="txtBioPassword" IsPassword="True" Placeholder="Password"  StyleClass="Entrytextregular" TextColor="{DynamicResource Primary}"/>
+                    <Label x:Name="msgPassword" Text="Invalid Password" Margin="0,0,0,5" FontFamily="Montserrat-Regular" TextColor="Red" FontSize="18" HorizontalOptions="StartAndExpand"/>
+
+                    <Button x:Name="btnBioRegister" Text="Bio Metric Register" StyleClass="buttxt20,primarybuttoncolor,buttextregular" Margin="0,30,0,0" CornerRadius="15" TextColor="White" Command="{Binding BioMetric_Clicked}" />
+                    <Label x:Name="msgInActive" Text="Your Account is Inactive" Margin="0,0,0,5" FontFamily="Montserrat-Regular" TextColor="Red" FontSize="18" HorizontalOptions="StartAndExpand"/>
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout
+               x:Name="aiLayout" 
+                IsVisible="{Binding IsBusy}" 
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All" 
+                BackgroundColor="{Binding IndicatorBGColor}"  
+                Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator x:Name="defaultActivityIndicator" 
+                IsRunning="{Binding IsBusy}" 
+                IsVisible="{Binding IsBusy}"
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="CenterAndExpand" 
+                Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Invoice">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+        <!-- <ToolbarItem Text="Settings" Priority="1" Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <!--<ScrollView>-->
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Padding="0" Margin="0">
+                <Frame CornerRadius="0" Padding="0" Margin="0">
+                    <Grid>
+                        <Image AutomationId="AImgPdf" x:Name="imgPDF"
+                               Source="PDF-icon" 
+                               Aspect="AspectFill" 
+                               Grid.Row="0"/>
+                        <StackLayout Orientation="Vertical" 
+                                     VerticalOptions="Center" 
+                                     Grid.Row="0">
+                            <Label x:Name="lblInvoicePDF" 
+                                   Text="InvoicePDF" 
+                                   StyleClass="txt24,textsemibold" 
+                                   TextColor="white" 
+                                   HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Frame Grid.Row="1"
+                   VerticalOptions="FillAndExpand" 
+                   Margin="0" 
+                   BackgroundColor="{DynamicResource contactpagebgrcolor}">
+                <StackLayout Orientation="Vertical" 
+                             VerticalOptions="FillAndExpand" >
+                    <WebView x:Name="InvoicePDFView"  
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="Start" 
+                             StyleClass="txt16,textregular"/>
+                 </StackLayout>
+            </Frame>
+        </Grid>
+       
+        <!--</ScrollView>-->
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.FAQ"  
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems >
+        <!--<ToolbarItem  Icon="notification_24.png"  Priority="1" Order="Primary"/>--> 
+        <!--<ToolbarItem Text="Settings" Priority="1" Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackFAQ}"
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand" 
+                         Spacing="0" 
+                         Padding="10,0,10,0" 
+                         IsVisible="true" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                                 Orientation="Horizontal" 
+                                 VerticalOptions="StartAndExpand" 
+                                 HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,0,0,10" 
+                                 Padding="0" 
+                                 Grid.Row="0">
+                        <Image Source="faq_menuicon.png" 
+                               HorizontalOptions="Center" 
+                               WidthRequest="25" 
+                               Margin="5,0,5,0"/>
+                        <Label  Text="{Binding Lbltest}" 
+                                Margin="5,0,5,0" 
+                                StyleClass="txt22, textsemibold" 
+                                HorizontalTextAlignment="Center" 
+                                TextColor="{DynamicResource Primary}"  
+                                HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <CollectionView ItemsSource="{Binding lstFAQs}" 
+                                    BackgroundColor="Transparent" 
+                                    SelectionMode="None" 
+                                    HorizontalScrollBarVisibility="Always" 
+                                    VerticalOptions="StartAndExpand"  
+                                    HorizontalOptions="FillAndExpand" 
+                                    Grid.Row="1" >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                           HasShadow="False" 
+                                           CornerRadius="20" 
+                                           Margin="5" >
+                                        <StackLayout Orientation="Vertical" 
+                                                     VerticalOptions="StartAndExpand">
+                                            <!--Tapped="Expander_Tapped"-->
+                                            <xct:Expander  
+                                            IsExpanded="{Binding Expander}">
+                                                <xct:Expander.Header>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="12"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <!--Text="{Binding Faq_Q}"-->
+                                                        <Label Text="{Binding Faq_Q}" 
+                                                               StyleClass="faqquestioncolor,faqquestion" 
+                                                               TextColor="{DynamicResource faqquestioncolor}" />
+                                                        <Image Source="down_arrow.png" 
+                                                               HorizontalOptions="End" 
+                                                               VerticalOptions="Center" 
+                                                               HeightRequest="10" 
+                                                               Grid.Column="1">
+                                                            <Image.Triggers>
+                                                                <DataTrigger TargetType="Image" 
+                                                                             Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                                    <Setter Property="Source" 
+                                                                            Value="up_arrow.png" />
+                                                                </DataTrigger>
+                                                            </Image.Triggers>
+                                                        </Image>
+                                                    </Grid>
+                                                </xct:Expander.Header>
+                                                <Grid>
+                                                    <StackLayout Orientation="Vertical" 
+                                                                 Padding="0,10,0,0">
+                                                        <StackLayout Orientation="Horizontal" 
+                                                                     VerticalOptions="StartAndExpand" 
+                                                                     Margin="0,0,0,5">
+                                                            <!--Text="{Binding Faq_A}"-->
+                                                            <Label Text="{Binding Faq_A}"  
+                                                                   StyleClass="faqanswercolor,faqanswer" 
+                                                                   TextColor="{DynamicResource faqanswercolor}" 
+                                                                   VerticalOptions="CenterAndExpand" 
+                                                                   HorizontalOptions="StartAndExpand" />
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </xct:Expander>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Gray" 
+                         Opacity="0.5">
+                <ActivityIndicator x:Name="FAQActivityIndicator" 
+                                   IsRunning="False" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

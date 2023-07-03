@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            
+                                              
+            x:Class="RsgtApp.ThemeMain" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False">
+         
+    <ContentPage.ToolbarItems>
+
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png"  Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+               
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="StartAndExpand" 
+                     Spacing="0" 
+                     Padding="15,0,15,0">
+            <Grid RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto">
+                        
+                    </RowDefinition>
+
+                    <RowDefinition Height="*">
+                        
+                    </RowDefinition>
+                    <RowDefinition Height="Auto">
+                        
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackLayout Spacing="0" 
+                             Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="0" >
+                    <Image x:Name="imgtheme" 
+                           Source="" 
+                           HorizontalOptions="Center" 
+                           WidthRequest="25" 
+                           Margin="5,0,5,0"/>
+                    <Label x:Name="lblChooseTheme" 
+                           Text="" Margin="5,0,5,0" 
+                           StyleClass="txt22, textsemibold" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+
+                    <!--<Label Text="Bayan: 104579" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Start" TextColor="white" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="Bill of Lading: 910218851" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Center" TextColor="white" FontSize="18" HorizontalOptions="Center"/>-->
+
+
+                </StackLayout>
+
+                <ScrollView Grid.Row="1" Margin="0,10,0,20">                    <StackLayout Padding="5">                        <Frame BackgroundColor="{DynamicResource frameprimary}"                                HasShadow="False"                                CornerRadius="20"                                 Padding="20,10,20,10" Margin="0,0,0,5" >                            <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">                                <Grid>                                    <Grid.ColumnDefinitions>                                        <ColumnDefinition Width="3*"/>                                        <ColumnDefinition Width="1*"/>                                    </Grid.ColumnDefinitions>                                    <RadioButton x:Name="btnLightTheme"                                              AutomationId="AbtnLightTheme"                                             GroupName="Themeopt"                                              Value="1"                                                 Content=""                                                 BackgroundColor="Transparent"                                                 WidthRequest="200"                                                  HorizontalOptions="Start"                                                 Grid.Column="0"                                             StyleClass="radiotxt16,radiotextregular"                                              TextColor="{DynamicResource radiotextcolor}"                                              IsChecked="False" CheckedChanged="OnLightThemeCheckedChanged">                                    </RadioButton>                                    <Image x:Name="imgLightThemeIcon"                                        Source=""                                        HorizontalOptions="EndAndExpand"                                        WidthRequest="70"                                         Grid.Column="1"                                       Margin="5,0,5,0"/>                                </Grid>                            </StackLayout>                        </Frame>                        <Frame BackgroundColor="{DynamicResource frameprimary}"                               HasShadow="False"                                CornerRadius="20"                                Padding="20,10,20,10"                               Margin="0,0,0,5"  >                            <StackLayout Orientation="Horizontal"                                          VerticalOptions="StartAndExpand">                                <Grid>                                    <Grid.ColumnDefinitions>                                        <ColumnDefinition Width="3*"/>                                        <ColumnDefinition Width="1*"/>                                    </Grid.ColumnDefinitions>                                    <RadioButton x:Name="btnDarkTheme"                                              AutomationId="AbtnDarkTheme"                                             GroupName="Themeopt"                                              Value="2"                                                   WidthRequest="200"                                                  HorizontalOptions="Start"                                             Content=""                                                   BackgroundColor="Transparent"                                                 Grid.Column="0"                                             StyleClass="radiotxt16,radiotextregular"                                              TextColor="{DynamicResource radiotextcolor}"                                               IsChecked="False"                                              CheckedChanged="OnDarkThemeCheckedChanged" >                                    </RadioButton>                                    <Image x:Name="imgDarktheme"                                        Source=""                                        HorizontalOptions="EndAndExpand"                                        WidthRequest="70"                                        Grid.Column="1"                                       Margin="5,0,5,0"/>                                </Grid>                            </StackLayout>                        </Frame>                                                                        <Frame BackgroundColor="{DynamicResource frameprimary}"                                HasShadow="False"                                CornerRadius="20"                                Padding="20,10,20,10"                                Margin="0,0,0,5">                            <StackLayout Orientation="Horizontal"                                     VerticalOptions="StartAndExpand">                                <Grid>                                    <Grid.ColumnDefinitions>                                        <ColumnDefinition Width="3*"/>                                        <ColumnDefinition Width="1*"/>                                    </Grid.ColumnDefinitions>                                    <RadioButton x:Name="btnSaudiTheme"                                           AutomationId="AbtnSaudiTheme"                                         GroupName="Themeopt"                                           Grid.Column="0"                                         Value="3"                                                  HorizontalOptions="Start"                                                  WidthRequest="200"                                                  BackgroundColor="Transparent"                                         Content=""                                                                                 StyleClass="radiotxt16,radiotextregular"                                          TextColor="{DynamicResource radiotextcolor}"                                          IsChecked="False"                                          CheckedChanged="OnSaudiThemeCheckedChanged">                                    </RadioButton>                                    <Image x:Name="imgGreentheme"                                   Source=""                                    HorizontalOptions="EndAndExpand"                                    WidthRequest="70"                                      Grid.Column="1"                                   Margin="5,0,5,0"/>                                </Grid>                            </StackLayout>                        </Frame>                    </StackLayout>                </ScrollView>
+                <StackLayout Orientation="Vertical" 
+                             Grid.Row="2">
+
+                    <Button x:Name="btnApply"
+                            AutomationId="AbtnApply"
+                            Text=""
+                            TextTransform="None" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            BorderColor="White"
+                            Clicked="applyThemes"
+                            CornerRadius="15" 
+                            Margin="0,0,0,20" >
+                        
+                    </Button>
+                    <Button x:Name="btnExit"
+                            AutomationId="AbtnExit"
+                            Text="" 
+                            TextTransform="None" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            BorderColor="White" 
+                            Clicked="ExitToMain" 
+                            CornerRadius="15" 
+                            Margin="0,0,0,20" >
+                    </Button>
+                </StackLayout>
+
+
+            </Grid>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"          
+             x:Class="RsgtApp.Views.Commoditypopup" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackCommodityPopup}"
+                     Orientation="Vertical" 
+                     Padding="5"  
+                     IsVisible="true" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" Grid.Row="0" Margin="0,0,0,10">
+                    <!--<ActivityIndicator 
+                    x:Name="popupActivityIndicator" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="Fill" 
+                    Color="{DynamicResource Primary}" />-->
+                    <Label Text="{Binding LblCommodityCodes}" 
+                           StyleClass="txt20,textsemibold" 
+                           TextColor="{DynamicResource popupheadcolor}" 
+                           HorizontalOptions="CenterAndExpand"/>
+                    <!--<Label Text="3 Bill of Ladings" 
+                    StyleClass="txt16,textmedium" 
+                    TextColor="{DynamicResource popupheadcolor}" 
+                    HorizontalOptions="CenterAndExpand"/>-->
+                </StackLayout>
+                <ScrollView BackgroundColor="Transparent" 
+                            HeightRequest="600" 
+                            Padding="0" 
+                            Grid.Row="1" 
+                            VerticalOptions="FillAndExpand">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                        <StackLayout Spacing="0" 
+                                     VerticalOptions="StartAndExpand" 
+                                     Margin="0,0,0,0" 
+                                     Padding="0" 
+                                     Grid.Row="0" >
+                            <Frame BackgroundColor="{DynamicResource Frameheadbgrcolor}" 
+                                   Padding="10" HasShadow="False" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                            <Label Text="{Binding LblCode}"  
+                                               StyleClass="txt16,textmedium" 
+                                               TextColor="{DynamicResource Frameheadtextcolor}" 
+                                               Margin="0" VerticalOptions="StartAndExpand" 
+                                               HorizontalTextAlignment="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="0"/>
+                                            <Label Text="{Binding LblDescription}"
+                                               WidthRequest="140" 
+                                               StyleClass="txt16,textmedium"
+                                               TextColor="{DynamicResource Frameheadtextcolor}" 
+                                               Margin="0" VerticalOptions="StartAndExpand" 
+                                               HorizontalTextAlignment="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout x:Name="CommodityPopup" 
+                                     Spacing="0" 
+                                     VerticalOptions="StartAndExpand" 
+                                     Margin="0,0,0,0" Padding="0" 
+                                     Grid.Row="1" >
+                            <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+                                   Padding="10,5,10,5" 
+                                   HasShadow="False" 
+                                   BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                <StackLayout BindableLayout.ItemsSource="{Binding lstCommodityPopup}" >
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="100"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label  Text="{Binding Code}" 
+                                                            StyleClass="txt16,textmedium" 
+                                                            TextColor="{DynamicResource Frameheadtextcolor}" 
+                                                            Margin="0" VerticalOptions="StartAndExpand" 
+                                                            HorizontalTextAlignment="Start" 
+                                                            HorizontalOptions="StartAndExpand" 
+                                                            Grid.Column="0"/>
+                                                    <Label x:Name="lblBuildingMaterial" 
+                                                           Text="{Binding Description}"   
+                                                           StyleClass="txt14,textregular" 
+                                                           TextColor="{DynamicResource Framebodytextcolor}" 
+                                                           Margin="5,0,0,0" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalTextAlignment="Start" 
+                                                           HorizontalOptions="StartAndExpand" 
+                                                           Grid.Column="1"/>
+                                                </Grid>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </ScrollView>
+                <Button Text="{Binding BtnOk}" 
+                StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                CornerRadius="15" 
+                TextColor="White" 
+                Margin="0,10,0,0" 
+                Command="{Binding ButtondismissBLpopup}" 
+                VerticalOptions="End" 
+                Grid.Row="2"></Button>
+            </Grid>
+        </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="Gray" 
+                         Opacity="0.5">
+                <ActivityIndicator x:Name="CommodityPopupActivityIndicator" 
+                                   IsRunning="False" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                FlowDirection="{DynamicResource pagedirection}"             BackgroundImageSource="{DynamicResource Mainbgr}" 
+             x:Class="RsgtApp.Views.ResendOTP_message">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"
+                            TextOverride="." />
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Padding="30,30,30,30"
+                         Orientation="Vertical"
+                         IsVisible="true" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <!--<ActivityIndicator x:Name="resendActivityIndicator" 
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Fill" 
+                                   Color="{DynamicResource Primary}"  />-->
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Image AutomationId="ARegIcon"
+                           x:Name="imgRegisterIcon" 
+                           Source="register_icon.png"
+                           VerticalOptions="Start" 
+                           HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="100"
+                           Margin="0,0,0,20"></Image>
+                    <Label x:Name="lblDearCustomer" 
+                           FontFamily="Montserrat-Regular" 
+                           TextColor="{DynamicResource Primaryframe}" 
+                           FontSize="24" 
+                           HorizontalOptions="CenterAndExpand"/>
+                    <Label  x:Name="lblMessage"
+                            Text="" Margin="0,20,0,30"
+                            FontFamily="Montserrat-Regular" 
+                            TextColor="{DynamicResource Primaryframe}"
+                            FontSize="18" 
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="CenterAndExpand"/>
+                    <Button AutomationId="AButOk"
+                            x:Name="btnOK" Text="" 
+                            StyleClass="Buttontextsmall,buttxt20,primarybuttoncolor,buttextregular" 
+                            CornerRadius="15"
+                            TextColor="White" 
+                            Margin="0,40,0,0" 
+                            Clicked="Button_Clicked"></Button>
+                </StackLayout>
+                
+            </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                             AbsoluteLayout.LayoutFlags="All" 
+                             BackgroundColor="Gray"  
+                             Opacity="0.5">
+                <ActivityIndicator x:Name="resendActivityIndicator" 
+                            IsRunning="False" 
+                            HorizontalOptions="CenterAndExpand" 
+                            VerticalOptions="CenterAndExpand"
+                            Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

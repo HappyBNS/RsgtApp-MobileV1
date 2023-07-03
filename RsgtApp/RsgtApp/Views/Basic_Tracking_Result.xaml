@@ -1,0 +1,1036 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.Basic_Tracking_Result" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" 
+                            TextOverride="." />
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="notification_24.png"  Priority="1" Order="Primary"/>-->
+        <!-- <ToolbarItem Icon="abouticon.png" Priority="2" Order="Primary"/>
+        <ToolbarItem Text="Settings" Priority="1" Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--Gokul20220916 Remove AbosulteLayout-->
+            <StackLayout  IsEnabled ="{Binding StackTrackingResult}" 
+                       Orientation="Vertical" 
+                       VerticalOptions="StartAndExpand" 
+                       Spacing="0" 
+                       Padding="10,0,10,0"  
+                       IsVisible="true" 
+                       AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                             VerticalOptions="StartAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="0">
+                        <Image  
+                           Source="track_icon_blue.png" 
+                           VerticalOptions="Start" 
+                           HorizontalOptions="Center" 
+                           Margin="0,0,0,0"  
+                           WidthRequest="170" 
+                           HeightRequest="70" ></Image>
+                        <Label  
+                           Text="{Binding LblTrackingResult}" 
+                           Margin="0,0,0,0" 
+                           StyleClass="txt24,textsemibold" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="{DynamicResource Primary}"  
+                           HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="StartAndExpand"
+                                 Margin="0,0,0,10"
+                                 Padding="0" 
+                                 Grid.Row="1" >
+                        <Grid>
+                            <Frame BackgroundColor="{DynamicResource Trackingframe}"
+                                   CornerRadius="20"
+                                   Margin="0,10,0,0"
+                                   Padding="20"
+                                   HasShadow="False">
+                                <xct:Expander>
+                                    <xct:Expander.Header>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label  
+                                                   Text="{Binding LblBayanNo}" 
+                                                   StyleClass="Frametextcolor,Frametextbold" />
+                                                <Label 
+                                                   Text="{Binding BayanNo}" 
+                                                   StyleClass="Frametextcolor,Frametextregular"/>
+                                            </StackLayout>
+                                            <Image  
+                                                   AutomationId="AimgDownArrowIcon"
+                                               Source="{Binding ImgDownArrowIcon}" 
+                                               HorizontalOptions="End" 
+                                               VerticalOptions="Center" 
+                                               HeightRequest="10">
+                                                <Image.Triggers>
+                                                    <DataTrigger TargetType="Image"
+                                                                 Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" 
+                                                                 Value="True">
+                                                        <Setter Property="Source" 
+                                                                Value="up_arrow_white.png" />
+                                                    </DataTrigger>
+                                                </Image.Triggers>
+                                            </Image>
+                                            <StackLayout Orientation="Horizontal"
+                                                         Grid.Row="1">
+                                                <Label  Text="{Binding LblBol}" 
+                                                        StyleClass="Frametextcolor,Frametextbold" />
+                                                <Label Text="{Binding BLNo}" 
+                                                       StyleClass="Frametextcolor,Frametextregular"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Grid.Row="2">
+                                                <Label Text="{Binding LblContainer}"
+                                                       StyleClass="Frametextcolor,Frametextbold" />
+                                                <Label Text="{Binding ContainerNo}" 
+                                                       StyleClass="Frametextcolor,Frametextregular"/>
+                                            </StackLayout>
+                                            <!--12-01-2022-Sanduru-->
+                                            <StackLayout Orientation="Horizontal" Grid.Row="3">
+                                                <Label  Text="{Binding lblCategory}" 
+                                                        StyleClass="Frametextcolor,Frametextbold" />
+                                                <Label Text="{Binding CategoryImpExp}"
+                                                       StyleClass="Frametextcolor,Frametextregular"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </xct:Expander.Header>
+                                    <StackLayout VerticalOptions="StartAndExpand" 
+                                                 Margin="0,5,0,10" 
+                                                 Padding="0">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label  Text="{Binding LblVesselVisitId}"
+                                                    StyleClass="Frametextcolor,Frametextbold" />
+                                            <Label  Text="{Binding VesselVisitId}" 
+                                                    StyleClass="Frametextcolor,Frametextregular"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="{Binding LblVesseName}" 
+                                                   StyleClass="Frametextcolor,Frametextbold" />
+                                            <Label  Text="{Binding VesseName}" 
+                                                    StyleClass="Frametextcolor,Frametextregular"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label  Text="{Binding LblVoyage}" 
+                                                    StyleClass="Frametextcolor,Frametextbold" />
+                                            <Label  Text="{Binding Voyage}" 
+                                                    StyleClass="Frametextcolor,Frametextregular"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label  Text="{Binding LblETA}" 
+                                                    StyleClass="Frametextcolor,Frametextbold" />
+                                            <Label  Text="{Binding ETA}"
+                                                    StyleClass="Frametextcolor,Frametextregular"/>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal" 
+                                                     IsVisible="{Binding IsVisibleEmptyDepot}">
+                                            <Label  Text="{Binding LblEmptyDepotFreeDays}"
+                                                    StyleClass="Frametextcolor,Frametextbold" />
+                                            <Label  Text="{Binding EmptyDepot}"
+                                                    StyleClass="Frametextcolor,Frametextregular"/>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal"
+                                                     IsVisible="{Binding IsVisibleDepotFreeDays}">
+                                            <Label  Text="{Binding LblDepotFreeDays}" 
+                                                    StyleClass="Frametextcolor,Frametextbold" />
+                                            <Label  Text="{Binding DepotFreeDays}" 
+                                                    StyleClass="Frametextcolor,Frametextregular"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </xct:Expander>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                    <!--Import-->
+                    <!--12-01-2022-Sanduru-->
+                    <Frame IsVisible ="{Binding IsVisibleBlImport}"
+                        BackgroundColor="{DynamicResource Trackingstatusframe}" 
+                       Grid.Row="2" 
+                       CornerRadius="20"  
+                       HasShadow="False" 
+                       VerticalOptions="EndAndExpand" 
+                       Padding="20">
+                        <ScrollView>
+                            <Frame BackgroundColor="Transparent" 
+                                   HasShadow="False" 
+                                   xct:ShadowEffect.Radius="20" 
+                                   CornerRadius="20" 
+                                   Padding="5" 
+                                   Margin="0,0,10,0">
+                                <StackLayout Orientation="Vertical" 
+                                         VerticalOptions="StartAndExpand" 
+                                         Spacing="0">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image Source="{Binding ImgStatusIconOnVessel}"
+                                                   WidthRequest="15" 
+                                                   Grid.Column="0"/>
+                                            <Label 
+                                               Text="{Binding LblOnVessel}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="StartAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="2"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                                Text="{Binding OnVessel}" 
+                                                StyleClass="Statusfont2, Statustext2" 
+                                                VerticalOptions="Start" 
+                                                HorizontalOptions="StartAndExpand" 
+                                                Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image  Source="{Binding ImgStatusIconUnderInspec}"
+                                                    WidthRequest="15"
+                                                    Grid.Column="0"/>
+                                            <Label  Text="{Binding LblUnderInspection}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" 
+                                                         WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding UnderInspection}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding ImgStatusIconInsComp}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label 
+                                               Text="{Binding LblInspectionCompleted}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" 
+                                                         WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                         WidthRequest="1" 
+                                                         HorizontalOptions="Center" 
+                                                         VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label  Text="{Binding InspectionCompleted}"
+                                                    StyleClass="Statusfont2, Statustext2"
+                                                    VerticalOptions="Start" 
+                                                    HorizontalOptions="StartAndExpand" 
+                                                    Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0" IsVisible="false">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding ImgStatusGreenIcon4}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label  
+                                               Text="{Binding LblContactShippingLine}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0"
+                                                         WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding ContactShippingLine}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding ImgStatusIconRFD2}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label  
+                                               Text="{Binding Lblportcharge}" 
+                                               StyleClass="Statusfont1, Statustext1"
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding WaitingForPortcharge}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding ImgStatusIconRFD}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label 
+                                               Text="{Binding LblReadForDelivery}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" 
+                                                         WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding RFD}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding ImgStatusIconPrePickUp}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label   
+                                               Text="{Binding LblPrePickUpIssued}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0"
+                                                         WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label   
+                                               Text="{Binding PrePickUp}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal"
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding ImgStatusIconGO}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label  
+                                               Text="{Binding LblGatedOut}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7"
+                                                     WidthRequest="0"
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               AutomationId="AGatedOut"
+                                               Text="{Binding GatedOut}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ScrollView>
+                    </Frame>
+                    <!--Export-->
+                    <!--12-01-2022-Sanduru-->
+                    <Frame IsVisible ="{Binding IsVisibleBlExport}"
+                        BackgroundColor="{DynamicResource Trackingstatusframe}"
+                       Grid.Row="2" 
+                       CornerRadius="20"  
+                       HasShadow="False" 
+                       VerticalOptions="EndAndExpand" 
+                       Padding="20">
+                        <ScrollView>
+                            <Frame BackgroundColor="Transparent" 
+                               xct:ShadowEffect.Radius="20" 
+                               HasShadow="False" 
+                               CornerRadius="20" 
+                               Padding="5" 
+                               Margin="0,10,0,0">
+                                <StackLayout Orientation="Vertical" 
+                                         VerticalOptions="StartAndExpand" 
+                                         Spacing="0">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image  
+                                               Source="{Binding Imgexpgatedin}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label   
+                                               Text="{Binding lblGatedin}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" 
+                                                         WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label  
+                                               Text="{Binding ReceivedGatedIn}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding Imgexpcustomsinspection}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label x:Name="lblCustomsInspection"  
+                                               Text="{Binding lblCustomsinspection}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding CustomsInspection}"
+                                               IsVisible="{Binding IsVisibleCustomInsp}"
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                            <Label 
+                                               Text="{Binding InspectionBookingMsg}"
+                                                IsVisible="{Binding IsVisibleInspectionBookingMsg}"
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                            Source="{Binding Imgexpexcesscargo}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label x:Name="lblColExcessCargo"  
+                                               Text="{Binding lblColexcesscargo}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding ColExcessCargo}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding Imgexpwaitshipline}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label   
+                                               Text="{Binding lblWaitshipline}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  Margin="0,0,0,0" Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label  
+                                               Text="{Binding WaitshiplineRelease}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image  
+                                               Source="{Binding Imgexpwaitcoldstorepayment}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label   
+                                               Text="{Binding lblWaitcoldstorepayment}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label  
+                                               Text="{Binding WaitColdstorepayment}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image  
+                                               Source="{Binding Imgexpwaitforrsgtpayment}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label  
+                                               Text="{Binding lblWaitforrsgtpayment}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding WaitforRSGTPayment}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0"
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image 
+                                               Source="{Binding Imgexpreadytoload}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label 
+                                               Text="{Binding lblReadytoload}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="1" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label 
+                                               Text="{Binding ReadytoLoad}" 
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="1">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <Image  
+                                               Source="{Binding Imgexploadedonvessel}" 
+                                               WidthRequest="15" 
+                                               Grid.Column="0"/>
+                                            <Label   
+                                               Text="{Binding lblLoadedonvessel}" 
+                                               StyleClass="Statusfont1, Statustext1" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" 
+                                                     Margin="0,0,0,0" 
+                                                     Grid.Row="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="20"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                            </Grid>
+                                            <StackLayout Grid.Column="0" WidthRequest="15" >
+                                                <BoxView Color="#93d6e7" 
+                                                     WidthRequest="0" 
+                                                     HorizontalOptions="Center" 
+                                                     VerticalOptions="FillAndExpand"/>
+                                            </StackLayout>
+                                            <Label  
+                                               Text="{Binding Loadedonvessel}"
+                                               IsVisible="{Binding IsVisibleLoadonvessel}"
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                            <Label 
+                                               Text="{Binding ContainerRolledMsg}"
+                                               IsVisible="{Binding IsVisibleContainerRolledMsg}"
+                                               StyleClass="Statusfont2, Statustext2" 
+                                               VerticalOptions="Start" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ScrollView>
+                    </Frame>
+                    <StackLayout VerticalOptions="StartAndExpand"  
+                             Margin="0,10,0,10" 
+                             Padding="0" 
+                             Grid.Row="3" >
+                        <Button 
+                            AutomationId="AbtnNotify"
+                            Text="{Binding BtnNotify}"  
+                            TextTransform="None" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            BorderColor="White" 
+                            CornerRadius="15" 
+                            Margin="0,0,0,0" 
+                            Grid.Row="2" 
+                            Command="{Binding gotoNotify}"></Button>
+                        <Button                           
+                            Text="Exit"  
+                            TextTransform="None" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            BorderColor="White" 
+                            CornerRadius="15" 
+                            Margin="0,0,0,0" 
+                            Command="{Binding gotoExit}"></Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             AbsoluteLayout.LayoutFlags="All" 
+                             BackgroundColor="{Binding IndicatorBGColor}"
+                             Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                        IsVisible="{Binding IsBusy}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand" 
+                                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

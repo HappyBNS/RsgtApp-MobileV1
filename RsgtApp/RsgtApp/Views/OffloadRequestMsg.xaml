@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.OffloadRequestMsg" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Mainbgr}" 
+             NavigationPage.HasNavigationBar="false">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"                            
+                           IconOverride="blank_icon.png"/>
+
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout IsEnabled="{Binding StackOffloadRequestMsg}" 
+                             Padding="30,30,30,30" 
+                             Orientation="Vertical" 
+                             IsVisible="true"                 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image Source="{Binding imgConfirmtick}" 
+                               VerticalOptions="Start" 
+                               HorizontalOptions="CenterAndExpand" 
+                               WidthRequest="100" 
+                               Margin="0,0,0,20" />
+                        <Label Text="{Binding lblDearCustomer}" 
+                               StyleClass="Heading1" 
+                               TextColor="{DynamicResource Primary}" 
+                               HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding lblRequestMsg}" 
+                               Margin="0,20,0,30" 
+                               StyleClass="Messagesmall" 
+                               TextColor="{DynamicResource Primary}" 
+                               HorizontalTextAlignment="Center" 
+                               HorizontalOptions="CenterAndExpand"/>
+                        <Button Text="{Binding BtnOk}" 
+                                StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                                CornerRadius="15" 
+                                Margin="0,0,0,0"
+                                Command="{Binding BtnloadRequestMsgPage}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout 
+                         IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+                    <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand" 
+                                    Color="{DynamicResource Primary}" />
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Themes.DarkTheme">
+
+    <!--Dark Theme start-->
+    <ImageSource x:Key="Mainbgr">bgrmain_dark.jpg</ImageSource>
+    <ImageSource x:Key="Primarybgr">bgrinside_dark.jpg</ImageSource>
+    <ImageSource x:Key="rsgtlogo">logo_white.png</ImageSource>
+
+    <!--ImageSource x:Key="Mainbgr">bgrmain_dark.jpg</ImageSource>
+        <ImageSource x:Key="Primarybgr">bgrinside_dark.jpg</ImageSource> -->
+
+    <!--Original #0073a2-->
+    <Color x:Key="Primary">#ffffff</Color>
+    <Color x:Key="Primaryframe">#0073a2</Color>
+    <Color x:Key="Secondary">#01adef</Color>
+    <Color x:Key="Darkgrey">#666666</Color>
+    <Color x:Key="placeholdercolor">#b3b2b2</Color>
+    <Color x:Key="navbarcolor">#44465a</Color>
+    <!--20220510 EntryBox-->
+    <Color x:Key="Entrytextbg">#36374b</Color>
+
+    <Color x:Key="popupbackground">#36374b</Color>
+
+    <Color x:Key="frameprimary">#36374b</Color>
+    <Color x:Key="framesecondary">#36374b</Color>
+    <Color x:Key="framefull">#36374b</Color>
+
+    <Style Class="primarybuttoncolor" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#0073a2"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+    <!--label color 20221121 Anand -->
+    <Style Class="primarylabelcolor" TargetType="Label">
+        <Setter Property="BackgroundColor" Value="#0073a2"/>
+        <Setter Property="TextColor" Value="White"/>
+       
+    </Style>
+    <!--Tracking page start-->
+    <Color x:Key="Trackingframe">#36374b</Color>
+    <Color x:Key="Trackingstatusframe">#36374b</Color>
+    <Style Class="Frametextcolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <Style Class="Statusfont1" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <Style Class="Statusfont2" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <!--Tracking page end-->
+
+    <!--Bayan start-->
+    <Color x:Key="Searchframe">#36374b</Color>
+    <Style Class="Bayantextcolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <Style Class="BLcolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <Style Class="Bayaninfocolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <Style Class="Inyardcolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#777777"/>
+    </Style>
+    <Style Class="Departedcolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#5cb85c"/>
+    </Style>
+    <Style Class="Bayanmorecolor" TargetType="Button">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <!--Bayan end-->
+
+    <!--Bayan filter screen start-->
+    <Style Class="Bayanbuttonfilter" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#36374b"/>
+    </Style>
+    <Style Class="Bayanfilterimagebutton" TargetType="ImageButton">
+        <Setter Property="BackgroundColor" Value="#36374b"/>
+    </Style>
+    <Color x:Key="Filterframebgr">#36374b</Color>
+    <Style Class="FilterFrameheading" TargetType="Label">
+        <Setter Property="TextColor" Value="#c8c8d2"/>
+    </Style>
+    <Color x:Key="optinfocolor">#c8c8d2</Color>
+    <!--Bayan filter screen end-->
+
+    <!--Container Detail screen start-->
+    <Color x:Key="captioncolor">#c8c8d2</Color>
+    <Color x:Key="infocolor">#c8c8d2</Color>
+
+    <!--Container Detail screen end-->
+
+    <!--Popup screen start-->
+    <Color x:Key="popupheadcolor">#c8c8d2</Color>
+    <Color x:Key="popupinfocolor">#c8c8d2</Color>
+
+    <!--Popup screen end-->
+
+    <!--Wallet screen start-->
+    <Color x:Key="walletheadcolor">#c8c8d2</Color>
+    <Color x:Key="walletamountcolor">#5cb85c</Color>
+
+    <Color x:Key="Frameheadbgrcolor">#666666</Color>
+    <Color x:Key="Framebodybgrcolor">#36374b</Color>
+    <Color x:Key="Frameheadtextcolor">#c8c8d2</Color>
+    <Color x:Key="Framebodytextcolor">#c8c8d2</Color>
+
+    <Color x:Key="radiotextcolor">#c8c8d2</Color>
+    <Color x:Key="confirmmessagetextcolor">#666666</Color>
+
+
+    <!--Wallet screen end-->
+
+    <!--card start-->
+    <Style Class="Cardinfocolor" TargetType="Label">
+        <Setter Property="TextColor" Value="#5cb85c"/>
+    </Style>
+    <!-- card end-->
+
+    <!--dashboad start-->
+    <Color x:Key="Dashheadcolor">#c8c8d2</Color>
+    <Color x:Key="Dashinfocolor">#c8c8d2</Color>
+    <Color x:Key="Dashinfohighlightcolor">#5cb85c</Color>
+    <!--dashboad end-->
+
+    <!--notification start-->
+    <Color x:Key="framenotification">#666666</Color>
+    <!--notification end-->
+
+    <!--Login and registration OTP start-->
+    <Style Class="Stepcoloractive" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#0073a2"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+    <Style Class="Stepcolorinactive" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="TextColor" Value="#0073a2"/>
+    </Style>
+    <!--Login and registration OTP end-->
+
+    <!--Account settings start-->
+    <Color x:Key="accprimarycolor">#c8c8d2</Color>
+    <!--Account settings end-->
+
+    <!--Faq start-->
+    <Color x:Key="faqquestioncolor">#c8c8d2</Color>
+    <Color x:Key="faqanswercolor">#c8c8d2</Color>
+    <!--Faq settings end-->
+
+    <!--Submenu start-->
+    <Color x:Key="Submenucolor">#c8c8d2</Color>
+
+    <!--Submenu end-->
+
+    <!--Vessel schedule start-->
+    <Color x:Key="vesselbgrcolor">#45465b</Color>
+    <Color x:Key="vesseltextcolor">#c8c8d2</Color>
+    <Color x:Key="tabindiccolor">#0073a2</Color>
+    <Color x:Key="tabactive">#01adef</Color>
+    <Color x:Key="tabinactive">#0073a2</Color>
+
+    <!--Vessel schedule end-->
+    <Color x:Key="contactpagebgrcolor">#45465b</Color>
+
+    <Style TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="BarTextColor" Value="White" />
+    </Style>
+
+    <!--Dark Theme end-->
+
+</ResourceDictionary>

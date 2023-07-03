@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.CMSGetPage">
+    
+        <StackLayout>
+        <ActivityIndicator x:Name="defaultActivityIndicator" Color="{DynamicResource Primary}" />
+            
+        <Editor x:Name="txtAccessID" Placeholder="Enter your AccessId" Text="RM010" HeightRequest="100" />
+            <Label x:Name="lblInfo1" Text="" FontSize="Medium"/>
+            <Label x:Name="lblStatus" Text="Started"></Label>
+    </StackLayout>
+
+   
+</ContentPage>

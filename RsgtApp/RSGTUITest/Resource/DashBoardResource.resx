@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicantName_Consignee" xml:space="preserve">
+    <value>Kumar</value>
+  </data>
+  <data name="AppoinmentBOL_Broker" xml:space="preserve">
+    <value>HUSR10013100</value>
+  </data>
+  <data name="AppoinmentContainer_Broker" xml:space="preserve">
+    <value>PCIU9470155</value>
+  </data>
+  <data name="AppoinmentTMSReference_Broker" xml:space="preserve">
+    <value>TAS20211123181736353</value>
+  </data>
+  <data name="BannedTruckNo_Transporter" xml:space="preserve">
+    <value>3754VLJ</value>
+  </data>
+  <data name="BannedtrucksContainer_Transporter" xml:space="preserve">
+    <value>SUDU8873366</value>
+  </data>
+  <data name="Bayan_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Bayan_Broker" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Bayan_Consignee" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Bayan_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BOL_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BOL_Broker" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BOL_Consignee" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BOL_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BookForManualBayan_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BookForManualBayan_Broker" xml:space="preserve">
+    <value>41795</value>
+  </data>
+  <data name="BookForManualBOL_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BookForManualBOL_Broker" xml:space="preserve">
+    <value>608862336</value>
+  </data>
+  <data name="BookForManualcontainer_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BookForManualcontainer_Broker" xml:space="preserve">
+    <value>GESU8071290</value>
+  </data>
+  <data name="CompanyName_Consignee" xml:space="preserve">
+    <value>ABC IMport &amp; Export</value>
+  </data>
+  <data name="Container_Agent" xml:space="preserve">
+    <value>MRKU5314409</value>
+  </data>
+  <data name="Container_Broker" xml:space="preserve">
+    <value>IMTU9069555</value>
+  </data>
+  <data name="Container_Consignee" xml:space="preserve">
+    <value>MNBU9014020</value>
+  </data>
+  <data name="Container_Transporter" xml:space="preserve">
+    <value>SENU5005467</value>
+  </data>
+  <data name="Customer_Agent" xml:space="preserve">
+    <value>3375217</value>
+  </data>
+  <data name="Customer_Broker" xml:space="preserve">
+    <value>3349392</value>
+  </data>
+  <data name="Customer_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Designation_Consignee" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="DetentionBayan_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DetentionBOL_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DetentionContainer_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DischargeDate_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DischargeDate_Broker" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DischargeDate_Consignee" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dwelldays_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dwelldays_Broker" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dwelldays_Consignee" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="EmptyuintContainer_Transporter" xml:space="preserve">
+    <value>HASU4464583</value>
+  </data>
+  <data name="EmptyunitBayan_Transporter" xml:space="preserve">
+    <value>249323</value>
+  </data>
+  <data name="EmptyunitBOL_Transporter" xml:space="preserve">
+    <value>JEDIMPSP4144E</value>
+  </data>
+  <data name="EmptyunitLastfreeDays_Transporter" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ESBilling_Consignee" xml:space="preserve">
+    <value>GOOD</value>
+  </data>
+  <data name="EScomments1_Consignee" xml:space="preserve">
+    <value>Service is Good</value>
+  </data>
+  <data name="ESDelivery_Consignee" xml:space="preserve">
+    <value>GOOD</value>
+  </data>
+  <data name="ESexperience_Consignee" xml:space="preserve">
+    <value>GOOD</value>
+  </data>
+  <data name="ESShipment_Consignee" xml:space="preserve">
+    <value>GOOD</value>
+  </data>
+  <data name="Evaluatebayan_Consignee" xml:space="preserve">
+    <value>39687</value>
+  </data>
+  <data name="FromAmount_Agent" xml:space="preserve">
+    <value>1123.00</value>
+  </data>
+  <data name="FromAmount_Broker" xml:space="preserve">
+    <value>2800.00</value>
+  </data>
+  <data name="FromAmount_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GatedoutDate_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GatedoutDate_Broker" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GatedoutDate_Consignee" xml:space="preserve">
+    <value />
+  </data>
+  <data name="InvoiceBOL_Agent" xml:space="preserve">
+    <value>XMNA29447700</value>
+  </data>
+  <data name="InvoiceBOL_Broker" xml:space="preserve">
+    <value>ZSN0510871</value>
+  </data>
+  <data name="InvoiceBOL_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Invoiceno_Agent" xml:space="preserve">
+    <value>CBI379906</value>
+  </data>
+  <data name="Invoiceno_Broker" xml:space="preserve">
+    <value>CBI399386</value>
+  </data>
+  <data name="Invoiceno_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NoofVisitors_Consignee" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="OpportunitiesIssueIdentified_Consignee" xml:space="preserve">
+    <value>NILL</value>
+  </data>
+  <data name="Payment_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Payment_Broker" xml:space="preserve">
+    <value>143800801049</value>
+  </data>
+  <data name="Payment_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ReportDamageBayanNo_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ReportDamageContainerNo_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ReportDamageinwords_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Search_Agent" xml:space="preserve">
+    <value>MRKU5314409</value>
+  </data>
+  <data name="Search_Broker" xml:space="preserve">
+    <value>IMTU9069555</value>
+  </data>
+  <data name="Search_Consignee" xml:space="preserve">
+    <value>EMCU6102440</value>
+  </data>
+  <data name="Search_Transporter" xml:space="preserve">
+    <value>SENU5005467</value>
+  </data>
+  <data name="ToAmount_Agent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToAmount_Broker" xml:space="preserve">
+    <value>2900.00</value>
+  </data>
+  <data name="ToAmount_Transporter" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TruckNo_Transporter" xml:space="preserve">
+    <value>3754VLJ</value>
+  </data>
+  <data name="VisitDuration_Consignee" xml:space="preserve">
+    <value>Three Hours</value>
+  </data>
+</root>

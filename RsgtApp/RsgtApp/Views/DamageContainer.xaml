@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:local="clr-namespace:Date1.Controls"
+             x:Name="MyPageDamageContainer"
+             x:Class="RsgtApp.Views.DamageContainer" FlowDirection="{DynamicResource pagedirection}" BackgroundImageSource="{DynamicResource Primarybgr}"  NavigationPage.HasNavigationBar="True" NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding DamageEn}" 
+			             Orientation="Vertical" 
+						 VerticalOptions="StartAndExpand" 
+						 Spacing="0" 
+						 Padding="10,0,10,0" 
+						 IsVisible="true" 
+						 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="1" 
+					       CornerRadius="20" 
+						   Margin="0,10,0,10" 
+						   HasShadow="False" 
+						   VerticalOptions="EndAndExpand" 
+						   Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <StackLayout>
+                            <StackLayout Orientation="Vertical"  
+							             HorizontalOptions="CenterAndExpand">
+                                <Image  Source="{Binding imgRequestIcon}" 
+								        HorizontalOptions="Center" 
+										WidthRequest="35" 
+										Margin="0,0,0,0"/>
+                                <Label Text="{Binding lblReportDamage}" 
+								       Margin="0,0,0,0" 
+									   StyleClass="txt18,textsemibold" 
+									   HorizontalTextAlignment="Center" 
+									   TextColor="{DynamicResource captioncolor}" 
+									   HorizontalOptions="StartAndExpand"/>
+                            </StackLayout>
+                            <BoxView HeightRequest=".3" 
+							         Margin="0,10,0,0" 
+									 Color="#c8c8d2"/>
+                            <ScrollView >
+                                <Frame BackgroundColor="Transparent" 
+								       xct:ShadowEffect.Radius="20" 
+									   HasShadow="False" 
+									   CornerRadius="20" 
+									   Padding="5" 
+									   Margin="0,0,0,0">
+                                    <StackLayout Orientation="Vertical" 
+									             Margin="0,10,0,0" 
+												 VerticalOptions="StartAndExpand" 
+												 Spacing="0">
+                                        <StackLayout Orientation="Vertical" Margin="0,0,0,0">
+                                            <Label   Text="{Binding lblContainerNo}"  
+											         StyleClass="txt16,textsemibold" 
+													 TextColor="{DynamicResource accprimarycolor}" 
+													 Margin="0,20,0,0" 
+													 HorizontalOptions="Start"/>
+                                            <Entry  Text="{Binding TxtContainerNo}"
+											        AutomationId="ATxtContainerNo"
+											        Placeholder="{Binding PlaceContainerNo}" 
+													StyleClass="Entrytextregular"
+                                                    BackgroundColor="{DynamicResource Entrytextbg}"
+													TextColor="{DynamicResource accprimarycolor}" 
+													Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgContainerNo}" 
+											        IsVisible="{Binding IsvalidatedContainerNo}" 
+													Margin="0,0,0,5" 
+													FontFamily="Montserrat-Regular" 
+													TextColor="Red" 
+													FontSize="18" 
+													HorizontalOptions="StartAndExpand"/>
+                                            <Label  Text="{Binding lblBillOfLading}"  
+											        StyleClass="txt16,textsemibold" 
+													TextColor="{DynamicResource accprimarycolor}" 
+													Margin="0,20,0,0" 
+													HorizontalOptions="Start"/>
+                                            <Entry  Text="{Binding TxtBOLNo}"
+                                                    AutomationId="ATxtBOLNo"											
+											        Placeholder="{Binding PlaceBOLNo}" 
+													StyleClass="Entrytextregular" 
+                                                    BackgroundColor="{DynamicResource Entrytextbg}"
+													TextColor="{DynamicResource accprimarycolor}" 
+													Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgBOLNo}" 
+											        IsVisible="{Binding IsvalidatedBOLNo}" 
+												    Margin="0,0,0,5" 
+													FontFamily="Montserrat-Regular" 
+													TextColor="Red" 
+													FontSize="18" 
+													HorizontalOptions="StartAndExpand"/>
+                                            <Label  Text="{Binding lblTypeOfDamage}" 
+											        StyleClass="txt16,textsemibold" 
+													TextColor="{DynamicResource accprimarycolor}" 
+													Margin="0,20,0,0" 
+													HorizontalOptions="Start"/>
+                                            <Picker   ItemsSource="{Binding lobjTypeOfDamage}" 
+											          AutomationId="AlobjTypeOfDamage"	
+                                                      ItemDisplayBinding="{Binding Key}"                                    
+                                                      SelectedItem="{Binding SelectedTypeOfDamage}"  
+													  Title="{Binding picTypeOfDamage}" 
+													  StyleClass="PrimaryPicker" 
+													  TextColor="{DynamicResource accprimarycolor}" 
+                                                       BackgroundColor="{DynamicResource Entrytextbg}"
+													  Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgTypeofDamage}" 
+											        IsVisible="{Binding IsvalidatedTypeDamage}" 
+													Margin="0,0,0,5" 
+													FontFamily="Montserrat-Regular" 
+													TextColor="Red" 
+													FontSize="18" 
+													HorizontalOptions="StartAndExpand"/>
+                                            <Label  x:Name="lblReportDate" 
+											        Text="{Binding lblReportDate}"  
+													StyleClass="txt16,textsemibold" 
+													TextColor="{DynamicResource accprimarycolor}" 
+													Margin="0,20,0,0" 
+													HorizontalOptions="Start"/>
+                                            <local:NullableDatePicker  NullableDate="{Binding DtReportDate}"
+											                          AutomationId="ADtReportDate"
+											                          x:Name="DtReportDate" 
+																	  StyleClass="Datetextregular" 
+																	  TextColor="{DynamicResource Primary}" 
+																	  Margin="0,10,0,10" />
+                                            <Label  Text="{Binding lblCauseDamage}" 
+											        StyleClass="txt16,textsemibold" 
+													TextColor="{DynamicResource accprimarycolor}" 
+													Margin="0,20,0,0" 
+													HorizontalOptions="Start"/>
+                                            <Picker   ItemsSource="{Binding lobjCauseDamage}"
+                                              AutomationId="AlobjCauseDamage"												
+                                              ItemDisplayBinding="{Binding Key}"                                    
+                                              SelectedItem="{Binding SelectedCauseDamage}"  
+											  Title="{Binding picCauseDamage}" 
+											  StyleClass="PrimaryPicker" 
+                                              BackgroundColor="{DynamicResource Entrytextbg}"
+											  TextColor="{DynamicResource accprimarycolor}" 
+											  Margin="0,0,0,0" />
+                                            <Label  Text="{Binding MsgCauseofDamage}" 
+											        IsVisible="{Binding IsvalidatedCauseDamage}" 
+													Margin="0,0,0,5" 
+													FontFamily="Montserrat-Regular" 
+													TextColor="Red" 
+													FontSize="18" 
+													HorizontalOptions="StartAndExpand"/>
+                                            <Button  Text="{Binding btnRetreiveDetail}"
+											AutomationId="AbtnRetreiveDetail"
+											TextTransform="None" 
+											StyleClass="buttxt20,primarybuttoncolor,buttextregular"  
+											CornerRadius="15" 
+											TextColor="White" 
+											Margin="0,20,0,0" 
+											Command="{Binding gotoRetreiveData}" />
+                                        </StackLayout>
+                                        <StackLayout Margin="0,20,0,0">
+                                            <Label  Text="{Binding lblContainerValidMg}"
+													IsVisible="{Binding IsValidatedContainerMsg}"
+											Margin="0,0,0,0" 
+											StyleClass="txt16,textregular" 
+											HorizontalTextAlignment="Center" 
+											TextColor="{DynamicResource infocolor}" 
+											HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                        <StackLayout Margin="0,20,0,0" 
+										HorizontalOptions="StartAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label  Text="{Binding lblDischarge}" 
+												StyleClass="txt16,textsemibold" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="Start"/>
+                                                <Label  Text="{Binding lblValDisharge}" 
+												IsVisible="{Binding isValDisharge}" 
+												StyleClass="txt16,textregular" 
+												TextColor="{DynamicResource accprimarycolor}"
+												Margin="0,0,0,0" 
+												HorizontalOptions="StartAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label  Text="{Binding lblGateOut}" 
+												StyleClass="txt16,textsemibold" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="Start"/>
+                                                <Label   Text="{Binding lblvalGateout}" 
+												IsVisible="{Binding isValGateout}" 
+												StyleClass="txt16,textregular" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="StartAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding lblEmptyDepot}" 
+												StyleClass="txt16,textsemibold" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="Start"/>
+                                                <Label  Text="{Binding lblValEmptyDepot}" 
+												IsVisible="{Binding isValEmptyDepot}" 
+												StyleClass="txt16,textregular" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="StartAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label   Text="{Binding lblDamageRemarks}" 
+												StyleClass="txt16,textsemibold" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="Start"/>
+                                                <Label   Text="{Binding lblValDamageRemark}" 
+												IsVisible="{Binding isValDamageRemark}" 
+												StyleClass="txt16,textregular" 
+												TextColor="{DynamicResource accprimarycolor}" 
+												Margin="0,0,0,0" 
+												HorizontalOptions="StartAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" Margin="0,20,0,0">
+                                            <Label  Text="{Binding lblDamageAttached}" 
+											LineHeight="1.5" 
+											StyleClass="txt16,textsemibold" 
+											TextColor="{DynamicResource accprimarycolor}" 
+											Margin="0,20,0,0"
+											HorizontalOptions="Start"/>
+                                            <Editor  Text="{Binding TxtDescribtion}" 
+                                                     AutomationId="ATxtDescribtion"
+											Placeholder="{Binding PlaceDescribtion}" 
+											StyleClass="Editortextregular" 
+											TextColor="{DynamicResource accprimarycolor}" 
+											Margin="0,0,0,20" 
+											HeightRequest="100" />
+                                            <Label  Text="{Binding lblAttachment}"  
+											StyleClass="txt20,textsemibold" 
+											TextColor="{DynamicResource accprimarycolor}" 
+											Margin="0,20,0,0" 
+											HorizontalOptions="Start"/>
+                                            <Button  Text="{Binding BtnChooseFile}"										
+											IsVisible="{Binding IsChoosefile}" 
+											TextTransform="None" 
+											HeightRequest="45" 
+											Padding="0" 
+											StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+											BorderColor="White" 
+											CornerRadius="12" 
+											Margin="0,5,0,5" 
+											Command="{Binding Button_Clicked}" />
+                                            <StackLayout Orientation="Horizontal">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="15"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <ImageButton  IsVisible="{Binding ImgCancel}"  
+													Source="cancel_icon.png" 
+													Grid.Column="0" 
+													WidthRequest="15"  
+													BackgroundColor="Transparent" 
+													Command="{Binding btnCancel}"
+													AutomationId="AImgCancel"
+													/>
+                                                    <Label   TextDecorations="Underline" 
+													Text="{Binding TxtFilename}" 
+													IsVisible="{Binding lblFilename}" 
+													StyleClass="txt14,textregular" 
+													TextColor="{DynamicResource Framebodytextcolor}" 
+													Margin="5,0,0,0" 
+													VerticalOptions="StartAndExpand" 
+													HorizontalTextAlignment="Start" 
+													HorizontalOptions="FillAndExpand" 
+													Grid.Column="1">
+                                                    </Label>
+                                                </Grid>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Button Text="{Binding lblSubmit}"
+										AutomationId="AlblSubmit"
+										TextTransform="None" 
+										StyleClass="buttxt20,primarybuttoncolor,buttextregular"  
+										CornerRadius="15" 
+										TextColor="White" 
+										Margin="0,10,0,0" 
+										Command="{Binding gotoDamageContainerMessage}" />
+                                    </StackLayout>
+                                </Frame>
+                            </ScrollView>
+                        </StackLayout>
+                    </Frame>
+                    <!--</StackLayout>-->
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}" 
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator x:Name="DamageConActivityIndicator" 
+                                   IsRunning="{Binding IsBusy}"
+								   IsVisible="{Binding IsBusy}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

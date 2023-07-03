@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Name="MyPageAddMoney"
+             x:Class="RsgtApp.Views.AddMoneytoWallet" FlowDirection="{DynamicResource pagedirection}" BackgroundImageSource="{DynamicResource Primarybgr}" NavigationPage.HasNavigationBar="True" NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

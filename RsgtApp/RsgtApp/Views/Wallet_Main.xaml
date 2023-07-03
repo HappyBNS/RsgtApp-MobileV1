@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Wallet_Main" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Mainbgr}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" 
+                     Priority="1" 
+                     Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackWalletMain}"
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand"
+                         IsVisible="true"
+                         Spacing="0" 
+                         Padding="10,0,10,0"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />                       
+                    </Grid.RowDefinitions>
+                  
+                    <StackLayout Spacing="0" 
+                             Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="10" 
+                             Grid.Row="0" >
+                        <Image Source="{Binding ImgWalletMenuIcon}" 
+                           HorizontalOptions="Center" 
+                           WidthRequest="25" 
+                           Margin="5,0,5,0"/>
+                        <Label Text="{Binding LblWallet}" 
+                           Margin="5,0,5,0" 
+                           StyleClass="txt22, textsemibold" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="{DynamicResource Primary}" 
+                           HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <ScrollView Grid.Row="1">
+                        <StackLayout Orientation="Vertical" >
+                            <Frame BackgroundColor="{DynamicResource Trackingframe}" 
+                               CornerRadius="20" 
+                               Margin="5,10,5,10" 
+                               HasShadow="False" 
+                               VerticalOptions="StartAndExpand" 
+                               Padding="20,15,20,15">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding ImgWallet}" 
+                                       HorizontalOptions="Start" 
+                                       VerticalOptions="Center" 
+                                       HeightRequest="60" 
+                                       Margin="0,0,0,0" 
+                                       Grid.Column="0"/>
+                                    <ImageButton Source="reset.png"
+                                       BackgroundColor="Transparent" 
+                                       Grid.Column="1" 
+                                       HorizontalOptions="EndAndExpand" 
+                                       VerticalOptions="End" 
+                                       HeightRequest="30" 
+                                       Padding="5" 
+                                       Margin="10,0,0,0"
+                                       Command="{Binding BtnReset}"/>
+                                    <StackLayout Orientation="Vertical" 
+                                             HorizontalOptions="EndAndExpand" 
+                                             Margin="0,0,0,0" 
+                                             Grid.Column="2">
+                                        <Label Text="{Binding LblMyWallet}" 
+                                           Margin="0,0,0,0" StyleClass="txt18,textmedium" HorizontalTextAlignment="End" TextColor="{DynamicResource walletheadcolor}" HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding GetWalletBallance}" 
+                                           Margin="0,0,0,0" 
+                                           StyleClass="txt24,textsemibold" 
+                                           HorizontalTextAlignment="End" 
+                                           TextColor="{DynamicResource walletamountcolor}" 
+                                           HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding lblOnHold}"  Margin="0,0,0,0"
+                                               StyleClass="txt18,textmedium" HorizontalTextAlignment="End"
+                                               TextColor="{DynamicResource walletheadcolor}"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding GetHoldBallance}" 
+                                           Margin="0,0,0,0" 
+                                           StyleClass="txt20,textsemibold" 
+                                           HorizontalTextAlignment="End" 
+                                           TextColor="Orange" 
+                                           HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+
+                            <StackLayout VerticalOptions="Start">
+                                <!--<Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>-->
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" 
+                                       Padding="10" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" 
+                                                               Command="{Binding AddMoneyTapped}" />
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="CenterAndExpand" 
+                                                 VerticalOptions="StartAndExpand"   
+                                                 Padding="0">
+                                        <Image Source="{Binding ImgAddMoney}" 
+                                               HorizontalOptions="Center" 
+                                               WidthRequest="60" 
+                                               Margin="10,0,10,0"/>
+                                        <Label Text="{Binding LblAddMoney}" 
+                                               Padding="0" 
+                                               StyleClass="Submenufont" 
+                                               HorizontalOptions="CenterAndExpand" 
+                                               HorizontalTextAlignment="Center" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               TextColor="{DynamicResource Submenucolor}" />
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" 
+                                       Padding="10" 
+                                       IsVisible="false"
+                                       Grid.Column="1" >
+                                    <!--<Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" Tapped="RefundMoney_Tapped"/>
+                                    </Frame.GestureRecognizers>-->
+                                    <StackLayout Orientation="Vertical" 
+                                                 HorizontalOptions="CenterAndExpand" 
+                                                 VerticalOptions="StartAndExpand"   
+                                                 Padding="0">
+                                        <Image Source="{Binding ImgRefund}" 
+                                               HorizontalOptions="Center" 
+                                               WidthRequest="60" 
+                                               Margin="10,0,10,0"/>
+                                        <Label Text="{Binding LblRefundMoney}" 
+                                               Padding="0" 
+                                               StyleClass="Submenufont" 
+                                               HorizontalOptions="CenterAndExpand" 
+                                               HorizontalTextAlignment="Center" 
+                                               VerticalOptions="CenterAndExpand" 
+                                               TextColor="{DynamicResource Submenucolor}" />
+                                    </StackLayout>
+                                </Frame>
+                                <!--</Grid>-->
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                   HasShadow="False" 
+                                   CornerRadius="15" 
+                                   Margin="5" 
+                                   IsVisible="true"
+                                   Padding="10" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" 
+                                                           Command="{Binding TransactionhistoryTapped}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Vertical" 
+                                             HorizontalOptions="CenterAndExpand" 
+                                             VerticalOptions="StartAndExpand"   
+                                             Padding="0">
+                                        <Image Source="{Binding ImgTransHistory}" 
+                                           HorizontalOptions="Center" 
+                                           WidthRequest="60" 
+                                           Margin="10,0,10,0"/>
+                                        <Label Text="{Binding LblTransHistory}" 
+                                           Padding="0" 
+                                           StyleClass="Submenufont" 
+                                           HorizontalOptions="CenterAndExpand" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalOptions="CenterAndExpand" 
+                                           TextColor="{DynamicResource Submenucolor}" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}" 
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

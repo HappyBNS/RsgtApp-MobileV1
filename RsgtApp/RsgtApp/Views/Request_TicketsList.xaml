@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="MyPageTicketlist" 
+             x:Class="RsgtApp.Views.Request_TicketsList" 
+			 FlowDirection="{DynamicResource pagedirection}" 
+			 BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True"
+			 NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding Enticket}"
+			Orientation="Vertical" 
+			VerticalOptions="StartAndExpand" 
+			Spacing="0"
+			Padding="10,0,10,0" 
+			IsVisible="{Binding IsVisibleTicketMain}" 
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0"
+					Orientation="Horizontal"
+					HorizontalOptions="CenterAndExpand" 
+					Margin="0,0,0,10" 
+					Padding="0"
+					Grid.Row="0">
+                        <Image Source="{Binding ImgTicketIcondark}"
+						AutomationId="AImgTicketIcondark"
+						HorizontalOptions="Center" 
+						WidthRequest="25" 
+						Margin="5,0,5,0"/>
+                        <Label Text="{Binding TotalRecordCount}"
+						Margin="5,0,5,0"
+						StyleClass="txt22, textsemibold"
+						HorizontalTextAlignment="Center"
+						TextColor="{DynamicResource Primary}" 
+						HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="StartAndExpand"
+					Margin="0,0,0,10"
+					Padding="0" 
+					Grid.Row="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Frame BackgroundColor="{DynamicResource Searchframe}" 
+							HasShadow="False"
+							CornerRadius="15" 
+							HeightRequest="55" 
+							Margin="0,10,0,0" 
+							Padding="15,0,15,0" 
+							Grid.Column="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Entry Text="{Binding Searchbox}" 
+                                     AutomationId="ASearchbox"
+									 Placeholder="{Binding TxtSearch}"
+                                           
+									StyleClass="Entrytextregular" 
+									TextColor="White"
+									Grid.Column="0"
+									BackgroundColor="{DynamicResource Searchframe}"></Entry>
+                                    <ImageButton  Source="{Binding ImgSearch}" 
+									AutomationId="AImgSearch"
+									HeightRequest="20"
+									WidthRequest="20"
+									BackgroundColor="Transparent" 
+									Grid.Column="1" 
+									Command="{Binding SearchClicked}" ></ImageButton>
+                                </Grid>
+                            </Frame>
+                            <Frame BackgroundColor="{DynamicResource Searchframe}"
+							HasShadow="False" 
+							CornerRadius="15"
+							HeightRequest="55"
+							Margin="0,10,0,0" 
+							Padding="15,0,15,0"
+							Grid.Column="1">
+                                <ImageButton  Source="{Binding ImgFilter}"
+								AutomationId="AImgFilter"
+								HeightRequest="20" 
+								WidthRequest="20" 
+								BackgroundColor="Transparent"
+								Command="{Binding FilterClicked}"></ImageButton>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                    <CollectionView x:Name="GridTicketlist" ItemsSource="{Binding lstTicketlist}" 
+					HorizontalScrollBarVisibility="Always" 
+                    ItemsUpdatingScrollMode="KeepScrollOffset"
+					SelectionMode="None"  
+					VerticalOptions="FillAndExpand" 
+					HorizontalOptions="FillAndExpand" 
+					Grid.Row="2" >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame HasShadow="False" 
+									CornerRadius="20" 
+									Margin="5" >
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="1,10"
+											EndPoint="1,0">
+                                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                                              Offset="0.9"/>
+                                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                                              Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <StackLayout Orientation="Vertical"
+										VerticalOptions="StartAndExpand">
+                                            <StackLayout VerticalOptions="StartAndExpand" Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical"
+													Grid.Column="0">
+                                                        <Label Text="{Binding lblTicketNo}" 
+														StyleClass="BLcolor, BLtext"
+														 ></Label>
+                                                        <Label Text="{Binding TicketNo}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext"
+														TextDecorations="Underline">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer 
+                                                                    Command="{Binding Source={x:Reference MyPageTicketlist},
+                                                                    Path=BindingContext.Ticketdeta}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    NumberOfTapsRequired="1"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </StackLayout>
+                                                    <StackLayout  Orientation="Vertical"
+													Grid.Column="1">
+                                                        <Label Text="{Binding lblStatus}"
+														StyleClass="BLcolor, BLtext"
+														VerticalOptions="StartAndExpand" 
+														HorizontalOptions="StartAndExpand" ></Label>
+                                                        <Frame BackgroundColor="{Binding StatusColor}" 
+														VerticalOptions="Center"     
+														HeightRequest="20" 
+														CornerRadius="15"
+														Padding="15,5,15,5"
+														HorizontalOptions="StartAndExpand" 
+														HasShadow="False">
+                                                            <Label Text="{Binding Status}"
+															StyleClass="Bayanstatustext" 
+                                                                   HorizontalTextAlignment="Center"
+															TextColor="White"></Label>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="StartAndExpand" 
+                                                         Orientation="Vertical" 
+											Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout HorizontalOptions="Start"
+													Orientation="Vertical"
+													Grid.Column="0">
+                                                        <Label Text="{Binding lblCasetitle1}"  
+														StyleClass="BLcolor, BLtext"
+                                                        ></Label>
+                                                        <Label Text="{Binding Casetitle}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext" 
+														 ></Label>
+                                                    </StackLayout>
+                                                    <StackLayout HorizontalOptions="Start"
+													Orientation="Vertical"
+													Grid.Column="1">
+                                                        <Label Text="{Binding lblCategory}"
+														StyleClass="BLcolor, BLtext" 
+														 ></Label>
+                                                        <Label Text="{Binding Category}"
+														StyleClass="Bayaninfocolor, Bayaninfotext"></Label>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="StartAndExpand" 
+                                                         Orientation="Vertical" 
+											Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical"
+													VerticalOptions="StartAndExpand"
+													Grid.Column="0">
+                                                        <Label Text="{Binding lblCaseType}" 
+														StyleClass="BLcolor, BLtext"
+														></Label>
+                                                        <Label Text="{Binding CaseType}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext"></Label>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" 
+													Grid.Column="1">
+                                                        <Label Text="{Binding lblSubType}" 
+														StyleClass="BLcolor, BLtext"
+														VerticalOptions="StartAndExpand" 
+														HorizontalOptions="StartAndExpand" ></Label>
+                                                        <Label Text="{Binding SubType}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext"></Label>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="StartAndExpand" 
+                                                         Orientation="Vertical"
+											Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical"
+													Grid.Column="0">
+                                                        <Label Text="{Binding lblOrigin}" 
+														StyleClass="BLcolor, BLtext" 
+														 ></Label>
+                                                        <Label Text="{Binding Origin}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext"></Label>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" 
+													Grid.Column="1">
+                                                        <Label Text="{Binding lblCreatedOn}"
+														StyleClass="BLcolor, BLtext"></Label>
+                                                        <Label Text="{Binding CreatedOn}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext, txt12"></Label>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="StartAndExpand" 
+                                                         Orientation="Vertical"
+											Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical"
+													Grid.Column="0">
+                                                        <Label  Text="{Binding lblCompletedOn}" 
+														StyleClass="BLcolor, BLtext"></Label>
+                                                        <Label Text="{Binding CompletedOn}" 
+														StyleClass="Bayaninfocolor, Bayaninfotext, txt12"></Label>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.Footer>
+                            <StackLayout Padding="5" 
+							IsVisible="true">
+                                <Button Text="{Binding btnLoadMore}"  
+                                AutomationId="AIsBusy"								
+								IsVisible="false"
+								StyleClass="buttxt20,primarybuttoncolor,buttextregular"
+								Margin="0,30,0,0"
+								CornerRadius="15" 
+								TextColor="White" 
+								Command="{Binding gotoLoadMore}"></Button>
+                            </StackLayout>
+                        </CollectionView.Footer>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout  Orientation="Vertical" IsEnabled="{Binding Enticket}" 
+			VerticalOptions="StartAndExpand"
+			Spacing="0" Padding="10,0,10,0" 
+			IsVisible="{Binding IsVisibleTicketFilter}"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+				Orientation="Horizontal" 
+				Padding="30" 
+				Grid.Row="0" >
+                        <Image AutomationId="AImgFliterblue" 
+                               Source="filter_blue.png" 
+						Margin="0,0,10,0" 
+						WidthRequest="24" 
+						HorizontalOptions="Start" ></Image>
+                        <Label Text="{Binding LblFilters}" 
+					Margin="0,3,0,0" 
+					StyleClass="txt20,textsemibold" 
+					HorizontalTextAlignment="Start" 
+					TextColor="{DynamicResource Primary}" 
+					HorizontalOptions="Start" />
+                        <Button AutomationId="AImgApplyId" 
+                                Text="{Binding BtnApply}" 
+						HeightRequest="35" 
+						WidthRequest="85" 
+						StyleClass="buttxt14, buttextregular, Bayanbuttonfilter" 
+						BorderWidth="1" 
+						BorderColor="Transparent" 
+						CornerRadius="15" 
+						TextColor="White"
+						HorizontalOptions="EndAndExpand" 
+						Margin="0,0,10,0"
+						Command="{Binding ButtonClickedApply}"></Button>
+                        <ImageButton AutomationId="AImgReset"
+                                     Source="{Binding ImgReset}" 
+						HeightRequest="20"
+						Aspect="AspectFill" 
+						Padding="8" 
+						WidthRequest="35" 
+						StyleClass="buttxt14,buttextregular, Bayanfilterimagebutton" 
+						CornerRadius="18" 
+						BorderWidth="1" 
+						BorderColor="Transparent" 
+						HorizontalOptions="End" 
+						Margin="0,0,10,0"
+						Command="{Binding ButtonClickedCancel}" ></ImageButton>
+                        <Button AutomationId="AButtonClickedCancel" 
+                                Text="X"
+                                WidthRequest="35"
+						HeightRequest="20"
+						StyleClass="buttxt14, buttextregular, Bayanbuttonfilter"
+						BorderWidth="1"
+						BorderColor="Transparent" 
+						CornerRadius="18"
+						TextColor="White" 
+						HorizontalOptions="End" 
+						Command="{Binding ButtonReset}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout Spacing="0"
+				VerticalOptions="StartAndExpand"
+				Margin="0,0,0,10"
+				Padding="0" 
+				Grid.Row="1" >
+                        <ScrollView>
+                            <StackLayout Orientation="Vertical">
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}"
+							HasShadow="False"
+							CornerRadius="20"
+							Margin="5" 
+							VerticalOptions="Start" >
+                                    <xct:Expander IsExpanded="{Binding IsExpandedStatus}">
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblStatus}" 
+											StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image AutomationId="AImgDownArrow1" 
+                                                   Source="{Binding ImgDownArrow1}" 
+											HorizontalOptions="End" 
+											VerticalOptions="Center"
+											HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+													Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                            <Setter Property="Source"
+														Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+									Padding="0,10,0,0" >
+                                            <StackLayout  BindableLayout.ItemsSource="{Binding lstFilterStatusData}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal"
+													VerticalOptions="Start" 
+													Margin="0,0,0,0">
+                                                            <CheckBox IsChecked="{Binding isChecked}" 
+                                                                  AutomationId="isChecked1"
+														Color="{DynamicResource optinfocolor}"
+														HorizontalOptions="Start"
+														VerticalOptions="Center"  />
+                                                            <Label  Text="{Binding CmbStatus}" 
+														Margin="0,0,0,0"
+														StyleClass="txt14, textregular"
+														TextColor="{DynamicResource optinfocolor}"
+														VerticalOptions="Center" 
+														HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}" 
+							HasShadow="False"
+							CornerRadius="20" 
+							Margin="5"
+							VerticalOptions="Start">
+                                    <xct:Expander IsExpanded="{Binding IsExpandedCategory}">
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblCategory}"
+											StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image AutomationId="AImgDownArrow2" 
+                                                   Source="{Binding ImgDownArrow2}"
+											HorizontalOptions="End" 
+											VerticalOptions="Center" 
+											HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image" 
+													Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                            <Setter Property="Source"
+														Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical" 
+									Padding="0,10,0,0" >
+                                            <StackLayout  BindableLayout.ItemsSource="{Binding lstFilterCategoryData}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal"
+													VerticalOptions="Start" 
+													Margin="0,0,0,0">
+                                                            <CheckBox IsChecked="{Binding isChecked}"
+                                                                  AutomationId="AisChecked2"
+														Color="{DynamicResource optinfocolor}"
+														HorizontalOptions="Start"
+														VerticalOptions="Center" />
+                                                            <Label Text="{Binding CmbCategory}"
+														Margin="0,0,0,0"
+														StyleClass="txt14, textregular"
+														TextColor="{DynamicResource optinfocolor}"  
+														VerticalOptions="Center" 
+														HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Frame BackgroundColor="{DynamicResource Filterframebgr}" 
+							HasShadow="False" 
+							CornerRadius="20" 
+							Margin="5" 
+							VerticalOptions="Start">
+                                    <xct:Expander IsExpanded="{Binding IsExpandedType}">
+                                        <xct:Expander.Header>
+                                            <Grid>
+                                                <Label Text="{Binding LblType}" 
+											StyleClass="textregular, txt18, FilterFrameheading"></Label>
+                                                <Image AutomationId="AImgDownArrow3" Source="{Binding ImgDownArrow3}" 
+											HorizontalOptions="End" 
+											VerticalOptions="Center"
+											HeightRequest="10">
+                                                    <Image.Triggers>
+                                                        <DataTrigger TargetType="Image"
+													Binding="{Binding Source={RelativeSource AncestorType={x:Type xct:Expander}}, Path=IsExpanded}" Value="True">
+                                                            <Setter Property="Source"
+														Value="up_arrow.png" />
+                                                        </DataTrigger>
+                                                    </Image.Triggers>
+                                                </Image>
+                                            </Grid>
+                                        </xct:Expander.Header>
+                                        <StackLayout Orientation="Vertical"
+									Padding="0,10,0,0" >
+                                            <StackLayout  BindableLayout.ItemsSource="{Binding lstFiltertypeData}">
+                                                <BindableLayout.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout Orientation="Horizontal"
+														VerticalOptions="Start" 
+														Margin="0,0,0,0">
+                                                            <CheckBox IsChecked="{Binding isChecked}"
+                                                                      AutomationId="AisChecked3"
+															Color="{DynamicResource optinfocolor}"
+															HorizontalOptions="Start" 
+															VerticalOptions="Center" />
+                                                            <Label Text="{Binding CmbType}" 
+															Margin="0,0,0,0" 
+															StyleClass="txt14, textregular" 
+															TextColor="{DynamicResource optinfocolor}" 
+															VerticalOptions="Center" 
+															HorizontalOptions="Start"/>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </BindableLayout.ItemTemplate>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </xct:Expander>
+                                </Frame>
+                                <Label Text="{Binding LblTicket}" 
+							Margin="10,20,10,0" 
+							StyleClass="txt14,textsemibold"
+							HorizontalTextAlignment="Start" 
+							TextColor="{DynamicResource Primary}" 
+							HorizontalOptions="Start" />
+                                <Entry AutomationId="AEtyTicketno"
+                                       Text="{Binding TxtTicketNo}"
+								Placeholder="{Binding PlaceTicketNo }" 
+								StyleClass="Entrytextregular"
+								TextColor="{DynamicResource accprimarycolor}"
+                                BackgroundColor="{DynamicResource Entrytextbg}"
+								Margin="10,0,10,10"></Entry>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout  IsVisible="{Binding IsBusy}" 
+                          AbsoluteLayout.LayoutBounds="0,0,1,1"
+                          AbsoluteLayout.LayoutFlags="All" 
+                          BackgroundColor="{Binding IndicatorBGColor}" 
+                          Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                                   IsRunning="{Binding IsBusy}"
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

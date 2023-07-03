@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="MyPageSurveyForm"
+             xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="RsgtApp.Views.SurveyForm"
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  IsEnabled="{Binding StackSurveyForm}"
+                              Orientation="Vertical" 
+                              VerticalOptions="StartAndExpand" 
+                              Spacing="0"
+                              Padding="10,0,10,0"
+                              IsVisible="true" 
+                              AbsoluteLayout.LayoutBounds="0,0,1,1"
+                              AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0">
+                        <Label  Text="{Binding LblPleaseImprove}" 
+                                Margin="0,0,0,0" 
+                                StyleClass="txt14,textregular" 
+                                HorizontalTextAlignment="Center" 
+                                TextColor="{DynamicResource Primary}" 
+                                HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <Frame     Grid.Row="1" 
+                               CornerRadius="20"
+                               Margin="0,10,0,10" 
+                               HasShadow="False" 
+                               VerticalOptions="EndAndExpand"
+                               Padding="20">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="1,10" 
+                                                 EndPoint="1,0">
+                                <GradientStop Color="{DynamicResource frameprimary}"
+                                              Offset="0.9"/>
+                                <GradientStop Color="{DynamicResource frameprimary}" 
+                                              Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <StackLayout>
+                            <StackLayout Orientation="Vertical" 
+                                             HorizontalOptions="CenterAndExpand">
+                                <Image AutomationId="AImgEvaluForm"
+                                       Source="{Binding imgEvaluationForm}" 
+                                            HorizontalOptions="Center"
+                                            WidthRequest="35"
+                                            Margin="0,0,0,0"/>
+                                <Label  Text="{Binding lblEvaluationForm}"
+                                            Margin="0,0,0,0" 
+                                            StyleClass="txt22,textsemibold" 
+                                            HorizontalTextAlignment="Start" 
+                                            TextColor="{DynamicResource captioncolor}" 
+                                            HorizontalOptions="StartAndExpand"/>
+                            </StackLayout>
+                            <BoxView HeightRequest=".3" 
+                                         Margin="0,0,0,0"
+                                         Color="#c8c8d2"/>
+                            <StackLayout Orientation="Vertical"
+                                             HorizontalOptions="CenterAndExpand">
+                                <Label   Text="{Binding lblBayan}" 
+                                             Margin="5,0,5,0"
+                                             StyleClass="txt14,textregular"
+                                             HorizontalTextAlignment="Center" 
+                                             TextColor="{DynamicResource captioncolor}"
+                                             HorizontalOptions="CenterAndExpand"/>
+                                <Label   Text="{Binding lblBOL}" 
+                                             Margin="5,0,5,0" 
+                                             StyleClass="txt14,textregular" 
+                                             HorizontalTextAlignment="Center" 
+                                             TextColor="{DynamicResource captioncolor}" 
+                                             HorizontalOptions="CenterAndExpand"/>
+                                <Label   Text="{Binding lblBlgkey}" 
+                                             Margin="5,0,5,0" 
+                                             StyleClass="txt14,textregular" 
+                                             HorizontalTextAlignment="Center" 
+                                             TextColor="{DynamicResource captioncolor}" 
+                                             IsVisible="False" 
+                                             HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                            <BoxView HeightRequest=".3" 
+                                         Margin="0,0,0,0" 
+                                         Color="#c8c8d2"/>
+                            <ScrollView>
+                                <Frame BackgroundColor="Transparent"
+                                       xct:ShadowEffect.Radius="20"
+                                       HasShadow="False" 
+                                       CornerRadius="20" 
+                                       Padding="5"
+                                       Margin="0,0,0,0">
+                                    <StackLayout Orientation="Vertical"
+                                                 Margin="0,10,0,0"
+                                                 VerticalOptions="StartAndExpand" 
+                                                 Spacing="0">
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,0,0,20">
+                                            <StackLayout Orientation="Horizontal"
+                                                         Margin="0">
+                                                <Label  x:Name="lblfirstQues"
+                                                        Text="{Binding lblFirstQues}"
+                                                        Margin="0,0,0,20" 
+                                                        StyleClass="txt16,textmedium"
+                                                        HorizontalTextAlignment="Start"
+                                                        TextColor="{DynamicResource captioncolor}"
+                                                        HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <fRating:RatingBar x:Name="rating" 
+                                                               SelectedStarValue="{Binding Rating}"  
+                                                               HorizontalOptions="StartAndExpand" 
+                                                               ImageWidth="30" 
+                                                               ImageHeight="30"
+                                                               FlowDirection="LeftToRight" 
+                                                               Padding="0,20,0,30" 
+                                                               EmptyStarImage="emptystar" 
+                                                               FillStarImage="fillstar" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,0,0,20">
+                                            <Label   Text="{Binding lblComments1}"  
+                                                     StyleClass="txt16,textsemibold"
+                                                     TextColor="{DynamicResource accprimarycolor}"
+                                                     Margin="0,0,0,0" 
+                                                     HorizontalOptions="Start"/>
+                                            <Editor  Text="{Binding TxtComments}" 
+                                                     AutomationId="ATxtComments1"
+                                                     Placeholder="{Binding PlaceComments}"
+                                                     StyleClass="Editortextregular" 
+                                                     TextColor="{DynamicResource accprimarycolor}"
+                                                     Margin="0,0,0,10" 
+                                                     HeightRequest="100" />
+                                            <Label  Text="{Binding MsgFirstcomment}"
+                                                    IsVisible="{Binding IsvalidatedFirstcomment}"  
+                                                    Margin="0,0,0,5"
+                                                    FontFamily="Montserrat-Regular"
+                                                    TextColor="Red" 
+                                                    FontSize="18" 
+                                                    HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+                                                     Margin="0,0,0,0">
+                                            <StackLayout Orientation="Horizontal" 
+                                                         Margin="0">
+                                                <Label   Text="{Binding lblSecoundQues}" 
+                                                         Margin="0,0,0,20"
+                                                         StyleClass="txt16,textmedium" 
+                                                         LineHeight="1.5"
+                                                         HorizontalTextAlignment="Start"
+                                                         TextColor="{DynamicResource captioncolor}"
+                                                         HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <fRating:RatingBar x:Name="rating2" 
+                                                               SelectedStarValue="{Binding Rating2}"  
+                                                               HorizontalOptions="StartAndExpand" 
+                                                               ImageWidth="30" 
+                                                               ImageHeight="30" 
+                                                               FlowDirection="LeftToRight"
+                                                               Margin="0,20,0,30" 
+                                                               EmptyStarImage="emptystar" 
+                                                               FillStarImage="fillstar" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+                                                     Margin="0,5,0,0">
+                                            <Label   Text="{Binding lblComments2}" 
+                                                     StyleClass="txt16,textsemibold" 
+                                                     TextColor="{DynamicResource accprimarycolor}" 
+                                                     Margin="0,20,0,0"
+                                                     HorizontalOptions="Start"/>
+                                            <Editor  Text="{Binding TxtComments2}"
+                                                     AutomationId="ATxtComments2"
+                                                     Placeholder="{Binding PlaceComments2}"
+                                                     StyleClass="Editortextregular"
+                                                     TextColor="{DynamicResource accprimarycolor}"
+                                                     Margin="0,0,0,10"
+                                                     HeightRequest="100" />
+                                            <Label  Text="{Binding MsgSecondcomment}" 
+                                                    IsVisible="{Binding IsvalidatedSecondcomment}"
+                                                    Margin="0,0,0,5"
+                                                    FontFamily="Montserrat-Regular"
+                                                    TextColor="Red" 
+                                                    FontSize="18"
+                                                    HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+                                                     Margin="0,0,0,0">
+                                            <StackLayout Orientation="Horizontal" 
+                                                         Margin="0">
+                                                <Label x:Name="lblthreeQues"
+                                                       Text="{Binding lblThreeQues}" 
+                                                       Margin="0,0,0,20"
+                                                       StyleClass="txt16,textmedium" 
+                                                       HorizontalTextAlignment="Start"
+                                                       TextColor="{DynamicResource captioncolor}"
+                                                       HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <fRating:RatingBar x:Name="rating3" 
+                                                               SelectedStarValue="{Binding Rating3}"  
+                                                               HorizontalOptions="StartAndExpand" 
+                                                               ImageWidth="30" ImageHeight="30"
+                                                               FlowDirection="LeftToRight" 
+                                                               Margin="0,20,0,30" 
+                                                               EmptyStarImage="emptystar" 
+                                                               FillStarImage="fillstar" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,5,0,0">
+                                            <Label  Text="{Binding lblComments3}" 
+                                                    StyleClass="txt16,textsemibold" 
+                                                    TextColor="{DynamicResource accprimarycolor}"
+                                                    Margin="0,20,0,0" 
+                                                    HorizontalOptions="Start"/>
+                                            <Editor      Text="{Binding TxtComments3}"
+                                                         AutomationId="ATxtComments3"
+                                                         Placeholder="{Binding PlaceComments3}"
+                                                         StyleClass="Editortextregular"
+                                                         TextColor="{DynamicResource accprimarycolor}" 
+                                                         Margin="0,0,0,10"
+                                                         HeightRequest="100" />
+                                            <Label   Text="{Binding MsgThirdcomment}" 
+                                                     IsVisible="{Binding IsvalidatedThirdcomment}" 
+                                                     Margin="0,0,0,5" 
+                                                     FontFamily="Montserrat-Regular" 
+                                                     TextColor="Red"
+                                                     FontSize="18" 
+                                                     HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+                                                     Margin="0,0,0,0">
+                                            <StackLayout Orientation="Horizontal" 
+                                                         Margin="0">
+                                                <Label  Text="{Binding lblFourQues}"
+                                                        Margin="0,0,0,20" 
+                                                        StyleClass="txt16,textmedium" 
+                                                        HorizontalTextAlignment="Start"
+                                                        TextColor="{DynamicResource captioncolor}" 
+                                                        HorizontalOptions="Start"/>
+                                            </StackLayout>
+                                            <fRating:RatingBar  SelectedStarValue="{Binding Rating4}" 
+                                                                HorizontalOptions="StartAndExpand" 
+                                                                ImageWidth="30" 
+                                                                ImageHeight="30"
+                                                                FlowDirection="LeftToRight" 
+                                                                Margin="0,20,0,30" 
+                                                                EmptyStarImage="emptystar" 
+                                                                FillStarImage="fillstar" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" 
+                                                     Margin="0,5,0,0">
+                                            <Label  Text="{Binding lblComments4}" 
+                                                    StyleClass="txt16,textsemibold" 
+                                                    TextColor="{DynamicResource accprimarycolor}" 
+                                                    Margin="0,20,0,0"
+                                                    HorizontalOptions="Start"/>
+                                            <Editor  Text="{Binding TxtComments4}" 
+                                                     Placeholder="{Binding PlaceComments4}" 
+                                                     StyleClass="Editortextregular" 
+                                                     TextColor="{DynamicResource accprimarycolor}"
+                                                     Margin="0,0,0,10" 
+                                                     HeightRequest="100" />
+                                            <Label   Text="{Binding MsgFourcomment}" 
+                                                     IsVisible="{Binding IsvalidatedFourcomment}" 
+                                                     Margin="0,0,0,5"
+                                                     FontFamily="Montserrat-Regular" 
+                                                     TextColor="Red"
+                                                     FontSize="18"
+                                                     HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ScrollView>
+                            <Button AutomationId="AButSubmit" 
+                                                Text="{Binding btnSubmit}" 
+                                                  TextTransform="None" 
+                                                  StyleClass="buttxt20,primarybuttoncolor,buttextregular"
+                                                  BorderColor="White"
+                                                  CornerRadius="15" 
+                                                  Margin="0,0,0,0"
+                                                  Grid.Row="2" 
+                                                  Command="{Binding gotoSubmit}" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}" 
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                                   IsRunning="{Binding IsBusy}" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             xmlns:settings="clr-namespace:RsgtApp" 
+           xmlns:Views="clr-namespace:RsgtApp.Views"
+             x:Class="RsgtApp.AppShell"
+             NavigationPage.HasNavigationBar="False" 
+            Shell.BackgroundColor="{DynamicResource navbarcolor}"
+            Shell.ForegroundColor="{DynamicResource Primary}"            
+            Shell.NavBarHasShadow="false"
+             FlowDirection="{StaticResource pagedirection}"
+             FlyoutBackgroundImage="{DynamicResource Mainbgr}"
+             FlyoutBackgroundImageAspect="AspectFill"
+            FlyoutBehavior="Flyout"
+            FlyoutHeaderBehavior="Scroll"
+            FlyoutVerticalScrollMode="Enabled"
+            >
+
+
+
+    <Shell.ToolbarItems>
+        <ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>
+        <ToolbarItem Icon="{DynamicResource Langicon}" Order="Secondary"/>
+    </Shell.ToolbarItems>
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView HeightRequest="100">
+                <StackLayout Orientation="Vertical" Margin="20">
+                    <Image Source="{DynamicResource rsgtlogo}" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center"  Margin="0,10,0,15"></Image>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="2,0,0,15" >
+                        <!--<Label Text="English" TextColor="{DynamicResource Primary}" StyleClass="txt16, textlangen" Margin="0,3,0,0" HorizontalOptions="End"></Label>
+                        <Switch IsToggled="False" HorizontalOptions="End" ThumbColor="#00aeef" OnColor="White"></Switch>
+                        <Label Text="عربى" TextColor="{DynamicResource Primary}" StyleClass="txt16, textlangar" HorizontalOptions="End"></Label>-->
+                    </StackLayout>
+                    <!--<Label x:Name="lblloginUserName" IsTabStop="True"></Label>-->
+                    <!--<Label x:Name="lblloginUserName" Text="{Binding loginUserNameBind}" BindingContext="{Binding loginUserNameBind}" Margin="0,-10,0,0" FontFamily="Montserrat-Regular" TextColor="{DynamicResource Primary}" FontSize="12" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" />-->
+                </StackLayout>
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+
+    <!--<FlyoutItem x:Name="showFlyoutitem" FlyoutDisplayOptions="AsMultipleItems">-->
+
+    <!--<ShellContent x:Name="lblloginUserName" Title="" FlyoutIcon="" IsTabStop="True" >        
+    </ShellContent>-->
+    <!--<ShellContent x:Name="lblMain" Title="" FlyoutIcon="" IsVisible="True"   >
+                <settings:MainPage/>
+            </ShellContent>-->
+
+    <ShellContent x:Name="lblloginUserName"  AutomationId="AlblloginUserName" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:MainPage}" >
+        
+    </ShellContent>
+
+    <ShellContent x:Name="lblMain"  AutomationId="AlblMain" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:MainPage}"></ShellContent>
+
+
+    <!--<ShellContent x:Name="lblDashboard" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate settings:Dashboard}"></ShellContent>-->
+
+    <ShellContent x:Name="lblDashboardBroken" AutomationId="AlblDashboard" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Dashboard_Broker}"></ShellContent>
+
+    <ShellContent x:Name="lblDashboardTransporter" AutomationId="AlblDashboard" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Dashboard_Transporter}"></ShellContent>
+
+    <ShellContent x:Name="lblDashboardConsignee" AutomationId="AlblDashboard"  Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Dashboard_Consignee}"></ShellContent>
+
+    <ShellContent x:Name="lblTrack" AutomationId="AlblTrack"  Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Tracksubmenu}"></ShellContent>
+
+    <!--<MenuItem Text="ttt" Clicked="OnTapGestureRecognizerTapped">
+        
+    </MenuItem>-->
+    <ShellContent x:Name="lblInvoicePayment" AutomationId="AlblInvoicePayment" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:InvoiceandPayment}"></ShellContent>
+   
+    <!--<ShellContent x:Name="lblInvoicePayment" AutomationId="AlblInvoicePayment">
+        <TapGestureRecognizer Tapped="onMyInvoiceandPaymentTapped" />
+      
+    </ShellContent>-->
+
+
+
+
+    <ShellContent x:Name="lblMyProfile1" AutomationId="AlblMyProfile1" Title="" FlyoutIcon="" IsTabStop="True"  ContentTemplate="{DataTemplate Views:MyProfile}">
+    </ShellContent>
+
+
+
+    <ShellContent x:Name="lblAccountSettings" AutomationId="AlblAccountSettings" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate settings:Accountsettings}"></ShellContent>
+
+    <ShellContent x:Name="lblWallet" IsVisible="False" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Wallet_Main}"></ShellContent>
+  
+
+
+
+    <ShellContent x:Name="lblNotifications" AutomationId="AlblNotifications" IsVisible="True" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Notification_main}"></ShellContent>
+
+    <ShellContent x:Name="lblKeyFeatures" AutomationId="AlblKeyFeatures" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Keyfeatures}"></ShellContent>
+
+    <ShellContent x:Name="lblFaq" AutomationId="AlblFaq" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:FAQ}"></ShellContent>
+
+    <!--<ShellContent x:Name="lblRequestTicket" Title=""  FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Request_Main}"></ShellContent>-->
+
+    <ShellContent x:Name="lblRequestTicket" AutomationId="AlblRequestTicket">
+                
+                <Views:RequestMain/>
+            </ShellContent>
+
+    <ShellContent x:Name="lblOtherRequests" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Other_Request_main}"></ShellContent>
+
+    <ShellContent x:Name="lblAboutRSGT" AutomationId="AlblAboutRSGT"  Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:About_RSGT}"></ShellContent>
+
+    <ShellContent x:Name="lblTermsCondition" AutomationId="AlblTermsCondition" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:TC}"></ShellContent>
+
+    <ShellContent x:Name="lblcontactus"  AutomationId="Alblcontactus" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate settings:contactus}"></ShellContent>
+
+    <ShellContent x:Name="lblTheme" AutomationId="AlblTheme" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate settings:ThemeMain}"></ShellContent>
+
+    <ShellContent x:Name="lblCMS" AutomationId="AlblCMS" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:CMSPage }"></ShellContent>
+
+    <ShellContent x:Name="lblLogOut" AutomationId="AlblLogOut" Title="" FlyoutIcon="" IsTabStop="True" ContentTemplate="{DataTemplate Views:Logout}"></ShellContent>
+
+
+</Shell>

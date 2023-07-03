@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.Startup" 
+             FlowDirection="{DynamicResource enumDirection}" 
+             BackgroundImageSource="{DynamicResource Mainbgr}"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
+            <CarouselView x:Name="Carousel"
+                          ItemsSource="{Binding Kfeatures}"
+                          Margin="10" Grid.Row="1" 
+                          IndicatorView="IndicatorView123" 
+                          VerticalOptions="Center"
+                          HorizontalOptions="Center">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <Image AutomationId="AImgIcon1"
+                                   Source="{Binding IconImage}"
+                                   Aspect="AspectFit" 
+                                   WidthRequest="400" 
+                                   HeightRequest="339" 
+                                   VerticalOptions="Start" 
+                                   IsAnimationPlaying="true"></Image>
+                            <Label Text="{Binding Serviceinfo}" 
+                                   StyleClass="txt20, textmedium"
+                                   TextColor="{DynamicResource Primary}"
+                                   HorizontalOptions="Center" 
+                                   Margin="0,15,0,20"
+                                   VerticalOptions="Start" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="IndicatorView123"
+                           IndicatorColor="LightGray" 
+                           Grid.Row="2" 
+                           SelectedIndicatorColor="{DynamicResource Secondary}"
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" />
+            <Button 
+                    x:Name="lblGetStart"
+                    AutomationId="AlblGetStart"  
+                    Text="" 
+                    TextTransform="None" 
+                    StyleClass="buttxt20,primarybuttoncolor, buttextregular"
+                    VerticalOptions="EndAndExpand" 
+                    Grid.Row="3"
+                    CornerRadius="15"
+                    TextColor="White"
+                    Margin="30"  
+                    Clicked="gotoMainPage"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

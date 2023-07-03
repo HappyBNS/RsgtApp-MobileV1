@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.BOL_list_popup"
+             FlowDirection="{DynamicResource pagedirection}"
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <StackLayout 
+                      IsEnabled="{Binding StackBOLPopup}" 
+                     Orientation="Vertical"
+                     Padding="20" 
+                     IsVisible="true" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" 
+                             Grid.Row="0" Margin="0,0,0,10">
+                    <Label
+                           Text="{Binding LblBayanHead}" 
+                           StyleClass="txt20,textsemibold"
+                           TextColor="{DynamicResource popupheadcolor}" 
+                           HorizontalOptions="CenterAndExpand"/>
+                    <Label 
+                           Text="{Binding LblBilloFLadings}" 
+                           StyleClass="txt16,textmedium"
+                           TextColor="{DynamicResource popupheadcolor}"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <ScrollView BackgroundColor="Transparent"
+                            HeightRequest="600"
+                            Padding="0" 
+                            Grid.Row="1" 
+                            VerticalOptions="FillAndExpand">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackLayout Spacing="0" 
+                                     VerticalOptions="StartAndExpand" 
+                                     Margin="0,0,0,0" 
+                                     Padding="0" 
+                                     Grid.Row="0" >
+                            <Frame BackgroundColor="{DynamicResource Frameheadbgrcolor}" 
+                                   Padding="10"
+                                   HasShadow="False" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label 
+                                               Text="{Binding LblSno}" 
+                                               WidthRequest="40" 
+                                               StyleClass="txt16,textmedium" 
+                                               TextColor="{DynamicResource Frameheadtextcolor}"
+                                               Margin="0"
+                                               VerticalOptions="StartAndExpand"
+                                               HorizontalTextAlignment="Start" 
+                                               HorizontalOptions="StartAndExpand"
+                                               Grid.Column="0"/>
+                                        <Label 
+                                               Text="{Binding LblBOL}" 
+                                               WidthRequest="140" 
+                                               StyleClass="txt16,textmedium"
+                                               TextColor="{DynamicResource Frameheadtextcolor}"
+                                               Margin="0"
+                                               VerticalOptions="StartAndExpand" 
+                                               HorizontalTextAlignment="Start"
+                                               HorizontalOptions="StartAndExpand" 
+                                               Grid.Column="1"/>
+                                        <Label 
+                                               Text="{Binding LblContainer}" 
+                                               StyleClass="txt16,textmedium"
+                                               TextColor="{DynamicResource Frameheadtextcolor}"
+                                               Margin="0" 
+                                               VerticalOptions="StartAndExpand" 
+                                               HorizontalTextAlignment="End" 
+                                               HorizontalOptions="EndAndExpand"
+                                               Grid.Column="2"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout 
+                                     IsEnabled="{Binding StackBayanPopup}" 
+                                     Spacing="0"
+                                     VerticalOptions="StartAndExpand" 
+                                     Margin="0,0,0,0"
+                                     Padding="0"
+                                     Grid.Row="1" >
+                            <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+                                   Padding="10,5,10,5"
+                                   HasShadow="False" 
+                                   BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                <StackLayout BindableLayout.ItemsSource="{Binding lstBayanPopup}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding SLNo}" 
+                                                           WidthRequest="40" 
+                                                           StyleClass="txt16,textmedium"
+                                                           TextColor="{DynamicResource Frameheadtextcolor}"
+                                                           Margin="0" 
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalTextAlignment="Start"
+                                                           HorizontalOptions="StartAndExpand" 
+                                                           Grid.Column="0"/>
+                                                    <Label WidthRequest="140"   
+                                                           Text="{Binding BLNo}" 
+                                                           StyleClass="txt14,textregular" 
+                                                           TextColor="{DynamicResource Framebodytextcolor}" 
+                                                           Margin="5,0,0,0"
+                                                           VerticalOptions="StartAndExpand" 
+                                                           HorizontalTextAlignment="Start" 
+                                                           HorizontalOptions="StartAndExpand"
+                                                           Grid.Column="1"/>
+                                                    <Label WidthRequest="50" 
+                                                           Text="{Binding ContainerCount}"
+                                                           StyleClass="txt16,textregular"
+                                                           TextColor="{DynamicResource Framebodytextcolor}" 
+                                                           Margin="0"
+                                                           VerticalOptions="StartAndExpand"
+                                                           HorizontalTextAlignment="End"
+                                                           HorizontalOptions="EndAndExpand"
+                                                           Grid.Column="2"/>
+                                                </Grid>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </ScrollView>
+                <Button AutomationId="AButbtnOk" 
+                        IsVisible="true" 
+                        Text="{Binding BtnOk}"
+                        StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                        CornerRadius="15" 
+                        TextColor="White" 
+                        Margin="0,0,0,0"
+                        Command="{Binding Button_dismissBLpopup}"
+                        VerticalOptions="End" 
+                        Grid.Row="2"></Button>
+            </Grid>
+        </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All"
+                        BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                        IsRunning="{Binding IsBusy}" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

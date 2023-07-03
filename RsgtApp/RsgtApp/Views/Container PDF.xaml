@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Container_PDF">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" 
+		                 Priority="1" 
+						 Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" 
+		                 Priority="1" 
+						 Order="Primary"/>-->
+        <!-- <ToolbarItem Text="Settings" 
+		                  Priority="1" 
+						  Order="Secondary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <!--<ScrollView>-->
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Padding="0" Margin="0">
+                <Frame CornerRadius="0" Padding="0" Margin="0">
+                    <Grid>
+                        <Image x:Name="imgPDF"
+						       AutomationId="AimgPDF"
+						       Source="PDF-icon" 
+							   Aspect="AspectFill" 
+							   Grid.Row="0"/>
+                        <StackLayout Orientation="Vertical" 
+						             VerticalOptions="Center" 
+									 Grid.Row="0">
+                            <Label x:Name="lblContainerPDF"
+							       Text="ContainerPDF" 
+								   StyleClass="txt24,textsemibold" 
+								   TextColor="white" 
+								   HorizontalOptions="CenterAndExpand" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Frame Grid.Row="1" 
+			       VerticalOptions="FillAndExpand" 
+			       Margin="0" 
+			       BackgroundColor="{DynamicResource contactpagebgrcolor}">
+                <StackLayout Orientation="Vertical" 
+				             VerticalOptions="FillAndExpand" >
+
+                    <WebView x:Name="ContainerPDFView"  
+					         VerticalOptions="FillAndExpand" 
+							 HorizontalOptions="Start" 
+							 StyleClass="txt16,textregular"/>
+                    <!--<WebView
+                             HorizontalOptions="Fill"
+                             VerticalOptions="FillAndExpand"
+                                 Source="https://rsgt.com/about-rsgt/"/>-->
+                    <!--<Label  IsVisible="false" 
+					             HorizontalOptions="Center" 
+								 StyleClass="txt16,textregular"  
+								 VerticalOptions="CenterAndExpand" 
+								 Margin="0,20,0,0" 
+								 TextColor="{DynamicResource accprimarycolor}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="For more information, please " />
+                                    <Span Text="Click Here"  TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ClickCommand}"
+                                          CommandParameter="https://rsgt.com/about-rsgt/" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>-->
+                </StackLayout>
+            </Frame>
+        </Grid>
+        <!--</ScrollView>-->
+    </ContentPage.Content>
+</ContentPage>

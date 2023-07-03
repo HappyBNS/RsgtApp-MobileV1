@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.CMSPage">
+     
+    <ContentPage.Content>
+        <StackLayout  Padding="30,10,30,30" Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Spacing="10">
+            <StackLayout Margin="20">
+                <Label Text="CMS Sync Process" Margin="0,-10,0,0" StyleClass="Steplabel" TextColor="{DynamicResource Primary}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" FontSize="25" />
+                <Label x:Name="lblStatus" Text="Yet to Start" FontSize="20" Margin="20,100,20,0"  HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            <CollectionView x:Name="collectionView" Margin="20">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <!-- Define the appearance of each item in the list -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+
+                            <Label Text="{Binding CMS_INFO1}" FontSize="Medium"/>
+                            <Label Text="{Binding CMS_INFO2}" TextColor="Silver" FontSize="Small" />
+
+                        </StackLayout>
+
+
+                    </DataTemplate>
+
+
+                </CollectionView.ItemTemplate>
+           </CollectionView>
+
+            <StackLayout x:Name="PageFooter" Padding="30,0,30,0" Orientation="Vertical" VerticalOptions="FillAndExpand">
+                    <StackLayout x:Name="PageFooter_1">
+                      <Button x:Name="btnUpdate" Text="Update" StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular"  CornerRadius="15" TextColor="White" Margin="0,40,0,0" Clicked="OnLoadButtonClicked"></Button>
+                      <Button x:Name="btnReset" Text="Reset" StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular"  CornerRadius="15" TextColor="White" Margin="0,10,0,0" Clicked="OnLoadButtonClicked" ></Button>
+                    <Button x:Name="btnContinue" Text="Continue" StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular"  CornerRadius="15" TextColor="White" Margin="0,10,0,0" Clicked="ContinueButtonClicked" ></Button>
+
+                </StackLayout>
+                    
+
+            </StackLayout>
+
+                
+
+       </StackLayout>
+
+
+        
+    </ContentPage.Content>
+</ContentPage>

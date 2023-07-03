@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.EIRRequestPhotoMessage"
+              FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" 
+                            TextOverride="." />
+    </Shell.BackButtonBehavior>
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout IsEnabled="{Binding StackBOLRequestData}"
+                             Padding="30,30,30,30" 
+                             Orientation="Vertical" 
+                             IsVisible="true"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                             AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image Source="{Binding ImgRegisterIcon}"
+                           AutomationId="AImgRegIcon"
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           WidthRequest="100" 
+                           Margin="0,0,0,20"></Image>
+                        <Label Text="{Binding lblDearCustomer}" 
+                           FontFamily="Montserrat-Regular" 
+                           TextColor="{DynamicResource Primary}" 
+                           FontSize="24" 
+                           HorizontalOptions="CenterAndExpand"/>
+                        <Label  Text="{Binding lblMessage}" 
+                            Margin="0,20,0,30" 
+                            FontFamily="Montserrat-Regular" 
+                            TextColor="{DynamicResource Primary}"
+                            FontSize="16" 
+                            HorizontalTextAlignment="Center" 
+                            HorizontalOptions="CenterAndExpand"/>
+                        <Button Text="{Binding BtnOk}"
+                            AutomationId="AbtnOk" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            CornerRadius="15" 
+                            TextColor="White"
+                            Margin="0,40,0,0" 
+                            Command="{Binding ButtonClicked}" />
+                        <Button Text="{Binding BtnCancel}"
+                            AutomationId="AbtnOk" 
+                            StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                            CornerRadius="15" 
+                            TextColor="White"
+                            Margin="0,40,0,0" 
+                            Command="{Binding ButtonCancelClicked}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"  
+                         Opacity="{Binding IndicatorBGOpacity}">
+                    <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                        IsRunning="{Binding IsBusy}" 
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" 
+                        Color="{DynamicResource Primary}" />
+                </StackLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

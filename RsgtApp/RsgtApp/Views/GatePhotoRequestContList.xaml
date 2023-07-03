@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.GatePhotoRequestContList" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"                            
+                           IconOverride="blank_icon.png"
+                                                        
+                            />
+
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="close_icon_24.png"  Priority="0" Clicked="clickedContainerPage" Order="Primary" />
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout x:Name="aiLayout" IsEnabled="{Binding StackGatePhotoRequest}"
+                     IsVisible="true"
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand" 
+                     Padding="20"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Orientation="Vertical" 
+                             Grid.Row="0" 
+                             Margin="0,0,0,0">
+                        <Label Text="{Binding LblGatePhotoRequest}" 
+                           StyleClass="txt20,textsemibold" 
+                           TextColor="{DynamicResource popupheadcolor}"
+                           HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <ScrollView Padding="0" 
+                            Grid.Row="1" 
+                            VerticalOptions="CenterAndExpand">
+                        <Frame HasShadow="False" 
+                           BackgroundColor="Transparent">
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding LblContainerNo}"
+                                   StyleClass="txt16,textsemibold" 
+                                   TextColor="{DynamicResource popupheadcolor}" 
+                                   Margin="0,10,0,10" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding LblBillofLading}" 
+                                   StyleClass="txt16,textsemibold" 
+                                   TextColor="{DynamicResource popupheadcolor}" 
+                                   Margin="0,10,0,10" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   HorizontalTextAlignment="Center"/>
+                                <Button Text="{Binding BtnRequestPhoto}" 
+                                    StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                                    CornerRadius="15" 
+                                    TextColor="White" 
+                                    Margin="0,10,0,10" 
+                                    Command="{Binding BtnClickedMsg}"/>
+                                <!--<Label Text="{Binding LblRequestMsg}" 
+                                   Margin="0,10,0,0" 
+                                   StyleClass="Messagesmall" 
+                                   TextColor="{DynamicResource popupinfocolor}" 
+                                   HorizontalTextAlignment="Center" 
+                                   HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding LblThankYou}" 
+                                   Margin="0,0,0,10" 
+                                   StyleClass="Messagesmall" 
+                                   TextColor="{DynamicResource popupinfocolor}" 
+                                   HorizontalTextAlignment="Center" 
+                                   HorizontalOptions="CenterAndExpand"/>-->
+                                <Button Text="{Binding BtnClickPhotos}" 
+                                        IsVisible="{Binding IsBtnClickPhotos}"
+                                    StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+                                    CornerRadius="15" 
+                                    TextColor="White" 
+                                    Margin="0,10,0,0" 
+                                    VerticalOptions="CenterAndExpand" 
+                                    Grid.Row="2"
+                                    Command="{Binding GatephotodetailClicked}" />
+                            </StackLayout>
+                        </Frame>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="GatePhotoContainerIndicator" IsVisible="{Binding IsBusy}" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     BackgroundColor="{Binding IndicatorBGColor}"
+                     Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator x:Name="GatePhotoContainerActivityIndicator" IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand" 
+                               Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

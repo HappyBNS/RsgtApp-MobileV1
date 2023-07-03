@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--<Color x:Key="Primary">#2671b2</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style x:Key="menutext" TargetType="Label">
+                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+            </Style>-->
+            <!--Language style-->
+            <!--
+            <ResourceDictionary  Source="Themes/EnglishLTR.xaml" />
+            
+            -->
+            <!--Theme style-->
+            <!--<ResourceDictionary Source="Themes/DarkTheme.xaml" />-->
+            <!--Theme style-->
+            <ResourceDictionary Source="Themes/LightTheme.xaml" />
+            <!--<ResourceDictionary  Source="Themes/ArabicRTL.xaml" />-->
+            <!--Language style-->
+            <!--<ResourceDictionary Source="Themes/EnglishLTR.xaml" />-->
+        </ResourceDictionary>
+    </Application.Resources>    
+
+</Application>

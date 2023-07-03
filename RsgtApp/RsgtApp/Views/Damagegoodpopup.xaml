@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            
+             x:Class="RsgtApp.Views.Damagegoodpopup" 
+			 FlowDirection="{DynamicResource pagedirection}" 
+			 BackgroundImageSource="{DynamicResource Primarybgr}"  
+			 NavigationPage.HasNavigationBar="True" 
+			 NavigationPage.HasBackButton="True">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <StackLayout x:Name="StackDamageGoodPopup" 
+		Orientation="Vertical" 
+		Padding="5"  
+		IsVisible="true" 
+		AbsoluteLayout.LayoutBounds="0,0,1,1" 
+		AbsoluteLayout.LayoutFlags="All">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" 
+				Grid.Row="0" 
+				Margin="0,0,0,10">
+                    <Image x:Name="imgDamage" 
+					Source="" 
+					VerticalOptions="Start" 
+					HorizontalOptions="CenterAndExpand" 
+					WidthRequest="60" 
+					Margin="0,0,0,10" />
+                    <Label x:Name="lblDamageGoodDetails" 
+					Text="" 
+					StyleClass="Heading1" 
+					TextColor="{DynamicResource popupheadcolor}" 
+					HorizontalOptions="CenterAndExpand" 
+					HorizontalTextAlignment="Center"/>
+                    <!-- <Label Text="Pdf(s) List" Margin="0,20,0,30" StyleClass="Messagesmall" TextColor="{DynamicResource popupinfocolor}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>-->
+                    <!--<Label Text="3 Bill of Ladings" StyleClass="txt16,textmedium" TextColor="{DynamicResource popupheadcolor}" HorizontalOptions="CenterAndExpand"/>-->
+                </StackLayout>
+                <ScrollView BackgroundColor="Transparent" 
+				HeightRequest="600" 
+				Padding="0" 
+				Grid.Row="1" 
+				VerticalOptions="FillAndExpand">
+                    <Grid RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackLayout Spacing="0" 
+						VerticalOptions="StartAndExpand" 
+						Margin="0,0,0,0" 
+						Padding="0" 
+						Grid.Row="0" >
+                            <Frame BackgroundColor="{DynamicResource Frameheadbgrcolor}" Padding="10" HasShadow="False" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label x:Name="lblSNo" 
+										Text=""  
+										StyleClass="txt16,textmedium" 
+										TextColor="{DynamicResource Frameheadtextcolor}" 
+										Margin="0" 
+										VerticalOptions="StartAndExpand" 
+										HorizontalTextAlignment="Start" 
+										HorizontalOptions="StartAndExpand" 
+										Grid.Column="0"/>
+                                        <Label x:Name="lblPDFContainer" 
+										Text="Container"  
+										StyleClass="txt16,textmedium" 
+										TextColor="{DynamicResource Frameheadtextcolor}" 
+										Margin="0" 
+										VerticalOptions="StartAndExpand" 
+										HorizontalTextAlignment="Start" 
+										HorizontalOptions="StartAndExpand" 
+										Grid.Column="1"/>
+                                        <Label x:Name="lblPDFFile" 
+										Text=""  
+										StyleClass="txt16,textmedium" 
+										TextColor="{DynamicResource Frameheadtextcolor}" 
+										Margin="0" 
+										VerticalOptions="StartAndExpand" 
+										HorizontalTextAlignment="Start" 
+										HorizontalOptions="StartAndExpand" 
+										Grid.Column="2"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>     
+        <StackLayout Spacing="0" 
+		VerticalOptions="StartAndExpand" 
+		Margin="0,0,0,0" 
+		Padding="0" 
+		Grid.Row="1" >
+                            <Frame BackgroundColor="{DynamicResource Framebodybgrcolor}" 
+							Padding="10,5,10,5" 
+							HasShadow="False" 
+							BorderColor="{DynamicResource Frameheadbgrcolor}">
+                                <StackLayout BindableLayout.ItemsSource="{Binding lstDmagePopup}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                                        <ColumnDefinition Width="90"/>
+                                                        <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding SLNo}" 
+													StyleClass="txt16,textmedium" 
+													TextColor="{DynamicResource Frameheadtextcolor}" 
+													Margin="0" 
+													VerticalOptions="StartAndExpand" 
+													HorizontalTextAlignment="Start" 
+													HorizontalOptions="StartAndExpand" 
+													Grid.Column="0"/>
+                                                    <Label Text="{Binding ContainerNo}" 
+													StyleClass="txt14,textregular" 
+													TextColor="{DynamicResource Framebodytextcolor}" 
+													Margin="0" 
+													VerticalOptions="StartAndExpand" 
+													HorizontalTextAlignment="Start" 
+													HorizontalOptions="StartAndExpand" 
+													Grid.Column="1"/>
+                                                    <Label Text="{Binding PDF}"   
+													StyleClass="txt14,textregular" 
+													TextColor="{DynamicResource Framebodytextcolor}" 
+													Margin="5,0,0,0" 
+													VerticalOptions="StartAndExpand"
+													HorizontalTextAlignment="Start" 
+													HorizontalOptions="StartAndExpand" 
+													Grid.Column="2">
+                                            <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer 
+															Tapped="clickTap" 
+															Command="{Binding TapCommand}" 
+															CommandParameter="{Binding WebURL}" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
+                                </StackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Frame>                      
+                        </StackLayout>
+                    </Grid>
+                </ScrollView>
+                <StackLayout Orientation="Vertical" VerticalOptions="Start" Grid.Row="2">
+                    <Label x:Name="lblDesclaimer" 
+					Text="" 
+					Margin="0,0,0,0" 
+					StyleClass="txt14, textregular" 
+					TextColor="{DynamicResource optinfocolor}"  
+					VerticalOptions="StartAndExpand" 
+					HorizontalOptions="Start"/>
+                    <Label x:Name="lblDesclaimerMsg" 
+					Text="" Margin="0,0,0,0" 
+					StyleClass="txt14, textregular" 
+					TextColor="{DynamicResource optinfocolor}"  
+					VerticalOptions="StartAndExpand"
+					HorizontalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" 
+				VerticalOptions="Start" 
+				Margin="0,0,0,0" 
+				Grid.Row="3">
+                    <CheckBox x:Name="chkIsChecked"
+					AutomationId="AchkIsChecked"
+					IsChecked="False" 
+					CheckedChanged="CheckedDamageGood" 
+					Color="{DynamicResource optinfocolor}" 
+					HorizontalOptions="Start" 
+					VerticalOptions="Center" />
+                    <Label x:Name="lblMessage" 
+					Text="" 
+					Margin="0,0,0,0" 
+					StyleClass="txt14, textregular" 
+					TextColor="{DynamicResource optinfocolor}"  
+					VerticalOptions="StartAndExpand" 
+					HorizontalOptions="Start"/>
+                </StackLayout>
+                <Button x:Name="btnAccept"
+				AutomationId="AbtnAccept"
+				IsEnabled="True" 
+				Text="" 
+				StyleClass="Buttontextsmall,primarybuttoncolor,buttextregular" 
+				CornerRadius="15" 
+				TextColor="White" 
+				Margin="0,10,0,0" 
+				Clicked="btn_AcceptPopup" 
+				VerticalOptions="End" 
+				Grid.Row="4" />
+                <Button x:Name="btnReject" 
+				AutomationId="AbtnReject"
+				IsEnabled="True" 
+				Text="" 
+				StyleClass="Buttontextsmall,buttextregular" 
+				BackgroundColor="#dd7581" 
+				CornerRadius="15" 
+				TextColor="White" 
+				Margin="0,10,0,0" 
+				Clicked="btn_RejectPopup" 
+				VerticalOptions="End" 
+				Grid.Row="5" />
+            </Grid>
+        </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+			IsVisible="False" 
+			AbsoluteLayout.LayoutBounds="0,0,1,1" 
+			AbsoluteLayout.LayoutFlags="All" 
+			BackgroundColor="Transparent" 
+			Opacity="0.5">
+                <ActivityIndicator x:Name="DamageGoodPopupActivityIndicator" 
+				IsRunning="False" 
+				HorizontalOptions="CenterAndExpand" 
+				VerticalOptions="CenterAndExpand"
+				Color="{DynamicResource Primary}" />
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

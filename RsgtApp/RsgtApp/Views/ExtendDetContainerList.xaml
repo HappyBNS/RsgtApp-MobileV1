@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.ExtendDetContainerList"
+              x:Name="MyPageEvaluate"
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True" 
+             NavigationPage.HasBackButton="True">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"                            
+                           IconOverride="blank_icon.png" />
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="close_icon_24.png"  Priority="0" Clicked="clickedMainPage" Order="Primary" />
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding StackContainerList}" 
+                         Orientation="Vertical" 
+                         VerticalOptions="StartAndExpand" 
+                         Spacing="0" 
+                         Padding="10,0,10,0" 
+                         IsVisible="true"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                             Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand" 
+                             Margin="0,0,0,10" 
+                             Padding="0" 
+                             Grid.Row="0">
+                        <StackLayout Spacing="0" 
+                                 Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,0,0,0" 
+                                 Padding="0" >
+                            <Image Source="{Binding ImgDetenIconDarkblue}" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Start" 
+                               WidthRequest="25" 
+                               Margin="5,0,5,0"/>
+                            <Label Text="{Binding LblExtendDetContList}"  
+                               Margin="5,0,5,0" 
+                               StyleClass="txt18, textsemibold"  
+                               TextColor="{DynamicResource Primary}" 
+                               HorizontalTextAlignment="Center" 
+                               HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <!--<Label Text="Bayan: 104579" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Start" TextColor="white" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="Bill of Lading: 910218851" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Center" TextColor="white" FontSize="18" HorizontalOptions="Center"/>-->
+                    </StackLayout>
+
+
+                    <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="StartAndExpand" Margin="20,10,0,5" Padding="0" Grid.Row="1">
+
+                        <StackLayout Orientation="Horizontal" >
+                            <CheckBox IsChecked="{Binding IsCheckedAll,Mode=TwoWay}" 
+                                      Color="{DynamicResource optinfocolor}" 
+                                      HorizontalOptions="Start" 
+                                      VerticalOptions="StartAndExpand" />
+
+                        </StackLayout>
+                        <StackLayout Margin="0,5,0,0">
+                            <Label Text="Select All"
+                                   Margin="0,0,0,0" StyleClass="textregular" 
+                                   TextColor="{DynamicResource Primary}"
+                                   FontSize="14" VerticalOptions="Start"
+                                   HorizontalOptions="Start" />
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+
+
+                    <CollectionView x:Name="GridDwellDays" SelectionMode="None" 
+                                     HorizontalScrollBarVisibility="Always" 
+                                   ItemsSource="{Binding lstDetentionLst}" 
+                                    ItemsUpdatingScrollMode="KeepScrollOffset"
+                                     HorizontalOptions="FillAndExpand"                                         
+                                     Grid.Row="2" 
+                                    VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+
+                                    <Frame HasShadow="False" 
+                                   CornerRadius="20" 
+                                   Margin="5" >
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                                <GradientStop Color="{DynamicResource frameprimary}" Offset="0.9"/>
+                                                <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <StackLayout Orientation="Vertical" 
+                                             VerticalOptions="StartAndExpand">
+                                            <StackLayout Orientation="Vertical" 
+                                                 Margin="0">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Horizontal" 
+                                                         Grid.Column="0" 
+                                                         Margin="-5">
+                                                        <CheckBox IsChecked="{Binding cd_CheckBox,Mode=TwoWay}" 
+                                                          Color="{DynamicResource optinfocolor}" 
+                                                          HorizontalOptions="Start" 
+                                                          VerticalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout VerticalOptions="StartAndExpand" Orientation="Vertical" 
+                                                         Grid.Column="0">
+                                                        <Label Text="{Binding lbl_Bolno}" 
+                                                       StyleClass="BLcolor, BLtext" 
+                                                       VerticalOptions="StartAndExpand" 
+                                                       HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_blnumber}" 
+                                                       StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                       VerticalOptions="StartAndExpand" 
+                                                       HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="StartAndExpand" Orientation="Vertical" 
+                                                         Grid.Column="1">
+                                                        <Label Text="{Binding lbl_Containerno}" 
+                                                       StyleClass="BLcolor, BLtext" 
+                                                       VerticalOptions="StartAndExpand" 
+                                                       HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_containernumber}" 
+                                                       StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                       VerticalOptions="StartAndExpand" 
+                                                       HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout VerticalOptions="StartAndExpand" Orientation="Vertical" 
+                                                         Grid.Column="0">
+                                                        <Label Text="{Binding lbl_Detentiondate}" 
+                                                       StyleClass="BLcolor, BLtext" 
+                                                       VerticalOptions="StartAndExpand"                                                                
+                                                       HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_DetentionDate}" 
+                                                       StyleClass="Bayaninfocolor,textregular" 
+                                                       VerticalOptions="StartAndExpand"
+                                                               VerticalTextAlignment="Start"
+                                                       HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout VerticalOptions="StartAndExpand" Orientation="Vertical" 
+                                                         Grid.Column="1">
+                                                        <Label Text="{Binding lbl_Newdeport}" 
+                                                       StyleClass="BLcolor, BLtext" 
+                                                       VerticalOptions="StartAndExpand" 
+                                                       HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_NewDeport}" 
+                                                       StyleClass="Bayaninfocolor,textregular" 
+                                                       VerticalOptions="StartAndExpand" 
+                                                       HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <!--<StackLayout Orientation="Vertical" 
+                                                 Margin="0">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" 
+                                                         Grid.Column="0">
+                                                        <Button Text="{Binding BtnDelete}" 
+                                                        TextTransform="None" 
+                                                        HeightRequest="40" 
+                                                        Padding="0" 
+                                                        StyleClass="buttxt18,primarybuttoncolor,buttextregular" 
+                                                        BorderColor="White" 
+                                                        CornerRadius="12" 
+                                                        Margin="0,5,0,0" 
+                                                        Command="{Binding DeleteContList}" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>-->
+
+
+
+                                            <!--<StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical">
+                                                        <Frame BackgroundColor="{DynamicResource Searchframe}" 
+												IsVisible="{Binding BtnactioncaptionPI}" 
+												HasShadow="False"
+												CornerRadius="15"
+												HeightRequest="40"
+												Margin="5,10,5,0"
+												Padding="15,0,15,0" 
+												Grid.Column="0">
+                                                            <Label Text="{Binding btn_delete}" 
+                                                            TextTransform="None"
+                                                            HeightRequest="40" 
+                                                                   Padding="0"
+                                                                   HorizontalTextAlignment="Center"
+                                                            StyleClass="lbltxt20,primarylabelcolor,buttextregular" 
+                                                             Margin="0,5,0,0" >
+                                                                <Label.GestureRecognizers>
+                                                                    <TapGestureRecognizer 
+                                                                    Command="{Binding Source={x:Reference MyPageEvaluate},
+                                                                    Path=BindingContext.BtnDeleteContList}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    NumberOfTapsRequired="1"/>
+                                                                </Label.GestureRecognizers>
+                                                            </Label>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                    
+                                                </Grid>
+                                            </StackLayout>-->
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label  Text="{Binding MsgCheckboxMandatory}" 
+						IsVisible="{Binding IsChkMandatory}" 
+						Margin="0,0,0,5"
+						FontFamily="Montserrat-Regular" 
+						TextColor="Red" 
+						FontSize="14" 
+						HorizontalOptions="StartAndExpand"/>
+
+                    <Button Text="{Binding BtnSubmit}" 
+                        Grid.Row="3" 
+                        TextTransform="None" 
+                        StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                        BorderColor="White" 
+                        CornerRadius="15" 
+                        Margin="0,10,0,0"  
+                        IsEnabled="{Binding isEnableSubmit}"
+                        Command="{Binding Btnsubmitrequest}" >
+                    </Button>
+
+                    <StackLayout VerticalOptions="StartAndExpand" 
+                             Margin="0,0,0,20" 
+                             Padding="0" 
+                             Grid.Row="4" >
+                        <Frame BackgroundColor="{DynamicResource Primaryframe}" 
+                           HasShadow="False" 
+                           CornerRadius="15"  
+                           Margin="0,10,0,10" 
+                           Padding="10" 
+                           Grid.Row="3">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Tapcontaineradd}" 
+                                                  NumberOfTapsRequired="1"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout Orientation="Horizontal" 
+                                     HorizontalOptions="CenterAndExpand">
+                                <Image Source="{Binding ImgContainerAddIcon}" 
+                                   HeightRequest="30" 
+                                   WidthRequest="30"  
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center" 
+                                   BackgroundColor="Transparent" />
+                                <Label Text="{Binding LblAddContainer}" 
+                                   StyleClass="txt18,textmedium" 
+                                   TextColor="white"  
+                                   HorizontalOptions="CenterAndExpand" 
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalOptions="Start" 
+                                   Margin="5,2,0,0" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}"
+                                        IsVisible="{Binding IsBusy}"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand" 
+                                        Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

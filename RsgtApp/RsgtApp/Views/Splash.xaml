@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Splash"  FlowDirection="{DynamicResource pagedirection}"
+             BackgroundImageSource="{DynamicResource Mainbgr}" 
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout  IsVisible="true" 
+                          VerticalOptions="FillAndExpand" 
+                          HorizontalOptions="FillAndExpand"
+                          AbsoluteLayout.LayoutBounds="0,0,1,1"
+                          AbsoluteLayout.LayoutFlags="All">
+                <StackLayout   Orientation="Horizontal"
+                               VerticalOptions="Start">
+                </StackLayout>
+                <StackLayout x:Name="SplashEn"   
+                             VerticalOptions="CenterAndExpand">
+                    <Image AutomationId="AImgAnimatedlogo"
+                           Source="Animated_logo.gif"  
+                           IsAnimationPlaying="true" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center" 
+                           WidthRequest="350"></Image>
+                </StackLayout>
+                <StackLayout  Margin="0,0,0,30" 
+                              Orientation="Horizontal" 
+                              VerticalOptions="End">
+                    <Frame BackgroundColor="#edf4f9"
+                           HasShadow="False" 
+                           CornerRadius="30" 
+                           Padding="15" 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand" 
+                           HeightRequest="25" >
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="End">
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Frame BackgroundColor="Transparent"
+                                       HasShadow="False"
+                                       CornerRadius="15" 
+                                       WidthRequest="100"
+                                       Padding="0"
+                                       HorizontalOptions="CenterAndExpand">
+                                    <ImageButton
+                                                 Source="english_lang_icon.png" 
+                                                 AutomationId="AEnglish" 
+                                                 BackgroundColor="Transparent" 
+                                                 WidthRequest="80"
+                                                 HeightRequest="30" 
+                                                 Margin="0,0,0,0" 
+                                                 Clicked="gotoEnglishButtonClicked"></ImageButton>
+                                </Frame>
+                                <BoxView BackgroundColor="{DynamicResource Primaryframe}"
+                                         HeightRequest="10" 
+                                         Margin="0,0,0,0" 
+                                         WidthRequest="1"/>
+                                <Frame BackgroundColor="Transparent" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       WidthRequest="100"
+                                       Padding="0" 
+                                       HorizontalOptions="CenterAndExpand">
+                                    <ImageButton 
+                                                 Source="arabic_lang_icon.png" 
+                                                 AutomationId="AArabic" 
+                                                 BackgroundColor="Transparent" 
+                                                 WidthRequest="80" 
+                                                 HeightRequest="30" 
+                                                 Margin="0,0,0,0"
+                                                 Clicked="gotoArabicButtonClicked"></ImageButton>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         IsEnabled="False" 
+                         Orientation="Vertical" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="Gray"
+                         Opacity="0.5">
+                <StackLayout Margin="0,60,0,0">
+                    <ActivityIndicator x:Name="SplashActivityIndicator"
+                                       VerticalOptions="Center"
+                                       IsRunning="False" 
+                                       Color="Black"  />
+                    <Label x:Name="lblTitleEng"
+                           TextType="Html"
+                           IsVisible="false" 
+                           Text="" 
+                           StyleClass="txt18, Statustext1" 
+                           TextColor="Black" 
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           Margin="20"
+                           VerticalOptions="Start"/>
+                    <Label x:Name="lblTitleAra" 
+                           TextType="Html"
+                           IsVisible="false" 
+                           Text="" 
+                           StyleClass="txt18, Statustext1" 
+                           TextColor="Black" 
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           Margin="20" VerticalOptions="Start"/>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

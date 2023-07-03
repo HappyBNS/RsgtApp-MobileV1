@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+		<integer>2</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>8.0</string>
+	<key>CFBundleDisplayName</key>
+	<string>ePMob</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.penygon.iospushdemo</string>
+	<key>CFBundleVersion</key>
+	<string>14.2</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>CFBundleName</key>
+	<string>RsgtApp</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.14</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Use the calendar for date picker control to get the date from user in few screens.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We planned for future to use for location identification of user while using this app that where they are.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We planned for future to use for location identification of user always that where they are.</string>
+  <key>NSFaceIDUsageDescription</key>
+  <string>Need your face to unlock secrets!</string>
+</dict>
+</plist>

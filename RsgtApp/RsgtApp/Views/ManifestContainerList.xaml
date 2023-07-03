@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Name="MyPageEvaluate"
+             x:Class="RsgtApp.Views.ManifestContainerList" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"                            
+                           IconOverride="blank_icon.png"/>
+
+    </Shell.BackButtonBehavior>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="close_icon_24.png"  Priority="0" Clicked="clickedbackbtn" Order="Primary" />
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout x:Name="aiLayout" IsEnabled="{Binding StackManifestContainerList}" 
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand" 
+                     Spacing="0" 
+                     Padding="10,0,10,0" 
+                     IsVisible="true" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" 
+                                 Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,0,0,10" 
+                                 Padding="0" 
+                                 Grid.Row="0">
+                        <StackLayout Spacing="0" 
+                                     Orientation="Horizontal" 
+                                     HorizontalOptions="CenterAndExpand" 
+                                     Margin="0,0,0,0" 
+                                     Padding="0" >
+                            <Image Source="{Binding imgManifestIcon}" 
+                                   HorizontalOptions="Center" 
+                                   VerticalOptions="Start" 
+                                   WidthRequest="25" 
+                                   Margin="5,0,5,0"/>
+                            <Label Text="{Binding lblManifestContainersList}"  
+                                   Margin="5,0,5,0" 
+                                   StyleClass="txt18, textsemibold"  
+                                   TextColor="{DynamicResource Primary}" 
+                                   HorizontalTextAlignment="Center" 
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <CollectionView  SelectionMode="None" 
+                        HorizontalScrollBarVisibility="Always" 
+                        Grid.Row="1"
+                        ItemsSource="{Binding lstManifestDtl}"
+                        VerticalOptions="FillAndExpand"  
+                        HorizontalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Frame HasShadow="False" 
+                                           CornerRadius="20" 
+                                           Margin="5" >
+                                        <Frame.Background>
+                                            <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                                <GradientStop Color="{DynamicResource frameprimary}" Offset="0.9"/>
+                                                <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Frame.Background>
+                                        <StackLayout Orientation="Vertical" 
+										VerticalOptions="StartAndExpand">
+                                            <StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" 
+                                                                 Grid.Column="0">
+                                                        <Label Text="{Binding lbl_VesseNo}" 
+                                                               StyleClass="BLcolor, BLtext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding vd_visitid}" 
+                                                               StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" 
+                                                                 Grid.Column="1">
+                                                        <Label Text="{Binding lbl_VoyageNo}" 
+                                                               StyleClass="BLcolor, BLtext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding vd_obvoyage}" 
+                                                               StyleClass="Bayaninfocolor, Bayaninfotext"
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*"  />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" 
+                                                                 Grid.Column="0">
+                                                        <Label Text="{Binding lbl_BOL}" 
+                                                               StyleClass="BLcolor, BLtext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_blnumber}" 
+                                                               StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Vertical" 
+                                                                 Grid.Column="1">
+                                                        <Label Text="{Binding lbl_ContainerNo}" 
+                                                               StyleClass="BLcolor, BLtext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_containernumber}" 
+                                                               StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Vertical" Margin="0">
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"  />
+                                                        <ColumnDefinition Width="*"  />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Orientation="Vertical" Grid.Column="0">
+                                                        <Label Text="{Binding lbl_ManifestDetails}" 
+                                                               StyleClass="BLcolor, BLtext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Label Text="{Binding cd_commodity}" 
+                                                               StyleClass="Bayaninfocolor, Bayaninfotext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Vertical" 
+                                                                 Grid.Column="1">
+                                                        <Label Text="{Binding lbl_Status}" 
+                                                               StyleClass="BLcolor, BLtext" 
+                                                               VerticalOptions="StartAndExpand" 
+                                                               HorizontalOptions="StartAndExpand" />
+                                                        <Frame BackgroundColor="#5cb85c" 
+                                                               VerticalOptions="End" 
+                                                               CornerRadius="15" 
+                                                               Padding="15,2,15,2" 
+                                                               HorizontalOptions="StartAndExpand" 
+                                                               HasShadow="False">
+                                                            <Label Text="{Binding cd_status}" 
+                                                                   StyleClass="Bayanstatustext" 
+                                                                   TextColor="White" />
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" 
+                                                         Grid.Column="0">
+                                                <Frame BackgroundColor="{DynamicResource Searchframe}" 
+												               IsVisible="{Binding BtnactioncaptionPI}" 
+												               HasShadow="False"
+												               CornerRadius="15"
+												               HeightRequest="40"
+												               Margin="5,10,5,0"
+												               Padding="15,0,15,0" 
+												               Grid.Column="0">
+                                                    <Label Text="{Binding Btn_Delete}" 
+                                                           TextTransform="None" 
+                                                           HeightRequest="40" 
+                                                           HorizontalTextAlignment="Center"
+                                                           Padding="0"
+                                                           StyleClass="lbltxt20,primarylabelcolor,buttextregular"
+                                                           Margin="0,5,0,0">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer 
+                                                                    Command="{Binding Source={x:Reference MyPageEvaluate},
+                                                                    Path=BindingContext.ButtonDeletcontainerlist}" 
+                                                                    CommandParameter="{Binding .}"
+                                                                    NumberOfTapsRequired="1"/>
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </Frame>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <StackLayout  VerticalOptions="StartAndExpand" 
+                           Orientation="Vertical" 
+                                  Grid.Row="2">
+                        <Frame HasShadow="False" 
+                               CornerRadius="20" 
+                               Margin="5" >
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                    <GradientStop Color="{DynamicResource frameprimary}" Offset="0.9"/>
+                                    <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <StackLayout Orientation="Vertical" 
+                                         VerticalOptions="StartAndExpand">
+                                <Label Text="{Binding lblNotes}"  
+                                       StyleClass="txt16,textsemibold" 
+                                       TextColor="{DynamicResource accprimarycolor}" 
+                                       Margin="0,0,0,0" 
+                                       HorizontalOptions="Start"/>
+                                <Editor Text="{Binding TxtNotes}" 
+                                        Placeholder="{Binding PlaceNotes}" 
+                                        StyleClass="Editortextregular" 
+                                        TextColor="{DynamicResource accprimarycolor}" 
+                                        BackgroundColor="{DynamicResource Entrytextbg}"
+                                        Margin="0,0,0,0" 
+                                        HeightRequest="100" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" 
+                                 Orientation="Vertical" 
+                                 VerticalOptions="StartAndExpand" >
+                        <Button Text="{Binding BtnSubmitRequest}" 
+                                IsVisible="{Binding isEnableSubmit}"  
+                                TextTransform="None" 
+                                StyleClass="buttxt20,primarybuttoncolor,buttextregular" 
+                                BorderColor="White" 
+                                CornerRadius="15" 
+                                Margin="0,0,0,0"  
+                                Command="{Binding Buttonsubmitrequest}" />
+                    </StackLayout>
+                    <StackLayout VerticalOptions="End" 
+                                 Orientation="Vertical"  
+                                 Margin="0,0,0,20" 
+                                 Grid.Row="4" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Frame BackgroundColor="{DynamicResource Primaryframe}" 
+                                   HasShadow="False" 
+                                   CornerRadius="15"  
+                                   Margin="0,10,0,0" 
+                                   Padding="10" 
+                                   Grid.Column="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Tapcontaineradd}" 
+                                                          NumberOfTapsRequired="1"/>
+                                </Frame.GestureRecognizers>
+                                <StackLayout Orientation="Vertical">
+                                    <Image Source="{Binding imgContaineraddIcon}" 
+                                           HeightRequest="30" 
+                                           WidthRequest="30"  
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center" 
+                                           BackgroundColor="Transparent" />
+                                    <Label Text="{Binding lblAddContainer}" 
+                                           StyleClass="txt15,textmedium" 
+                                           TextColor="white"  
+                                           HorizontalOptions="CenterAndExpand" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalOptions="Start" 
+                                           Margin="0,0,0,0" />
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="{DynamicResource Primaryframe}" 
+                                   HasShadow="False" 
+                                   CornerRadius="15" 
+                                   HeightRequest="55" 
+                                   Margin="0,10,0,0" 
+                                   Padding="10" 
+                                   Grid.Column="1">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Taprequesthistory}" 
+                                                          NumberOfTapsRequired="1"/>
+                                </Frame.GestureRecognizers>
+                                <StackLayout Orientation="Vertical">
+                                    <Image Source="{Binding imgHistoryIcon}" 
+                                           HeightRequest="30" 
+                                           WidthRequest="30"  
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="Center" 
+                                           BackgroundColor="Transparent" />
+                                    <Label Text="{Binding lblRequestHistory}" 
+                                           StyleClass="txt15,textmedium" 
+                                           TextColor="white"  
+                                           HorizontalOptions="CenterAndExpand" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalOptions="Start" 
+                                           Margin="0,0,0,0" />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="ManifastIndicator"
+                         IsVisible="{Binding IsBusy}" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}"
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator x:Name="ManifastbackActivity" IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                    HorizontalOptions="CenterAndExpand"
+                                    VerticalOptions="CenterAndExpand" 
+                                    Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

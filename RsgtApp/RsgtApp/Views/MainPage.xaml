@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="RsgtApp.Views.MainPage" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Mainbgr}"
+             NavigationPage.HasNavigationBar="false" >
+    <!--<ContentPage.ToolbarItems>
+        --><!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png"  Priority="1" Order="Primary"/>-->
+        <!-- <ToolbarItem Icon="abouticon.png" Priority="2" Order="Primary"/>
+        <ToolbarItem Text="Settings" Priority="1" Order="Secondary"/>--><!--   
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="StackManiPage" 
+                         Orientation="Vertical" 
+                         VerticalOptions="FillAndExpand" 
+                         Spacing="0" 
+                         IsVisible="true"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All" >
+            <!--<ActivityIndicator x:Name="mainpageActivityIndicator" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Color="{DynamicResource Primary}"/>-->
+            <StackLayout Orientation="Horizontal" 
+                         Padding="10,10,10,0" 
+                         VerticalOptions="Start">
+                <Image  AutomationId="AButlogo"
+                        Source="{DynamicResource rsgtlogo}"
+                        WidthRequest="280" 
+                        VerticalOptions="Start" 
+                        HorizontalOptions="CenterAndExpand"></Image>
+            </StackLayout>
+            <Label x:Name="lblTitle"
+                   Text="" 
+                   StyleClass="txt24,textmedium" 
+                   TextColor="{DynamicResource Primary}" 
+                   HorizontalTextAlignment="Center" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Start" 
+                   Margin="0,20,0,0"/>
+                <yummy:PancakeView BackgroundColor="{DynamicResource framefull}" 
+                               CornerRadius="30" 
+                               Margin="20,0,20,0" 
+                               IsClippedToBounds="true" 
+                               VerticalOptions="CenterAndExpand" >
+                <StackLayout Orientation="Vertical" 
+                             Padding="20">
+                    <Label x:Name="lblTrackShip"
+                           Text=""
+                           StyleClass="txt20,textsemibold" 
+                           TextColor="{DynamicResource Primaryframe}" 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="Start" 
+                           Margin="0,15,0,20" />
+                        <Entry 
+                               x:Name="txtcontainerNo" 
+                               AutomationId="AtxtcontainerNo" 
+                               Text="" 
+                               Placeholder="" 
+                               Style="{DynamicResource textregular}"
+                               PlaceholderColor="{DynamicResource placeholdercolor}" 
+                               TextColor="{DynamicResource Primary}"
+                            BackgroundColor="{DynamicResource Entrytextbg}"
+                               Margin="0,10,10,0"></Entry>
+                    <Label x:Name="msgcontainer"
+                           Text=""
+                           Margin="0,0,0,5"
+                           FontFamily="Montserrat-Regular" 
+                           FontAttributes="Bold" 
+                           TextColor="Red" 
+                           FontSize="17" 
+                           HorizontalOptions="StartAndExpand"/>
+                        <Button 
+                                x:Name="lblTrack" 
+                                AutomationId="AlblTrack" 
+                                Text=""
+                                TextTransform="None"
+                                StyleClass="buttxt20,buttextregular,primarybuttoncolor" 
+                                CornerRadius="15"  
+                                Clicked="gotoBasicTracking" 
+                                Margin="0,15,0,0"></Button>
+                </StackLayout>
+            </yummy:PancakeView>
+            <Grid Margin="20" 
+                  ColumnSpacing="20" 
+                  IsVisible="false"  
+                  x:Name="btnsBeforeLogin">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0"
+                       BackgroundColor="{DynamicResource Primaryframe}" 
+                       CornerRadius="30" 
+                       HasShadow="False"
+                       x:Name="tapbefore">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            x:Name="vesselbeforeLogin" 
+                            Tapped="OnTappedVesselschedule"
+                            NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Vertical">
+                        <Image AutomationId="AImgVessel"
+                               x:Name="imgVessel" 
+                               Source="" 
+                               VerticalOptions="Start"
+                               HorizontalOptions="Center"
+                               HeightRequest="60" ></Image>
+                            <Label x:Name="lblVesselsch"
+                                   AutomationId="AlblVesselsch" 
+                                   Text="" 
+                                   StyleClass="txt15,textmedium"
+                                   HorizontalTextAlignment="Center" 
+                                   TextColor="white" 
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="Start"
+                                   Margin="0,5,0,0" />
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1"
+                       BackgroundColor="{DynamicResource Primaryframe}" 
+                       CornerRadius="30" 
+                       HasShadow="False" 
+                       x:Name="taplogin"  >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            x:Name="btnLog" 
+                            Tapped="OnTappedLogin" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Vertical">
+                        <Image AutomationId="AImgLogin" 
+                               x:Name="imgLogin" 
+                               Source="" 
+                               VerticalOptions="Start" 
+                               HorizontalOptions="Center"
+                               HeightRequest="60" ></Image>
+                            <Label x:Name="lblLogin"
+                                   AutomationId="AlblLogin"
+                                   Text=""  
+                                   StyleClass="txt15,textmedium"
+                                   TextColor="white" 
+                                   HorizontalTextAlignment="Center" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="Start" 
+                                   Margin="0,5,0,0" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <Grid  Margin="20"
+                   ColumnSpacing="20"
+                   IsVisible="false" 
+                   x:Name="btnsAfterLogin">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Column="0"
+                       BackgroundColor="{DynamicResource Primaryframe}"
+                       HasShadow="False" 
+                       CornerRadius="20" 
+                       Padding="12"
+                       x:Name="tapafter">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="vesselafterLogin"
+                                              Tapped="OnTappedVesselschedule" 
+                                              NumberOfTapsRequired="1"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand">
+                        <Image  AutomationId="AImgVessel2"
+                                x:Name="imgVessel2"  
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" 
+                                HeightRequest="40"></Image>
+                            <Label x:Name="lblVesselsch2" 
+                                   AutomationId="AlblVesselsch2" 
+                                   StyleClass="txt16,textmedium"
+                                   TextColor="white" 
+                                   HorizontalOptions="Center" 
+                                   HorizontalTextAlignment="Center"
+                                   VerticalOptions="CenterAndExpand"
+                                   Margin="0,5,0,0" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+          <StackLayout x:Name="aiLayout" 
+                         IsVisible="False" 
+                         IsEnabled="False" 
+                         Orientation="Vertical" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="Gray"
+                         Opacity="0.5">
+           <ActivityIndicator x:Name="mainpageActivityIndicator" 
+                                   IsRunning="False" 
+                                    IsVisible="False" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand" 
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

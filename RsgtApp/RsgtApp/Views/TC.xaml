@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.TC"  
+           FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}" 
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Padding="0" 
+                             Margin="0">
+
+                    <Frame CornerRadius="0" 
+                           Padding="0"
+                           Margin="0">
+                        <Grid>
+                            <Image AutomationId="AImgTChead"
+                                   Source="TChead.jpg" 
+                                   Aspect="AspectFill" 
+                                   Grid.Row="0"/>
+                            <StackLayout Orientation="Vertical"
+                                         VerticalOptions="Center"
+                                         Grid.Row="0">
+                                <Label
+                                       Text="{Binding lblTChead}" 
+                                       StyleClass="txt24,textsemibold" 
+                                       TextColor="white"
+                                       HorizontalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <Frame Grid.Row="1"
+                       VerticalOptions="FillAndExpand" 
+                       Margin="0"
+                       BackgroundColor="{DynamicResource contactpagebgrcolor}">
+                    <!--<StackLayout Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand" >
+
+                        <Label  
+                               Text="{Binding tcTermsEn}"  
+                              IsVisible="{Binding IsvisibleEnglish}"
+                               StyleClass="txt16,textregular" 
+                               TextColor="{DynamicResource accprimarycolor}" 
+                             HorizontalOptions="Start" />
+
+                         <Label Text="هذه بيانات الاختبار هذه بيانات الاختبار هي بيانات الاختبار هي بيانات الاختبار هي بيانات الاختبار هي بيانات الاختبار هي بيانات الاختبار هي بيانات الاختبار "
+                                                                   StyleClass="faqanswercolor,faqanswer" 
+                                                                   TextColor="{DynamicResource faqanswercolor}" 
+                                                                   VerticalOptions="CenterAndExpand" 
+                                                                   HorizontalOptions="StartAndExpand" />
+                         <Label Text="{Binding tcTermsAr}"  
+                                                                   StyleClass="faqanswercolor,faqanswer" 
+                                                                   TextColor="{DynamicResource faqanswercolor}" 
+                                                                   VerticalOptions="CenterAndExpand" 
+                                                                   HorizontalOptions="StartAndExpand" />
+                        <Label  
+                               Text="{Binding tcTermsAr}" 
+                            IsVisible="{Binding IsvisibleArabic}"
+                               StyleClass="txt16,textregular" 
+                               TextColor="{DynamicResource accprimarycolor}" 
+                             HorizontalOptions="Start" />
+                    </StackLayout>-->
+
+                     <CollectionView ItemsSource="{Binding lstTerms}" 
+                                    BackgroundColor="Transparent" 
+                                    SelectionMode="None" 
+                                    HorizontalScrollBarVisibility="Always" 
+                                    VerticalOptions="StartAndExpand"  
+                                    HorizontalOptions="FillAndExpand" 
+                                    Grid.Row="1" >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                   <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                  
+                </Grid.ColumnDefinitions>
+                                        
+                                                        <Label Text="{Binding tctext}" 
+                                                               StyleClass="faqquestioncolor,faqquestion" 
+                                                               TextColor="{DynamicResource faqquestioncolor}" />
+                                                       
+                                     
+                                           
+                                   
+                                               
+                                </Grid>
+                                        
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+
+
+                </Frame>
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

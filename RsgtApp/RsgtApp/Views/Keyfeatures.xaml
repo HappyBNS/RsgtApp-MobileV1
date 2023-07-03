@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="RsgtApp.Views.Keyfeatures" 
+             FlowDirection="{DynamicResource pagedirection}" 
+             BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="False" 
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <Grid RowSpacing="0" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image AutomationId="AImgButArrow"
+                   x:Name="imgBackArrow"
+                   Source="" HorizontalOptions="Start" 
+                   VerticalOptions="Start"  
+                   Margin="15,20,0,0"></Image>
+            <!--<Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTappedBack" NumberOfTapsRequired="1"/>
+            </Image.GestureRecognizers>-->
+            <ScrollView Grid.Row="1">
+                <StackLayout Padding="30,20,30,30" 
+                             Orientation="Vertical" >
+                    <!--<ActivityIndicator x:Name="KeyfeaturesActivityIndicator" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill" Color="{DynamicResource Primary}" />-->
+                    <Label x:Name="lblKeyFeatures" 
+                           Text="" 
+                           FontFamily="Montserrat-SemiBold" 
+                           TextColor="{DynamicResource Primary}" 
+                           FontSize="24" 
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="Start"
+                           Margin="0,0,0,30"/>
+                    <StackLayout  VerticalOptions="StartAndExpand">
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="0,0,0,0">
+                            <Image AutomationId="ABut" 
+                                   x:Name="imgTickBlue1" 
+                                   Source="" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Start" 
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblEffective"
+                                   Text="" 
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}" 
+                                   FontSize="16" 
+                                   HorizontalOptions="StartAndExpand"
+                                   VerticalOptions="Start" 
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue2" 
+                                   x:Name="imgTickBlue2" 
+                                   Source="" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Start" 
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblMinute" 
+                                   Text=""
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}" 
+                                   FontSize="16" 
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue3"
+                                   x:Name="imgTickBlue3" 
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start" 
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblGenerate"
+                                   Text=""
+                                   FontFamily="Montserrat-Regular"
+                                   TextColor="{DynamicResource Primary}" 
+                                   FontSize="16"
+                                   HorizontalOptions="StartAndExpand" 
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AButImgButTickBlue4"
+                                   x:Name="imgTickBlue4"
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start" 
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblCustomized" 
+                                   Text=""
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}"
+                                   FontSize="16"
+                                   HorizontalOptions="StartAndExpand" 
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButBluetick5"
+                                   x:Name="imgTickBlue5" 
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblMultiple"
+                                   Text="" 
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}"
+                                   FontSize="16"
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue6"
+                                   x:Name="imgTickBlue6" 
+                                   Source="" 
+                                   HorizontalOptions="Start" 
+                                   VerticalOptions="Start"
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblFast" 
+                                   Text=""
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}" 
+                                   FontSize="16"
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue7"
+                                   x:Name="imgTickBlue7" 
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblReal"
+                                   Text="" 
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}" 
+                                   FontSize="16" 
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue8" 
+                                   x:Name="imgTickBlue8"
+                                   Source=""
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start" 
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblEase" 
+                                   Text="" 
+                                   FontFamily="Montserrat-Regular"
+                                   TextColor="{DynamicResource Primary}"
+                                   FontSize="16" 
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" 
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue9" 
+                                   x:Name="imgTickBlue9"
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblSelfService" 
+                                   Text="" 
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}"
+                                   FontSize="16" 
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,10,0,0">
+                            <Image AutomationId="AImgButTickBlue10"
+                                   x:Name="imgTickBlue10" 
+                                   Source="" 
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start" 
+                                   WidthRequest="20"></Image>
+                            <Label x:Name="lblInformationAccess"
+                                   Text="" 
+                                   FontFamily="Montserrat-Regular" 
+                                   TextColor="{DynamicResource Primary}"
+                                   FontSize="16"
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="5,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+            <StackLayout
+                   x:Name="aiLayout" IsVisible="False" 
+                AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                BackgroundColor="Gray" 
+                Opacity="0.5">
+                <ActivityIndicator x:Name="KeyfeaturesActivityIndicator"
+                                   IsRunning="False"
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

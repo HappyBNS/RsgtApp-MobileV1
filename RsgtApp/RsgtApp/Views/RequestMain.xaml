@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="MyPageDamageContainer"
+             x:Class="RsgtApp.Views.RequestMain" 
+			 FlowDirection="{DynamicResource pagedirection}"
+			 BackgroundImageSource="{DynamicResource Primarybgr}"  
+             NavigationPage.HasNavigationBar="True"
+			 NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>
+        <ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout IsEnabled="{Binding MainEn}" 
+			Orientation="Vertical"
+                         VerticalOptions="StartAndExpand" 
+                         Spacing="0" 
+			Padding="10,0,10,0" IsVisible="true" 
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All">
+                <Grid RowSpacing="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0"
+                                 Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand" 
+                                 Margin="0,0,0,10" 
+                                 Padding="0" 
+                                 Grid.Row="0" >
+                        <Image 
+						Source="{Binding ImgRequesticon}" 
+						AutomationId="AImgRequesticon"
+						HorizontalOptions="Center" 
+						WidthRequest="25" 
+						Margin="5,0,5,0"/>
+                        <Label   
+						Text="{Binding LblRequests}" 
+						Margin="5,0,5,0" 
+						StyleClass="txt22, textsemibold"
+						HorizontalTextAlignment="Center" 
+						TextColor="{DynamicResource Primary}" 
+						HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <ScrollView Grid.Row="1">
+                        <StackLayout Orientation="Vertical" >
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False"
+                                       CornerRadius="15"
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1"
+                                                               Command="{Binding TicketTapped}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="CenterAndExpand"
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Image  
+										Source="{Binding ImgTicketIcon}" 
+										AutomationId="AImgTicketIcon"
+										HorizontalOptions="Start" 
+										WidthRequest="30"
+										Margin="0,0,0,0"/>
+                                        <Label  Text="{Binding LblTickets}" 
+										StyleClass="Submenufont" 
+										HorizontalOptions="StartAndExpand" 
+										VerticalOptions="CenterAndExpand"
+										TextColor="{DynamicResource Submenucolor}" ></Label>
+                                        <Image 
+										Source="{Binding ImgBellIcon}" 
+										AutomationId="AImgBellIcon"
+										IsVisible="false" 
+										HorizontalOptions="End" 
+										WidthRequest="20"
+										Margin="0,0,10,0"/>
+                                        <Image Source="{DynamicResource angleicon}"
+										AutomationId="Aangleicon"
+										HorizontalOptions="End" 
+										WidthRequest="15"
+										Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1" 
+                                                               Command="{Binding Inquiryrequest}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="CenterAndExpand" 
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Image  Source="{Binding ImgRequestInfo}"
+										AutomationId="AImgRequestInfo"
+										HorizontalOptions="Start"
+										WidthRequest="30" 
+										Margin="0,0,0,0"/>
+                                        <Label  Text="{Binding LblRequestForInfo}" 
+                                                StyleClass="Submenufont"
+										HorizontalOptions="StartAndExpand" 
+										VerticalOptions="CenterAndExpand" 
+										TextColor="{DynamicResource Submenucolor}" >
+                                        </Label>
+                                        <Image Source="{DynamicResource angleicon}"
+										AutomationId="Aanglesicon"
+										HorizontalOptions="End" 
+										WidthRequest="15" 
+										Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1"
+                                                               Command="{Binding Servicerequest}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal" 
+                                                 VerticalOptions="CenterAndExpand" 
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Image  
+										Source="{Binding ImgRequestService}" 
+										AutomationId="AImgRequestService"
+										HorizontalOptions="Start"
+										WidthRequest="30" 
+										Margin="0,0,0,0"/>
+                                        <Label  Text="{Binding LblRequestForService}"
+                                                StyleClass="Submenufont"
+                                                HorizontalOptions="StartAndExpand"
+                                                VerticalOptions="CenterAndExpand"
+                                                TextColor="{DynamicResource Submenucolor}" >
+                                        </Label>
+                                        <Image Source="{DynamicResource angleicon}"
+ 										 AutomationId="Aangleicons"
+										 HorizontalOptions="End" 
+										WidthRequest="15" 
+										Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Start">
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False" 
+                                       CornerRadius="15" 
+                                       Margin="5" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer  NumberOfTapsRequired="1"
+                                                               Command="{Binding Complaintrequest}"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="CenterAndExpand" 
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Image Source="{Binding ImgComplaintIcon}"
+										AutomationId="AImgComplaintIcon"
+										HorizontalOptions="Start"
+										WidthRequest="30"
+										Margin="0,0,0,0"/>
+                                        <Label Text="{Binding LblFileaComplaint}" 
+										StyleClass="Submenufont" 
+										HorizontalOptions="StartAndExpand" 
+										VerticalOptions="CenterAndExpand" 
+										TextColor="{DynamicResource Submenucolor}" ></Label>
+                                        <Image Source="{DynamicResource angleicon}" 
+										 AutomationId="Aangleiconns"
+										 HorizontalOptions="End" 
+										WidthRequest="15" 
+										Margin="0,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                         AbsoluteLayout.LayoutFlags="All" 
+                         BackgroundColor="{Binding IndicatorBGColor}" 
+                         Opacity="{Binding IndicatorBGOpacity}">
+                <ActivityIndicator IsVisible="{Binding IsBusy}" 
+                                   IsRunning="{Binding IsBusy}" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

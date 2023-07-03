@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.Tracksubmenu"  
+             FlowDirection="{DynamicResource pagedirection}"
+             BackgroundImageSource="{DynamicResource Mainbgr}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+        <!--Gokul20220916 Remove AbosulteLayout-->
+        <StackLayout x:Name="StackTrackMenu"
+                     Orientation="Vertical" 
+                     VerticalOptions="StartAndExpand"
+                     Spacing="0" Padding="10,0,10,0"
+                     IsVisible="true"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+            <!--<ActivityIndicator x:Name="TrackActivityIndicator" IsRunning="False" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="{DynamicResource Primary}" />-->
+            <Grid RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackLayout Spacing="0"
+                             Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand"
+                             Margin="0,0,0,10"
+                             Padding="0"
+                             Grid.Row="0" >
+                    <Image AutomationId="AImgshipmentIcon"
+                           x:Name="imgShipmentIcon"
+                           Source=""
+                           HorizontalOptions="Center" 
+                           WidthRequest="25"
+                           Margin="5,0,5,0"/>
+                    <Label x:Name="lblTrack" 
+                           Text="" 
+                           Margin="5,0,5,0" 
+                           StyleClass="txt22, textsemibold"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{DynamicResource Primary}"
+                           HorizontalOptions="Center"/>
+                    <!--<Label Text="Bayan: 104579" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Start" TextColor="white" FontSize="18" HorizontalOptions="Center"/>
+                    <Label Text="Bill of Lading: 910218851" Margin="0,0,0,0" FontFamily="Montserrat-Medium" HorizontalTextAlignment="Center" TextColor="white" FontSize="18" HorizontalOptions="Center"/>-->
+                </StackLayout>
+                <ScrollView Grid.Row="1">
+                    <StackLayout Orientation="Vertical" >
+                        <StackLayout VerticalOptions="Start">
+                            <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                   HasShadow="False"
+                                   CornerRadius="15"
+                                   Margin="5">
+                                <!--<Frame.Background>
+                        <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                            <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                            <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Trackbasic" 
+                                                          NumberOfTapsRequired="1"/>
+                                </Frame.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal"
+                                             VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="FillAndExpand"
+                                             HeightRequest="30">
+                                    <Label x:Name="lblBasicTracking" 
+                                           AutomationId="AlblBasicTracking"
+                                           Text="" StyleClass="Submenufont"
+                                           HorizontalOptions="StartAndExpand"
+                                           VerticalOptions="CenterAndExpand"
+                                           TextColor="{DynamicResource Submenucolor}" ></Label>
+                                    <Image AutomationId="AImgAngleicon1" 
+                                           Source="{DynamicResource angleicon}" 
+                                           HorizontalOptions="EndAndExpand"
+                                           WidthRequest="15"
+                                           Margin="10,0,10,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                            <StackLayout VerticalOptions="Start" >
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" 
+                                       HasShadow="False"
+                                       CornerRadius="15"
+                                       Margin="5" >
+                                    <!--<Frame.Background>
+                                    <LinearGradientBrush StartPoint="1,10" EndPoint="1,0">
+                                        <GradientStop Color="{DynamicResource framesecondary}" Offset="0.9"/>
+                                        <GradientStop Color="{DynamicResource frameprimary}" Offset="1.0"/>
+                                    </LinearGradientBrush>
+                                </Frame.Background>-->
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Trackadvance" 
+                                                              NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="CenterAndExpand"
+                                                 HorizontalOptions="FillAndExpand" 
+                                                 HeightRequest="30">
+                                        <Label x:Name="lblAdvanceTracking" 
+                                               AutomationId="AlblAdvanceTracking"
+                                               Text="" StyleClass="Submenufont"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand" 
+                                               TextColor="{DynamicResource Submenucolor}"></Label>
+                                        <Image AutomationId="AImgAngleIcon" 
+                                               Source="{DynamicResource angleicon}"
+                                               HorizontalOptions="EndAndExpand"
+                                               WidthRequest="15"
+                                               Margin="10,0,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+            <StackLayout
+               x:Name="aiLayout" 
+                IsVisible="False"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All" 
+                BackgroundColor="Gray"
+                Opacity="0.5">
+                <ActivityIndicator x:Name="TrackActivityIndicator"
+                                   IsRunning="False"
+                                   HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"
+                                   Color="{DynamicResource Primary}"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

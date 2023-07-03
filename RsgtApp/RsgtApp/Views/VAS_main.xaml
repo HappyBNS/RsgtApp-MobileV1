@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RsgtApp.Views.VAS_main" FlowDirection="{DynamicResource pagedirection}" BackgroundImageSource="{DynamicResource Primarybgr}"  NavigationPage.HasNavigationBar="True" NavigationPage.HasBackButton="True">
+    <ContentPage.ToolbarItems>
+
+        <!--<ToolbarItem Icon="{DynamicResource Langicon}" Priority="1" Order="Primary"/>-->
+        <!--<ToolbarItem Icon="notification_24.png" Priority="1" Order="Primary"/>-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Spacing="0" Padding="15,0,15,0">
+            <Grid RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <RowDefinition Height="*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <StackLayout Spacing="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10" Padding="0" Grid.Row="0" >
+                    <Image AutomationId="AImgvalueadded" Source="valueaddedservice_icon_dark_blue.png" HorizontalOptions="Center" WidthRequest="25" Margin="5,0,5,0"/>
+                    <Label Text="Value Added Services" Margin="5,0,5,0" StyleClass="txt22, textsemibold" HorizontalTextAlignment="Center" TextColor="{DynamicResource Primary}" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Spacing="0" Margin="0" >
+                    <ScrollView>
+                        <StackLayout x:Name="details" >
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="20"  Grid.Column="0" Grid.Row="0" Margin="5"  >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapped_Dwelldays" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image AutomationId="AImgporttodoor" Source="porttodoor.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" WidthRequest="200"/>
+
+                                        <Label Text="Port to Door Service" FontSize="16" StyleClass="Dashhead" VerticalOptions="Start" TextColor="{DynamicResource Dashheadcolor}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                                        <Label  VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" FontSize="14" TextColor="{DynamicResource Dashinfocolor}" Text="Starting "/>
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" FontSize="14" Text="Sar 550" TextColor="{DynamicResource Dashinfohighlightcolor}" />
+
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="20"  Grid.Column="1" Grid.Row="0" Margin="5">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapped_Paymenthistory" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image AutomationId="AImgCustclearance" Source="customclearance.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" WidthRequest="200"/>
+
+                                        <Label Text="Custom Clearance" StyleClass="Dashhead" FontSize="16" VerticalOptions="Start" TextColor="{DynamicResource Dashheadcolor}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                                        <Label VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" FontSize="14" TextColor="{DynamicResource Dashinfocolor}" Text="Starting "/>
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" FontSize="14" Text="Sar 150" TextColor="{DynamicResource Dashinfohighlightcolor}" />
+
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+
+
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="20"  Grid.Column="0" Grid.Row="1" Margin="5">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapped" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image AutomationId="AImgTransportation" Source="transportation.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" WidthRequest="200"/>
+
+                                        <Label Text="Transportation" StyleClass="Dashhead" FontSize="16" VerticalOptions="Start" TextColor="{DynamicResource Dashheadcolor}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                                        <Label VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" FontSize="14" TextColor="{DynamicResource Dashinfocolor}" Text="Starting "/>
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" FontSize="14" Text="Sar 150" TextColor="{DynamicResource Dashinfohighlightcolor}" />
+
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+
+                                    </StackLayout>
+
+                                </Frame>
+
+                                <Frame BackgroundColor="{DynamicResource frameprimary}" HasShadow="False" CornerRadius="20"  Grid.Column="1" Grid.Row="1" Margin="5">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapped" NumberOfTapsRequired="1"/>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout  VerticalOptions="StartAndExpand">
+                                        <Image AutomationId="AImgStorage" Source="storage.png" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" WidthRequest="200"/>
+
+                                        <Label Text="Storage Service" StyleClass="Dashhead" FontSize="16" VerticalOptions="Start" TextColor="{DynamicResource Dashheadcolor}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10"></Label>
+                                        <Label VerticalOptions="Start" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Style="{DynamicResource Dashinfo}" FontSize="14" TextColor="{DynamicResource Dashinfocolor}" Text="Starting "/>
+                                                    <Span Style="{DynamicResource Dashinfohighlight}" FontSize="14" Text="Sar 400" TextColor="{DynamicResource Dashinfohighlightcolor}" />
+
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+
+
+                                    </StackLayout>
+
+                                </Frame>
+
+
+
+
+                            </Grid>
+
+
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

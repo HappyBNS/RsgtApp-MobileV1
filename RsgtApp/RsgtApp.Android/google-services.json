@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650983452620",
+    "project_id": "pushdemo-9351a",
+    "storage_bucket": "pushdemo-9351a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650983452620:android:85fc557b68bcef37d77769",
+        "android_client_info": {
+          "package_name": "com.penygon.pushdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650983452620-bevr9ct9383v2qvjm3di2bsv8ol4vn7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0CSQv30W1NXZ71GEI5N4xVYHuyCeCIOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650983452620-bevr9ct9383v2qvjm3di2bsv8ol4vn7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
