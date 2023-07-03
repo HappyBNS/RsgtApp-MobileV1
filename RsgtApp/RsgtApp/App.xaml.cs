@@ -86,7 +86,7 @@ namespace RsgtApp
             set
             {
                 gblRole = value;
-                //20230703 by Anand
+                //20230703 15:23PM by Anand
                 // BuildMenu(gblRole);
             }
 
